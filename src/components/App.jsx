@@ -12,7 +12,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             background: db.background,
-            loading: true,
+            loading: false,
             opacity: 1,
             showMenu: false,
             fullscreen: false,

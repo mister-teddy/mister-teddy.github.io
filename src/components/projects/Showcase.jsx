@@ -21,7 +21,7 @@ export default class Showcase extends React.Component {
                     <span className="bg-white fg-dark">{project.note}</span>
                 </div>
             </div>
-            <p dangerouslySetInnerHTML={{__html: project.description}}></p>
+            {project.description}
         </div>
     }
 }

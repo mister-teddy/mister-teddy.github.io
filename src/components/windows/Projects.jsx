@@ -192,7 +192,7 @@ export default class Projects extends React.Component {
             {tech ? <h1>{tech.name} <span>{tech.count}</span></h1> : <h1>All</h1>}
             <ScrollBar style={{height: 'calc(100% - 60px)'}}>
                 <div className="tiles-grid">
-                    {db.projects.map((project, i) => (!tech || project.techs.indexOf(tech.name) >= 0) && this.renderProjectTile(project, i))}
+                    {db.projects.map((project, i) => (!tech || (project.techs && project.techs.indexOf(tech.name) >= 0)) && this.renderProjectTile(project, i))}
                 </div>
             </ScrollBar>
         </div>

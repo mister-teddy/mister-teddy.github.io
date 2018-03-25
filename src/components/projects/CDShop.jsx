@@ -12,7 +12,7 @@ export default class CDShop extends React.Component {
                     { project.techs.map(tech => <span key={tech} className={tech.toLowerCase()}>{tech}</span>) }
                 </div>
             </div>
-            <p dangerouslySetInnerHTML={{__html: project.description}}></p>
+            {project.description}
         </div>
     }
 }
