@@ -1,0 +1,126 @@
+* {
+  font-family: 'Segoe UI', Lato, Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+}
+*::-moz-focus-inner {
+  border: 0;
+}
+body {
+  margin: 0px;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.fullwidth {
+  width: 100%;
+}
+.taskbar {
+  height: 40px;
+  position: absolute;
+  bottom: 0px;
+  line-height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  display: table;
+}
+.clock {
+  padding: 2px 10px 2px 0px;
+  line-height: 18px;
+  font-size: 14px;
+  float: right;
+  text-align: center;
+}
+.icon {
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.start {
+  float: left;
+  margin: 0px;
+}
+.desktop {
+  width: 100%;
+  height: 100vh;
+}
+.menu {
+  position: absolute;
+  bottom: 40px;
+}
+.profile {
+  padding: 12px;
+}
+.profile .bottom {
+  position: absolute;
+  bottom: 5px;
+}
+.profile .icon {
+  margin-right: 5px;
+}
+.profile .name {
+  font-size: 15px;
+}
+.avatar {
+  width: 50px;
+  border-radius: 100%;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.menu .left {
+  position: absolute;
+  height: 100%;
+}
+.menu .right {
+  margin-left: 250px;
+  width: calc(100% - 270px);
+  padding: 20px 10px;
+}
+.break {
+  clear: both;
+}
+.divider {
+  float: left;
+  width: 6px;
+  height: 50px;
+}
+.wrapper {
+  float: left;
+}
+.tile {
+  position: relative;
+  overflow: hidden;
+  margin: 3px;
+  float: left;
+  cursor: pointer;
+  border: none;
+}
+.tile-icon {
+  text-align: center;
+  margin: auto;
+  display: block;
+}
+.tile-name {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+}
+.tile-xs {
+  width: 50px;
+  height: 50px;
+}
+.tile-sm {
+  width: 106px;
+  height: 106px;
+}
+.tile-md {
+  width: 218px;
+  height: 106px;
+}
+.tile-lg {
+  width: 218px;
+  height: 218px;
+}
