@@ -20,5 +20,17 @@ export default {
       icon: 'github',
       color: 'black'
     }
+  ],
+  windows:[
+    {
+      name: 'CV',
+      icon: 'profile',
+      component: 'CV'
+    },
+    {
+      name: 'CD Shop',
+      icon: 'gamepad',
+      component: 'CDShop'
+    }
   ]
 }

@@ -2,15 +2,21 @@
   font-family: 'Segoe UI', Lato, Tahoma, Geneva, Verdana, sans-serif;
   font-size: 13px;
 }
-*::-moz-focus-inner {
-  border: 0;
-}
 body {
   margin: 0px;
 }
 a {
   text-decoration: none;
   color: white;
+}
+button:focus {
+  outline:0;
+}
+button::-moz-focus-inner, a::-moz-focus-inner {
+  border: 0;
+}
+.hidden {
+  display: none;
 }
 .fullwidth {
   width: 100%;
@@ -23,6 +29,9 @@ a {
   width: 100%;
   box-sizing: border-box;
   display: table;
+}
+.taskbar .icon {
+  line-height: 20px;
 }
 .clock {
   padding: 2px 10px 2px 0px;
@@ -50,6 +59,7 @@ a {
 .menu {
   position: absolute;
   bottom: 40px;
+  z-index: 1000;
 }
 .profile {
   padding: 12px;
@@ -123,4 +133,47 @@ a {
 .tile-lg {
   width: 218px;
   height: 218px;
+}
+.window {
+  float: left;
+}
+.window .icon {
+  display: block;
+  border-bottom: 2px solid #2d89ef;
+  margin: 0px 2px;
+}
+.window .icon.focus {
+  background-color:  #1d1d1d;
+}
+.window .form {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: calc(100vh - 40px);
+  z-index: -1;
+  background-color: white;
+}
+.window .form.focus {
+  z-index: 1;
+}
+.window .title {
+  height: 35px;
+}
+.window .title .left {
+  line-height: 35px;
+  float: left;
+  padding-left: 12px;
+}
+.window .title .right {
+  float: right;
+}
+.window .title .name {
+  padding-left: 8px;
+}
+.window .title .navigator {
+  float: left;
+  line-height: 35px;
+  padding: 0px 16px;
+  cursor: pointer;
 }
