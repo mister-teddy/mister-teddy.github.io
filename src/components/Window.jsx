@@ -1,4 +1,5 @@
 import React from 'react';
+import db from '../database';
 
 export default class Window extends React.Component {
 
@@ -18,7 +19,7 @@ export default class Window extends React.Component {
     var Content = require(`./windows/${this.props.window.component}`).default;
     return <div className={`window fg-white`}>
       <div className={`form ${this.props.focus ? 'focus' : ''}`}>
-        <div className="title bg-blue">
+        <div className={`title bg-${db.titleColor}`}>
           <div className="left">
             <span className={`mif-${this.props.window.icon}`}></span>
             <span className="name">{this.props.window.name}</span>

@@ -1,3 +1,6 @@
 import React from 'react';
+import Showcase from './Showcase';
 
-export default () => <div><h1>CD shop</h1></div>
+export default () => <div className="cd">
+    <Showcase />
+</div>

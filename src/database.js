@@ -7,6 +7,7 @@ export default {
   email: 'phatnhse63348@fpt.edu.vn',
   phone: '0903670437',
   address: 'Hau Nghia, Duc Hoa, Long An',
+  titleColor: 'dark',
   links: [
     {
       name: 'Facebook',
@@ -24,13 +25,15 @@ export default {
   windows:[
     {
       name: 'CV',
+      component: 'CV',
+      color: 'orange',
       icon: 'profile',
-      component: 'CV'
     },
     {
       name: 'CD Shop',
+      component: 'CDShop',
+      color: 'green',
       icon: 'gamepad',
-      component: 'CDShop'
     }
   ]
 }
