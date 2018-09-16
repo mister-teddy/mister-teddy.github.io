@@ -18,7 +18,7 @@ export default class Window extends React.Component {
   render() {
     var Content = require(`./windows/${this.props.window.component}`).default;
     return <div className={`window fg-white`}>
-      <div className={`form ${this.props.focus ? 'focus' : ''}`}>
+      <div className={`form bg-dark ${this.props.focus ? 'focus' : ''}`}>
         <div className={`title bg-${db.titleColor}`}>
           <div className="left">
             <span className={`mif-${this.props.window.icon}`}></span>
@@ -29,8 +29,8 @@ export default class Window extends React.Component {
             <span className="navigator mif-cross fg-white bg-red-hover" onClick={() => this.close()}></span>
           </div>
         </div>
-        <div className="content fg-black">
-          <Content/>
+        <div className="content bg-dark">
+          <Content window={this.props.window}/>
         </div>
       </div>
       <span className={`mif-${this.props.window.icon} mif-lg ${this.props.focus ? 'focus' : ''} icon`} onClick={() => this.toggleFocus()}></span>

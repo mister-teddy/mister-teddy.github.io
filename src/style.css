@@ -69,6 +69,7 @@ button::-moz-focus-inner, a::-moz-focus-inner {
   bottom: 5px;
 }
 .profile .icon {
+  margin: 2px;
   margin-right: 5px;
 }
 .profile .name {
@@ -156,6 +157,7 @@ button::-moz-focus-inner, a::-moz-focus-inner {
 }
 .window .form.focus {
   z-index: 1;
+  overflow: hidden;
 }
 .window .title {
   height: 35px;
@@ -184,7 +186,70 @@ button::-moz-focus-inner, a::-moz-focus-inner {
 }
 .showcase .banner img {
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   object-fit: cover;
   object-position: center;
+}
+.showcase .info .logo { 
+  width: 20vh;
+  height: 20vh;
+  margin-top: -12.5vh;
+  margin-left: 2.5vh;
+}
+.showcase .slick-arrow.slick-next {
+  right: 25px;
+}
+.showcase .slick-arrow.slick-prev {
+  left: 25px;
+  z-index: 1;
+}
+.showcase .slick-dots {
+  bottom: 15px;
+}
+.showcase .meta {
+  top: -30px;
+  padding-left: 25vh;
+  position: relative;
+  z-index: 100;
+}
+.showcase .meta h1 {
+  font-size: 50px;
+  font-weight: 100;
+  margin-bottom: 0px;
+  display: inline-block;
+}
+.showcase .meta .techs {
+  display: inline-block;
+}
+.showcase .meta .techs span {
+  padding: 5px 10px;
+  margin: 3px;
+  color: white;
+  font-size: 10px;
+}
+.showcase .meta .techs .html {
+  background-color: #ee1111;
+}
+.showcase .meta .techs .css {
+  background-color: #2d89ef;
+}
+.showcase .meta .techs .js {
+  background-color: #ffc40d;
+}
+.showcase .meta .link {
+  padding: 0px 5px;
+}
+.showcase .description {
+  line-height: initial;
+  float: left;
+  padding: 2.5vh;
+  width: 100%;
+  height: 20vh;
+  position: absolute;
+  bottom: 0px;
+  box-sizing: border-box;
+}
+.showcase .description h2 {
+  margin-bottom: 0px;
+  font-size: 15px;
 }
