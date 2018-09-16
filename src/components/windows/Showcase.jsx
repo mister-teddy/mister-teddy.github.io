@@ -27,12 +27,10 @@ export default class Showcase extends React.Component {
                     { this.props.window.techs.map(tech => <span key={tech} className={tech.toLowerCase()}>{tech}</span>) }
                 </div>
             </div>
-            <div className="description bg-dark" title="Description">
+            <div className="description bg-dark">
                 <Scrollbars>
                     <h2>Description</h2>
-                    <p>
-                        {this.props.window.description}
-                    </p>
+                    <p dangerouslySetInnerHTML={{__html: this.props.window.description}}></p>
                 </Scrollbars>
             </div>
         </div>

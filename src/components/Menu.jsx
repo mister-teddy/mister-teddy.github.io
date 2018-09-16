@@ -27,7 +27,7 @@ export default class Menu extends React.Component {
       </div>
       <div className="right">
         <div className="wrapper">
-          {this.MDTile(1)}
+          {this.MDTile(0)}
           <div className="break"/>
           {this.SMTile(0)}
           {this.SMTile(0)}
@@ -45,7 +45,7 @@ export default class Menu extends React.Component {
             {this.XSTile(0)}
           </div>
           <div className="break"/>
-          {this.MDTile(0)}
+          {this.MDTile(2)}
         </div>
         <div className="break"/>
         {this.SMTile(0)}
