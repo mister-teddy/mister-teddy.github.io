@@ -260,3 +260,20 @@ button::-moz-focus-inner, a::-moz-focus-inner {
   margin-bottom: 0px;
   font-size: 15px;
 }
+.fullscreen-require {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  position: fixed;
+  z-index: 100000;
+  cursor: pointer;
+  display: table;
+}
+.fullscreen-require > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.fullscreen-require h1 {
+  font-size: 30px;
+  font-weight: 100;
+}

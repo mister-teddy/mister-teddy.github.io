@@ -8,6 +8,10 @@ export default {
   phone: '0903670437',
   address: 'Hau Nghia, Duc Hoa, Long An',
   titleColor: 'dark',
+  fullscreen: {
+    width: '800px',
+    height: '600px'
+  },
   links: [
     {
       name: 'Facebook',
