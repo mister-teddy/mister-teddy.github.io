@@ -17,7 +17,7 @@ export default class Showcase extends React.Component {
             </div>
             <div className="info">
                 <button className={`logo tile bg-${this.props.window.color}`} title={this.props.window.name}>
-                    <span className={`tile-icon fg-white mif-icon mif-4x mif-${this.props.window.icon}`}></span>
+                    <span className={`tile tile-icon fg-white mif-icon mif-4x mif-${this.props.window.icon}`}></span>
                 </button>
             </div>
             <div className="meta">

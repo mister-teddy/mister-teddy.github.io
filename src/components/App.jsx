@@ -2,37 +2,84 @@ import React, { Component } from 'react';
 import Desktop from './Desktop';
 import Taskbar from './Taskbar';
 import Fullscreen from 'react-full-screen';
+import db from '../database';
 
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'React',
-      fullscreen: false
+      loading: true,
+      fullscreen: false,
+      processes: [],
+      focusing: null,
+      depth: 1
     };
   }
 
-  isMobile() {
-    return window.matchMedia("(max-width: 1000px)").matches;
+  loadingFinish = () => {
+    this.setState({
+      loading: false
+    })
   }
 
-  renderFullscreenRequire() {
-    return <div className="fullscreen-require bg-dark fg-white" onClick={() => this.setState({fullscreen: true})}>
-      <div> 
-        <h1>Click any where to go fullscreen</h1>
-        <div><span className="mif-icon mif-enlarge2 mif-4x"></span></div>
+  renderLoader() {
+    return this.state.loading && <div id="preloader">
+      <div className="center">Loading...</div>
+      <div className="hidden-loading">
+        <img src={db.background} alt='' onLoad={this.loadingFinish}/>
+        { db.windows.map((w, i) => w.banners ? w.banners.map((b, ii) => <img key={i + '-' + ii} src={b} alt=''/>) : '') }
       </div>
     </div>
   }
 
+  goFullscreen = () => {
+    this.setState({fullscreen: true});
+    this.state.processes.forEach(process => {
+      if (process) {
+        this.minimizeWindow(process);
+      }
+    });
+  }
+
+  openWindow = (window) => {
+    this.focusWindow(window);
+    if (this.state.processes.indexOf(window) === -1) {
+      this.setState({
+        processes: this.state.processes.concat(window)
+      })
+    }
+  }
+
+  closeWindow = (window) => {
+    this.setState({
+      processes: this.state.processes.map(w => w === window ? null : w)
+    })
+  }
+
+  focusWindow = (window) => {
+    window.depth = this.state.depth;
+    this.setState(s => ({
+      focusing: window,
+      depth: s.depth + 1
+    }))
+  }
+
+  minimizeWindow = (window) => {
+    window.depth = -1;
+    this.setState({
+      focusing: null
+    });
+  }
+
   render() {
+    const { fullscreen, processes, focusing } = this.state;
     return (
       <div>
-        { (this.isMobile() && !this.state.fullscreen) && this.renderFullscreenRequire() }
-        <Fullscreen enabled={this.state.fullscreen} onChange={fullscreen => this.setState({fullscreen})}>
-          <Desktop/>
-          <Taskbar/>
+        { this.renderLoader() }
+        <Fullscreen enabled={fullscreen} onChange={fullscreen => this.setState({fullscreen})}>
+          <Desktop processes={processes} closeWindow={this.closeWindow} focusWindow={this.focusWindow} minimizeWindow={this.minimizeWindow}/>
+          <Taskbar processes={processes} openWindow={this.openWindow} focusWindow={this.focusWindow} focusing={focusing} goFullscreen={this.goFullscreen}/>
         </Fullscreen>
       </div>
     );

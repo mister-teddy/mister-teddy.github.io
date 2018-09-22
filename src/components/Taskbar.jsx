@@ -1,17 +1,13 @@
 import React from 'react';
 import Menu from './Menu';
 import Clock from './Clock';
-import Window from './Window';
 
 export default class Taskbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showMenu: false,
-      focusing: null,
-      openingWindows: []
+      showMenu: false
     }
-
   }
 
   toggleMenu() {
@@ -20,31 +16,23 @@ export default class Taskbar extends React.Component {
     })
   }
 
-  focusWindow(window) {
-    this.setState({focusing: window})
-  }
-
   openWindow(window) {
-    if (this.state.openingWindows.indexOf(window) === -1) {
-      this.setState({
-        openingWindows: this.state.openingWindows.concat(window)
-      }) 
-    }
+    this.props.openWindow(window);
     this.toggleMenu();
-    this.focusWindow(window);
   }
 
-  closeWindow(window) {
-    this.setState({
-      openingWindows: this.state.openingWindows.filter(w => w !== window)
-    })
+  showDesktop = () => {
+    this.props.goFullscreen();
   }
 
   render() {
     return <div className="taskbar bg-black fullwidth">
-      { this.state.showMenu && <Menu openWindow={(w) => this.openWindow(w)}/>}
-      <span className={"start icon mif-windows fg-white mif-lg fg-blue-hover bg-dark-active" + (this.state.showMenu ? ' bg-dark' : '')} onClick={() => this.toggleMenu()}></span>
-      { this.state.openingWindows.map((window, i) => <Window key={i} window={window} focusWindow={(w) => this.focusWindow(w)} closeWindow={(w) => this.closeWindow(w)} focus={this.state.focusing === window}/>) }
+      {this.state.showMenu && <Menu openWindow={(w) => this.openWindow(w)} toggleMenu={() => this.toggleMenu()}/>}
+      <span className={"start taskbar-icon mif-windows fg-white mif-lg fg-blue-hover bg-dark-active" + (this.state.showMenu ? ' bg-dark' : '')} onClick={() => this.toggleMenu()}></span>
+      {this.props.processes.map((process, i) => process &&
+        <span key={i} className={`mif-${process.icon} mif-lg ${this.props.focusing === process ? 'focus' : ''} taskbar-icon process-icon bg-black fg-white`} onClick={() => this.props.focusWindow(process)}></span>
+      )}
+      <div className="show-desktop" onClick={this.showDesktop}></div>
       <Clock/>
     </div>
   }

@@ -3,23 +3,8 @@ import db from '../database';
 
 
 export default class Tile extends React.Component {
-  
-  capitalize(s) {
-    return s.charAt(0).toUpperCase() + s.substr(1);
-  }
-
   prop(name) {
     return db.windows[this.props.window][name];
-  }
-
-  tileClass() {
-    return `
-      tile 
-      tile-${this.props.size} 
-      fg-white bg-${this.prop('color')} 
-      bg-dark${this.capitalize(this.prop('color'))}-active 
-      bg-light${this.capitalize(this.prop('color'))}-hover
-    `;
   }
 
   openWindow = () => {
@@ -27,9 +12,9 @@ export default class Tile extends React.Component {
   }
 
   render() {
-    return <button onClick={this.openWindow} className={this.tileClass()}>
-      <span className={`tile-icon mif-${this.prop('icon')} mif-${this.props.scale}x`}/>
-      { this.props.size !== 'xs' && <span className="tile-name">{this.prop('name')}</span> }
-    </button>
+    return <div onClick={this.openWindow} title={this.prop('name')} className={`tile tile-${this.props.size} bg-${this.prop('color')} ${this.props.className}`}>
+      <span className={`icon mif-${this.prop('icon')}`}/>
+      <span className="branding-bar">{this.prop('shortName') ? this.prop('shortName') : this.prop('name')}</span>
+    </div>
   }
 }

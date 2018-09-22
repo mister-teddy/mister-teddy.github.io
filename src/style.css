@@ -5,7 +5,7 @@
 body {
   margin: 0px;
 }
-a {
+a, a:hover {
   text-decoration: none;
   color: white;
 }
@@ -15,8 +15,27 @@ button:focus {
 button::-moz-focus-inner, a::-moz-focus-inner {
   border: 0;
 }
+#preloader {
+  position: fixed;
+  display: table;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: black;
+  color: white;
+}
+#preloader .center {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
 .hidden {
   display: none;
+}
+.hidden-loading {
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
 }
 .fullwidth {
   width: 100%;
@@ -29,9 +48,7 @@ button::-moz-focus-inner, a::-moz-focus-inner {
   width: 100%;
   box-sizing: border-box;
   display: table;
-}
-.taskbar .icon {
-  line-height: 20px;
+  z-index: 10000;
 }
 .clock {
   padding: 2px 10px 2px 0px;
@@ -40,21 +57,45 @@ button::-moz-focus-inner, a::-moz-focus-inner {
   float: right;
   text-align: center;
 }
-.icon {
-  cursor: pointer;
+.show-desktop {
+  float: right;
+  width: 10px;
   height: 40px;
-  width: 40px;
-  text-align: center;
-  padding: 10px;
-  box-sizing: border-box;
+  border-left: 1px solid #1c1c1c;
+  cursor: pointer;
 }
 .start {
   float: left;
   margin: 0px;
 }
+.taskbar-icon {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-right: 2px;
+}
+.taskbar-icon.process-icon {
+  display: block;
+  float: left;
+  border-bottom: 2px solid #2d89ef;
+}
+.taskbar-icon.process-icon.focus {
+  background-color:  #1d1d1d !important;
+}
+.taskbar-icon.process-icon:hover {
+  background-color:  #111 !important;
+}
 .desktop {
   width: 100%;
   height: 100vh;
+  overflow: hidden;
+  line-height: 100vh;
+  text-align: center;
+  color: white;
+  background-color: black;
 }
 .menu {
   position: absolute;
@@ -63,14 +104,11 @@ button::-moz-focus-inner, a::-moz-focus-inner {
 }
 .profile {
   padding: 12px;
+  height: 100%;
 }
 .profile .bottom {
   position: absolute;
   bottom: 5px;
-}
-.profile .icon {
-  margin: 2px;
-  margin-right: 5px;
 }
 .profile .name {
   font-size: 15px;
@@ -86,98 +124,13 @@ button::-moz-focus-inner, a::-moz-focus-inner {
   height: 100%;
 }
 .menu .right {
-  margin-left: 250px;
-  width: calc(100% - 270px);
+  margin-left: 300px;
+  width: calc(100% - 300px);
   padding: 20px 10px;
-}
-.break {
-  clear: both;
-}
-.divider {
-  float: left;
-  width: 6px;
-  height: 50px;
-}
-.wrapper {
-  float: left;
-}
-.tile {
-  position: relative;
-  overflow: hidden;
-  margin: 3px;
-  float: left;
-  cursor: pointer;
-  border: none;
-}
-.tile-icon {
-  text-align: center;
-  margin: auto;
-  display: block;
-}
-.tile-name {
-  position: absolute;
-  bottom: 5px;
-  left: 10px;
-}
-.tile-xs {
-  width: 50px;
-  height: 50px;
-}
-.tile-sm {
-  width: 106px;
-  height: 106px;
-}
-.tile-md {
-  width: 218px;
-  height: 106px;
-}
-.tile-lg {
-  width: 218px;
-  height: 218px;
+  height: 100%;
 }
 .window {
-  float: left;
-}
-.window .icon {
-  display: block;
-  border-bottom: 2px solid #2d89ef;
-  margin: 0px 2px;
-}
-.window .icon.focus {
-  background-color:  #1d1d1d;
-}
-.window .form {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: calc(100vh - 40px);
-  z-index: -1;
-  background-color: white;
-}
-.window .form.focus {
-  z-index: 1;
-  overflow: hidden;
-}
-.window .title {
-  height: 35px;
-}
-.window .title .left {
-  line-height: 35px;
-  float: left;
-  padding-left: 12px;
-}
-.window .title .right {
-  float: right;
-}
-.window .title .name {
-  padding-left: 8px;
-}
-.window .title .navigator {
-  float: left;
-  line-height: 35px;
-  padding: 0px 16px;
-  cursor: pointer;
+  position: absolute;
 }
 .cv iframe, .cd iframe {
   width: 100%;
@@ -199,6 +152,7 @@ button::-moz-focus-inner, a::-moz-focus-inner {
   height: 20vh;
   margin-top: -12.5vh;
   margin-left: 2.5vh;
+  border: none;
 }
 .showcase .slick-arrow.slick-next {
   right: 25px;
@@ -211,7 +165,7 @@ button::-moz-focus-inner, a::-moz-focus-inner {
   bottom: 15px;
 }
 .showcase .meta {
-  top: -30px;
+  top: -80px;
   padding-left: 25vh;
   position: relative;
   z-index: 100;
@@ -243,17 +197,32 @@ button::-moz-focus-inner, a::-moz-focus-inner {
 .showcase .meta .techs .js {
   background-color: #ffc40d;
 }
+.showcase .meta .techs .php {
+  background-color: #6c7eb7;
+}
+.showcase .meta .techs .bootstrap {
+  background-color: #7043a8;
+}
+.showcase .meta .techs .jquery {
+  background-color: #0968ac;
+}
+.showcase .meta .techs .vuejs {
+  background-color: #41b883;
+}
+.showcase .meta .techs .vuetify {
+  background-color: #7bc6ff;
+}
 .showcase .meta .link {
   padding: 0px 5px;
 }
 .showcase .description {
   line-height: initial;
   float: left;
-  padding: 2.5vh;
+  padding: 2.5vh 2.5vh 0 2.5vh;
   width: 100%;
-  height: 20vh;
+  height: calc(20vh - 40px);
   position: absolute;
-  bottom: 0px;
+  bottom: 40px;
   box-sizing: border-box;
 }
 .showcase .description h2 {
@@ -265,7 +234,7 @@ button::-moz-focus-inner, a::-moz-focus-inner {
   height: 100vh;
   text-align: center;
   position: fixed;
-  z-index: 100000;
+  z-index: 999;
   cursor: pointer;
   display: table;
 }
@@ -276,4 +245,42 @@ button::-moz-focus-inner, a::-moz-focus-inner {
 .fullscreen-require h1 {
   font-size: 30px;
   font-weight: 100;
+}
+.tile {
+  transition-duration: 0.2s;
+}
+.tile:not(.no-hover):hover {
+  border: 4px solid rgba(255, 255, 255, 0.6);
+}
+.tile:active {
+  -webkit-transform: perspective(600px) rotate3d(0, 1, 0, 10deg);
+  -ms-transform: perspective(600px) rotate3d(0, 1, 0, 10deg);  
+  transform: perspective(600px) rotate3d(0, 1, 0, 10deg); 
+}
+.tile-small .branding-bar {
+  display: none;
+}
+.tile-tiny {
+  width: 100%;
+  height: 40px;
+  float: left;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  margin: 2px 0px;
+}
+.tile-tiny .icon {
+  max-width: 50%;
+  height: 50%;
+  font-size: 20px;
+  line-height: 20px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+.tile-tiny .text {
+  margin-left: 10px;
+}
+.slick-list {
+  width: 100%;
 }
