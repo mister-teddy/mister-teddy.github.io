@@ -131,6 +131,9 @@ button::-moz-focus-inner, a::-moz-focus-inner {
 .window {
   position: absolute;
 }
+.window.maximized {
+  border: none;
+}
 .cv iframe, .cd iframe {
   width: 100%;
   height: calc(100vh - 75px);
