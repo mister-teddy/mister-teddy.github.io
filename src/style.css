@@ -15,16 +15,15 @@ button:focus {
 button::-moz-focus-inner, a::-moz-focus-inner {
   border: 0;
 }
-#preloader {
+.preloader {
   position: fixed;
   display: table;
   width: 100vw;
   height: 100vh;
-  z-index: 100;
-  background-color: black;
-  color: white;
+  transition-duration: 0.5s;
+  z-index: 10001;
 }
-#preloader .center {
+.preloader .center {
   display: table-cell;
   text-align: center;
   vertical-align: middle;

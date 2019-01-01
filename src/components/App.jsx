@@ -10,6 +10,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       loading: true,
+      opacity: 1,
       fullscreen: false,
       processes: [],
       focusing: null,
@@ -17,15 +18,25 @@ export default class App extends Component {
     };
   }
 
-  loadingFinish = () => {
+  hideLoader = () => {
     this.setState({
       loading: false
     })
   }
 
+  loadingFinish = () => {
+    this.setState({
+      opacity: 0
+    })
+    setTimeout(this.hideLoader, 500);
+  }
+
   renderLoader() {
-    return this.state.loading && <div id="preloader">
-      <div className="center">Loading...</div>
+    const {loading, opacity} = this.state;
+    return loading && <div className="preloader bg-black" style={{opacity: opacity}}>
+      <div className="center">
+        <div class="mx-auto color-style activity-ring"><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div></div>
+      </div>
       <div className="hidden-loading">
         <img src={db.background} alt='' onLoad={this.loadingFinish}/>
         { db.windows.map((w, i) => w.banners ? w.banners.map((b, ii) => <img key={i + '-' + ii} src={b} alt=''/>) : '') }
