@@ -1,5 +1,6 @@
 import React from 'react';
 import Window from './Window';
+import Ring from './Ring';
 import db from '../database';
 
 export default class Desktop extends React.Component {
@@ -29,7 +30,7 @@ export default class Desktop extends React.Component {
     return <div className="desktop" style={{backgroundImage: `url(${this.state.background})`, backgroundSize: 'cover'}}>
       {this.state.loading && <div className="preloader">
         <div className="center">
-          <div class="mx-auto color-style activity-ring"><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div></div>
+          <Ring/>
         </div>
       </div>}
       <img src={this.state.background} alt="preloader" style={{display: 'none'}} onLoad={this.loadingFinish}/>

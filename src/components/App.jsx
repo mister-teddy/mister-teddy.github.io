@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Desktop from './Desktop';
 import Taskbar from './Taskbar';
+import Ring from './Ring';
 import Fullscreen from 'react-full-screen';
 import db from '../database';
-
 
 export default class App extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ export default class App extends Component {
     const {loading, opacity} = this.state;
     return loading && <div className="preloader bg-black" style={{opacity: opacity}}>
       <div className="center">
-        <div class="mx-auto color-style activity-ring"><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div><div class="wrap"><div class="circle"></div></div></div>
+        <Ring/>
       </div>
       <div className="hidden-loading">
         <img src={db.background} alt='' onLoad={this.loadingFinish}/>
