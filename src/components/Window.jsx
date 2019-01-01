@@ -29,18 +29,22 @@ export default class Window extends React.Component {
         e.dataTransfer.setDragImage(new Image(), 0, 0);
     }
     
-    onDragStart = (e) => {
+    onMoveStart = (e) => {
         this.clearDragGhost(e);
-        const x = e.clientX - this.state.style.left;
-        const y = e.clientY - this.state.style.top;
+        let x = e.clientX - this.state.style.left;
+        let y = e.clientY - this.state.style.top;
+        if (this.state.maximized) {
+            y = 0;
+        }
         this.setState({
             offset: {
                 x, y
-            }
+            },
+            maximized: false
         })
     }
     
-    onDrag = (e) => {
+    onMove = (e) => {
         if (e.clientX === 0 && e.clientY === 0) {
             return;
         }
@@ -99,8 +103,9 @@ export default class Window extends React.Component {
                 onClick={this.focus}>
             <div className={`window-caption bg-${process.color}`}
                     draggable
-                    onDragStart={this.onDragStart}
-                    onDrag={this.onDrag}>
+                    onDoubleClick={this.maximize}
+                    onDragStart={this.onMoveStart}
+                    onDrag={this.onMove}>
                 <span className={`icon mif-${process.icon}`}></span>
                 <span className="title">{process.name}</span>
                 <div className="buttons">
