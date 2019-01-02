@@ -1,8 +1,6 @@
 import React from 'react';
 import Window from './Window';
-import Ring from './Ring';
 import AppContext from '../context';
-import db from '../database';
 
 export default class Desktop extends React.Component {
     static contextType = AppContext;

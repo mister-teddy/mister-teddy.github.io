@@ -1,5 +1,4 @@
 import React from 'react';
-import App from './App';
 import Profile from './Profile'
 import Tile from './Tile'
 import db from '../database'

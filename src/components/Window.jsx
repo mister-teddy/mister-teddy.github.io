@@ -29,13 +29,31 @@ export default class Window extends React.Component {
     
     clearDragGhost = (e) => {
         this.focus();
-        e.dataTransfer.setDragImage(new Image(), 0, 0);
+        if (e.type.includes('drag')) {
+            e.dataTransfer.setData('text', '');
+            e.dataTransfer.setDragImage(new Image(), 999999, 999999);
+        }
+    }
+
+    getXY = (e) => {
+        if (e.type.includes('drag')) {
+            return {
+                x: e.clientX,
+                y: e.clientY
+            };
+        }
+        const touch = e.targetTouches[0];
+        return {
+            x: touch.clientX,
+            y: touch.clientY
+        };
     }
     
     onMoveStart = (e) => {
         this.clearDragGhost(e);
-        let x = e.clientX - this.state.style.left;
-        let y = e.clientY - this.state.style.top;
+        let {x, y} = this.getXY(e);
+        x -= this.state.style.left;
+        y -= this.state.style.top;
         if (this.state.maximized) {
             y = 0;
         }
@@ -48,26 +66,30 @@ export default class Window extends React.Component {
     }
     
     onMove = (e) => {
-        if (e.clientX === 0 && e.clientY === 0) {
+        let {x, y} = this.getXY(e);
+        window.EVENT = {...e};
+
+        if (x === 0 && y === 0) {
             return;
         }
-        const x = e.clientX - this.state.offset.x;
-        const y = e.clientY - this.state.offset.y;
+        x -= this.state.offset.x;
+        y -= this.state.offset.y;
         this.setState(s => ({
             style: {
                 ...s.style,
                 left: x,
                 top: y
             }
-        }));
+        }))
     }
     
     onResize = (e) => {
-        if (e.clientX === 0 && e.clientY === 0) {
+        let {x, y} = this.getXY(e);
+        if (x === 0 && y === 0) {
             return;
         }
-        const width = e.clientX - this.state.style.left;
-        const height = e.clientY - this.state.style.top;
+        let width = x - this.state.style.left;
+        let height = y - this.state.style.top;
         this.setState(s => ({
             style: {
                 ...s.style,
@@ -112,7 +134,9 @@ export default class Window extends React.Component {
                     draggable
                     onDoubleClick={this.maximize}
                     onDragStart={this.onMoveStart}
-                    onDrag={this.onMove}>
+                    onTouchStart={this.onMoveStart}
+                    onDrag={this.onMove}
+                    onTouchMove={this.onMove}>
                 <span className={`icon mif-${process.icon}`}></span>
                 <span className="title">{process.name}</span>
                 <div className="buttons">
@@ -127,7 +151,9 @@ export default class Window extends React.Component {
             <span className="resize-element"
                     draggable
                     onDragStart={this.clearDragGhost}
-                    onDrag={this.onResize}></span>
+                    onTouchStart={this.clearDragGhost}
+                    onDrag={this.onResize}
+                    onTouchMove={this.onResize}></span>
         </div>
     }
 }

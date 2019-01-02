@@ -22,7 +22,7 @@ export default class Showcase extends React.Component {
             </div>
             <div className="meta">
                 <h1 title="Project name">{this.props.window.name}</h1>
-                { this.props.window.link && <a href={this.props.window.link} target="_blank" title="Live preview" className="link mif-icon mif-2x mif-link"></a> }
+                { this.props.window.link && <a href={this.props.window.link} target="_blank" rel="noopener noreferrer" title="Live preview" className="link mif-icon mif-2x mif-link"> </a> }
                 <div className="techs" title="Used technologies">
                     { this.props.window.techs.map(tech => <span key={tech} className={tech.toLowerCase()}>{tech}</span>) }
                 </div>

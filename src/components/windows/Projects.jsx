@@ -1,5 +1,4 @@
 import React from 'react';
-import db from '../../database';
 
 export default class Projects extends React.Component {
     constructor(props) {
