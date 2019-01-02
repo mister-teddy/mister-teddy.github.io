@@ -1,6 +1,9 @@
 import React from 'react';
+import AppContext from '../context';
 
 export default class Window extends React.Component {
+    static contextType = AppContext;
+
     constructor(props) {
         super(props);
         const width = window.innerWidth/2;
@@ -21,7 +24,7 @@ export default class Window extends React.Component {
     }
     
     focus = () => {
-        this.props.focusWindow(this.props.process);
+        this.context.focusWindow(this.props.process);
     }
     
     clearDragGhost = (e) => {
@@ -75,7 +78,7 @@ export default class Window extends React.Component {
     }
     
     minimize = (e) => {
-        this.props.minimizeWindow(this.props.process);
+        this.context.minimizeWindow(this.props.process);
         e.stopPropagation();
     }
     
@@ -83,6 +86,10 @@ export default class Window extends React.Component {
         this.setState(s => ({
             maximized: !s.maximized
         }))
+    }
+
+    close = (e) => {
+        this.context.closeWindow(this.props.process);
     }
     
     componentWillReceiveProps(props) {
@@ -95,7 +102,7 @@ export default class Window extends React.Component {
     }
     
     render() {
-        const { process, closeWindow } = this.props;
+        const { process } = this.props;
         const Content = require(`./windows/${process.component}`).default;
         return <div
                 className={`window ${this.state.maximized ? 'maximized' : ''}`}
@@ -111,7 +118,7 @@ export default class Window extends React.Component {
                 <div className="buttons">
                     <span className="btn-min" onClick={this.minimize}></span>
                     <span className="btn-max" onClick={this.maximize}></span>
-                    <span className="btn-close" onClick={() => closeWindow(process)}></span>
+                    <span className="btn-close" onClick={this.close}></span>
                 </div>
             </div>
             <div className="window-content">

@@ -1,14 +1,16 @@
 import React from 'react';
+import AppContext from '../context';
 import db from '../database';
 
-
 export default class Tile extends React.Component {
+    static contextType = AppContext;
+
     prop(name) {
         return db.windows[this.props.window][name];
     }
     
     openWindow = () => {
-        this.props.openWindow(db.windows[this.props.window]);
+        this.context.openWindow(db.windows[this.props.window]);
     }
     
     render() {

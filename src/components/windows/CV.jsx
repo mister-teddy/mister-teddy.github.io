@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default () => <div className="cv">
-    <iframe src="cv.pdf" />
+    <iframe title="CV" src="cv.pdf" />
 </div>

@@ -2,20 +2,22 @@ import React, { Component } from 'react';
 import Desktop from './Desktop';
 import Menu from './Menu';
 import Taskbar from './Taskbar';
-import Ring from './Ring';
 import Fullscreen from 'react-full-screen';
 import db from '../database';
+import AppContext from '../context';
+import Preloader from './Preloader';
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            background: db.background,
             loading: true,
             opacity: 1,
             showMenu: false,
             fullscreen: false,
             processes: [],
-            focusing: null,
+            focusingMenu: null,
             depth: 1
         };
     }
@@ -25,27 +27,21 @@ export default class App extends Component {
             loading: false
         })
     }
-    
+
+    startLoading = () => {
+        this.setState({
+            loading: true,
+            opacity: 1
+        })
+    }
+
     loadingFinish = () => {
         this.setState({
             opacity: 0
         })
         setTimeout(this.hideLoader, 500);
     }
-    
-    renderLoader() {
-        const {loading, opacity} = this.state;
-        return loading && <div className="preloader bg-black" style={{opacity: opacity}}>
-            <div className="center">
-                <Ring/>
-            </div>
-            <div className="hidden-loading">
-                <img src={db.background} alt='' onLoad={this.loadingFinish}/>
-                { db.windows.map((w, i) => w.banners ? w.banners.map((b, ii) => <img key={i + '-' + ii} src={b} alt=''/>) : '') }
-            </div>
-        </div>
-    }
-    
+
     goFullscreen = () => {
         this.setState({fullscreen: true});
         this.state.processes.forEach(process => {
@@ -80,7 +76,7 @@ export default class App extends Component {
     focusWindow = (window) => {
         window.depth = this.state.depth;
         this.setState(s => ({
-            focusing: window,
+            focusingMenu: window,
             depth: s.depth + 1
         }))
     }
@@ -88,19 +84,52 @@ export default class App extends Component {
     minimizeWindow = (window) => {
         window.depth = -1;
         this.setState({
-            focusing: null
+            focusingMenu: null
         });
     }
     
+    setBackground = (background) => {
+        this.setState({
+            background: background,
+            loading: true
+        });
+    }
+    
+    getAppContext = () => ({
+        background: this.state.background,
+        processes: this.state.processes,
+        focusingWindow: this.state.focusingMenu,
+        showMenu: this.state.showMenu,
+        toggleMenu: this.toggleMenu,
+        openWindow: this.openWindow,
+        closeWindow: this.closeWindow,
+        focusWindow: this.focusWindow,
+        minimizeWindow: this.minimizeWindow,
+        goFullscreen: this.goFullscreen,
+        setBackground: this.setBackground,
+        startLoading: this.startLoading,
+        loadingFinish: this.loadingFinish
+    })
+
     render() {
-        const { fullscreen, processes, focusing } = this.state;
-        return <div>
+        return <AppContext.Provider value={this.getAppContext()}>
             {this.renderLoader()}
-            <Fullscreen enabled={fullscreen} onChange={fullscreen => this.setState({fullscreen})}>
-                <Desktop processes={processes} closeWindow={this.closeWindow} focusWindow={this.focusWindow} minimizeWindow={this.minimizeWindow}/>
-                <Menu showing={this.state.showMenu} openWindow={(w) => this.openWindow(w)} toggleMenu={() => this.toggleMenu()}/>
-                <Taskbar processes={processes} showMenu={this.state.showMenu} toggleMenu={this.toggleMenu} openWindow={this.openWindow} focusWindow={this.focusWindow} focusing={focusing} goFullscreen={this.goFullscreen}/>
+            <Fullscreen enabled={this.state.fullscreen} onChange={fullscreen => this.setState({fullscreen})}>
+                <Desktop/>
+                <Menu/>
+                <Taskbar/>
             </Fullscreen>
+        </AppContext.Provider>
+    }
+    
+    renderLoader() {
+        const {loading, opacity} = this.state;
+        return loading && <div>
+            <Preloader color="black" opacity={opacity}/>
+            <div className="hidden-loading">
+                <img src={db.background} alt='' onLoad={this.loadingFinish}/>
+                { db.windows.map((w, i) => w.banners ? w.banners.map((b, ii) => <img key={i + '-' + ii} src={b} alt=''/>) : '') }
+            </div>
         </div>
     }
 }
