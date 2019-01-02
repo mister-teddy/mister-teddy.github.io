@@ -31,7 +31,9 @@ export default class Window extends React.Component {
         this.focus();
         if (e.type.includes('drag')) {
             e.dataTransfer.setData('text', '');
-            e.dataTransfer.setDragImage(new Image(), 999999, 999999);
+            let blank= new Image();
+            blank.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==';
+            e.dataTransfer.setDragImage(blank, 999999, 999999);
         }
     }
 
@@ -67,8 +69,6 @@ export default class Window extends React.Component {
     
     onMove = (e) => {
         let {x, y} = this.getXY(e);
-        window.EVENT = {...e};
-
         if (x === 0 && y === 0) {
             return;
         }
