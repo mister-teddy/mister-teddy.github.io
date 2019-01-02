@@ -143,10 +143,21 @@ div {
 .window.maximized {
     border: none;
 }
-.cv iframe, .cd iframe {
+.window-content > div {
+    height: 100%;
     width: 100%;
-    height: calc(100vh - 75px);
+    overflow: hidden;
+}
+iframe {
+    width: 100%;
     border: none;
+    float: left;
+}
+.cv iframe {
+    height: 100%;
+}
+.cd iframe {
+    height: calc(100vh - 75px);
 }
 .showcase .banner img {
     width: 100%;
