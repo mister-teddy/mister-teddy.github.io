@@ -45,7 +45,7 @@ div {
 }
 .taskbar {
     height: 40px;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     line-height: 40px;
     width: 100%;
@@ -93,15 +93,13 @@ div {
 }
 .desktop {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 40px);
     overflow: hidden;
-    line-height: 100vh;
-    text-align: center;
-    color: white;
     background-color: black;
+    color: white;
 }
 .menu {
-    position: absolute;
+    position: fixed;
     bottom: -100vh;
     z-index: 1000;
 }
@@ -143,10 +141,27 @@ div {
 .window.maximized {
     border: none;
 }
+.window-caption.bg-white .icon {
+    display: none;
+}
+.window-caption.bg-white .title {
+    color: black;
+}
+.window-caption.bg-white .buttons > *:before,
+.window-caption.bg-white .buttons > *:after,
+.window-caption.bg-white .buttons > *:hover:before,
+.window-caption.bg-white .buttons > *:hover:after {
+    color: black;
+    border-color: black;
+}
 .window-content > div {
     height: 100%;
     width: 100%;
     overflow: hidden;
+}
+.icon.round-border {
+    border: 2px solid black;
+    border-radius: 100%;
 }
 iframe {
     width: 100%;
@@ -156,47 +171,17 @@ iframe {
 .cv iframe {
     height: 100%;
 }
-.cd iframe {
-    height: calc(100vh - 75px);
+.cd-window iframe, .cd-project iframe {
+    height: 100%;
+}
+.cd-project .banner {
+    height: 60vh;
 }
 .showcase .banner img {
     width: 100%;
-    height: 60vh;
+    max-height: 50vh;
     object-fit: cover;
     object-position: center;
-}
-.showcase .banner iframe {
-    width: 100%;
-    height: 60vh;
-}
-.showcase .info .logo { 
-    width: 20vh;
-    height: 20vh;
-    margin-top: -12.5vh;
-    margin-left: 2.5vh;
-    border: none;
-}
-.showcase .slick-arrow.slick-next {
-    right: 25px;
-}
-.showcase .slick-arrow.slick-prev {
-    left: 25px;
-    z-index: 1;
-}
-.showcase .slick-dots {
-    bottom: 15px;
-}
-.showcase .meta {
-    top: -80px;
-    padding-left: 25vh;
-    position: relative;
-    z-index: 100;
-}
-.showcase .meta h1 {
-    font-size: 50px;
-    font-weight: 100;
-    margin-bottom: 0px;
-    display: inline-block;
 }
 .showcase .meta .techs {
     display: inline-block;
@@ -237,20 +222,6 @@ iframe {
 .showcase .meta .link {
     padding: 0px 5px;
 }
-.showcase .description {
-    line-height: initial;
-    float: left;
-    padding: 2.5vh 2.5vh 0 2.5vh;
-    width: 100%;
-    height: calc(20vh - 40px);
-    position: absolute;
-    bottom: 40px;
-    box-sizing: border-box;
-}
-.showcase .description h2 {
-    margin-bottom: 0px;
-    font-size: 15px;
-}
 .fullscreen-require {
     width: 100vw;
     height: 100vh;
@@ -268,10 +239,10 @@ iframe {
     font-size: 30px;
     font-weight: 100;
 }
-.tile:not(.no-hover):hover {
+.menu .right [class*=tile-]:hover {
     border: 4px solid rgba(255, 255, 255, 0.6);
 }
-.tile:active {
+[class*=tile-]:active {
     -webkit-transform: perspective(600px) rotate3d(0, 1, 0, 10deg);
     -ms-transform: perspective(600px) rotate3d(0, 1, 0, 10deg);  
     transform: perspective(600px) rotate3d(0, 1, 0, 10deg); 
@@ -302,4 +273,10 @@ iframe {
 }
 .slick-list {
     width: 100%;
+}
+.projects-window .navview-content, .projects-window .navview-content > div {
+    height: 100%;
+}
+.projects-window .navview-menu {
+    height: calc(100% - 92px);
 }

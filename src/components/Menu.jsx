@@ -26,15 +26,15 @@ export default class Menu extends React.Component {
             <div className="right">
                 <Scrollbars>
                     <div className="tiles-grid">
-                        <Tile window={1} size='wide'/>
-                        <Tile window={2} size='medium'/>
-                        <Tile window={4} size='small'/>
-                        <Tile window={5} size='small'/>
-                        <Tile window={6} size='small' className="col-1 row-4"/>
-                        <Tile window={7} size='small' className="col-2 row-4"/>
-                        <Tile window={0} size='large'/>
-                        <Tile window={3} size='medium'/>
-                        <div onClick={this.changeBackground} className="tile tile-wide">
+                        {db.windows.map((window, i) => {
+                            if (window.tileComponent) {
+                                const TileComponent = require(`./tiles/${window.tileComponent}`).default;
+                                return <TileComponent window={window} key={i}/>
+                            } else {
+                                return <Tile window={window} key={i}/>
+                            }
+                        })}
+                        <div onClick={this.changeBackground} className="tile tile-medium">
                             <span className="icon mif-cog"/>
                             <span className="branding-bar">Change background</span>
                         </div>

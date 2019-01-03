@@ -42,47 +42,56 @@ export default {
     ],
     windows:[
         {
-            id: 0,
             name: 'My CV',
             component: 'CV',
             color: 'orange',
             icon: 'profile',
+            size: 'medium'
         },
         {
-            id: 1,
+            name: 'My Projects',
+            component: 'Projects',
+            tileComponent: 'Projects',
+            color: 'white',
+            icon: 'stack',
+            size: 'large'
+        },
+        {
+            shortName: 'My first website',
+            name: 'CDShop',
+            link: 'https://nguyenhongphat0.github.io/phatcdshop',
+            component: 'CDShop',
+            color: 'green',
+            icon: 'backward',
+            size: 'wide',
+        }
+    ],
+    projects: [
+        {
             name: 'CD Shop',
             link: 'https://nguyenhongphat0.github.io/phatcdshop',
             component: 'CDShop',
             color: 'green',
             icon: 'gamepad',
-            banners: [
-                'https://picsum.photos/1200/700/?random',
-                'https://picsum.photos/1200/700/?random',
-                'https://picsum.photos/1200/700/?random',
-                'https://picsum.photos/1200/700/?random',
-                'https://picsum.photos/1200/700/?random'
-            ],
-            techs: ['HTML', 'CSS', 'JS'],
-            description: 'CD Shop is my school course final project and this is my first front end project. CD Shop was built with plain HTML, CSS and JS'
+            size: 'small',
+            techs: ['JavaScript'],
+            description: 'CD Shop is my school course final project and this is my first front end project. CD Shop was built with plain HTML, CSS and JS',
+            important: true
         },
         {
-            id: 2,
             name: 'Plants Vs. Zombies in shell ',
             link: 'https://github.com/nguyenhongphat0/pvz_shell',
-            component: 'PVZShell',
             color: 'cyan',
             icon: 'swarm',
             banners: [
                 'https://raw.githubusercontent.com/nguyenhongphat0/pvz_shell/master/screenshot.png'
             ],
-            techs: ['C++', 'ncurses'],
+            techs: ['C++'],
             description: '<i>Plants Vs. Zombies <b>in shell</b></i> is a shell-based strategy game that use <u>C++</u> and a shell-based graphical library called <u>ncurses</u>. This game use only 1 thread with manual time slicing technique to create animated. All object\'s stats including damage, health point and respawn time is configable easily in one module.'
         },
         {
-            id: 3,
             name: 'PhatPhone ',
             link: 'https://github.com/nguyenhongphat0/phatphone',
-            component: 'PhatPhone',
             color: 'cyan',
             icon: 'mobile',
             banners: [
@@ -92,15 +101,13 @@ export default {
                 '/img/phatphone/4.png',
                 '/img/phatphone/5.png',
             ],
-            techs: ['PHP', 'Bootstrap', 'JQuery'],
+            techs: ['PHP', 'Bootstrap', 'JQuery', 'JavaScript'],
             description: 'PhatPhone is my official phone shop\'s web site, using many front end technologies like: Bootstrap, JQuery, Marsony grid, AJAX searching and local storage cart system. The website use plain PHP for server side scripting, such as saving orders and manage product.'
         },
         {
-            id: 4,
             shortName: 'TVCGVN ',
             name: 'Thu Vien Cong Giao Viet Nam',
             link: 'https://nguyenhongphat0.github.io/thuvienconggiaovietnam.net',
-            component: 'TVCGVN',
             color: 'cyan',
             icon: 'books',
             banners: [
@@ -109,14 +116,12 @@ export default {
                 '/img/tvcgvn/3.png',
                 '/img/tvcgvn/4.png',
             ],
-            techs: ['Bootstrap', 'JQuery'],
+            techs: ['Bootstrap', 'JQuery', 'JavaScript'],
             description: 'This is the offcial thuvienconggiaovietnam.net mockup site, using responsive Bootstrap 4, JQuery and old woody design pattern, with full feature pages.'
         },
         {
-            id: 5,
             name: 'Linuxlover',
             link: 'https://github.com/nguyenhongphat0/linuxlover',
-            component: 'Linuxlover',
             color: 'cyan',
             icon: 'linux',
             banners: [
@@ -125,14 +130,11 @@ export default {
                 '/img/linuxlover/3.png',
                 '/img/linuxlover/4.png',
             ],
-            techs: ['Symfony', 'Materialize', 'MySQL'],
+            techs: ['PHP', 'Materialize', 'MySQL', 'JavaScript'],
             description: 'A fanpage and forum for those who love linux! Clean and modern design, with recursive nested comment allowed.'
         },
         {
-            id: 6,
             name: 'Truong Ba Office',
-            link: 'https://github.com/nguyenhongphat0/linuxlover',
-            component: 'TruongBa',
             color: 'cyan',
             icon: 'css3',
             banners: [
@@ -141,14 +143,12 @@ export default {
                 '/img/truongba/3.png',
                 '/img/truongba/4.png',
             ],
-            techs: ['PHP', 'VueJS', 'Vuetify'],
+            techs: ['PHP', 'Vue', 'JavaScript'],
             description: 'Truong Ba Inc. official office application. Run on Vue.JS and plain PHP api'
         },
         {
-            id: 7,
             shortName: 'Fujioh',
             name: 'Fujioh Warranty Registration Service',
-            component: 'Fujioh',
             color: 'cyan',
             icon: 'widgets',
             banners: [
@@ -156,13 +156,11 @@ export default {
                 '/img/fujioh/2.png',
                 '/img/fujioh/3.png',
             ],
-            techs: ['Angular', 'Bootstrap'],
+            techs: ['Angular', 'Bootstrap', 'JavaScript'],
             description: 'Fujioh warranty registration system, using Angular 6 and Bootstrap 4'
         },
         {
-            id: 7,
             name: 'Draft Pascal',
-            component: 'DraftPascal',
             color: 'cyan',
             icon: 'file-code',
             banners: [
@@ -171,8 +169,9 @@ export default {
                 '/img/draftpascal/3.png',
                 '/img/draftpascal/4.png',
             ],
-            techs: ['C#', '.NET', 'WinForm'],
-            description: 'A Pascal text editor, built with .NET Framework and MinGW compiler. Easy to write code, and run with prebuilt input'
+            techs: ['C#'],
+            description: 'A Pascal text editor, built with .NET Framework and MinGW compiler. Easy to write code, and run with prebuilt input',
+            working: true
         }
     ]
 }
