@@ -165,14 +165,9 @@ div {
 }
 iframe {
     width: 100%;
+    height: 100%;
     border: none;
     float: left;
-}
-.cv iframe {
-    height: 100%;
-}
-.cd-window iframe, .cd-project iframe {
-    height: 100%;
 }
 .cd-project .banner {
     height: 60vh;
@@ -274,9 +269,22 @@ iframe {
 .slick-list {
     width: 100%;
 }
-.projects-window .navview-content, .projects-window .navview-content > div {
+.navview-content, .navview-content > div {
     height: 100%;
 }
-.projects-window .navview-menu {
+.navview-menu {
     height: calc(100% - 92px);
+}
+.ring {
+    margin: auto;
+}
+.listview .node>.icon .ring {
+    transform: scale(0.5);
+    position: relative;
+    top: -16px;
+}
+.listview .node>.icon img {
+    vertical-align: text-bottom;
+    width: 16px;
+    height: 16px;
 }

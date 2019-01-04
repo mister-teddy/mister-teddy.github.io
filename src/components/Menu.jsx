@@ -38,11 +38,6 @@ export default class Menu extends React.Component {
                             <span className="icon mif-cog"/>
                             <span className="branding-bar">Change background</span>
                         </div>
-                        {db.wordpress.map((w, i) => 
-                            <a href={w.link} target="_blank" rel="noopener noreferrer" key={i} title={w.name} className="tile tile-small">
-                                <span className={`icon mif-wordpress`}/>
-                            </a>
-                        )}
                     </div>
                 </Scrollbars>
             </div>

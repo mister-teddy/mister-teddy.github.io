@@ -8,24 +8,6 @@ export default {
     phone: '0903670437',
     address: 'Hau Nghia, Duc Hoa, Long An',
     titleColor: 'dark',
-    wordpress: [
-        {
-            name: 'Lyon Mariage',
-            link: 'https://www.lyon-mariage.com/'
-        }, 
-        {
-            name: 'Proplan',
-            link: 'https://www.pro-plan.fr/'
-        },
-        {
-            name: 'Admiral',
-            link: 'http://hotel-admiral.fr'
-        },
-        {
-            name: 'Clubmed Jobs',
-            link: 'http://www.clubmedjobs.us/'
-        } 
-    ],
     links: [
         {
             name: 'Facebook',
@@ -55,6 +37,13 @@ export default {
             color: 'white',
             icon: 'stack',
             size: 'large'
+        },
+        {
+            name: 'Freelance Logs',
+            component: 'Freelance',
+            color: 'blue',
+            icon: 'stack',
+            size: 'medium'
         },
         {
             shortName: 'My first website',
@@ -173,5 +162,17 @@ export default {
             description: 'A Pascal text editor, built with .NET Framework and MinGW compiler. Easy to write code, and run with prebuilt input',
             working: true
         }
-    ]
+    ],
+    freelance: {
+        Wordpress: [
+            'lyon-mariage.com',
+            'pro-plan.fr',
+            'hotel-admiral.fr',
+            'clubmedjobs.us'
+        ],
+        Prestashop: [
+            'rvetec.com',
+            'cie-bracelet-montre.com'
+        ]
+    }
 }

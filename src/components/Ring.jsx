@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => <div className="mx-auto color-style activity-ring">
+export default () => <div className="ring activity-ring mx-auto color-style">
     <div className="wrap">
         <div className="circle"></div>
     </div>
