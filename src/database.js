@@ -39,13 +39,6 @@ export default {
             size: 'large'
         },
         {
-            name: 'Freelance Logs',
-            component: 'Freelance',
-            color: 'blue',
-            icon: 'stack',
-            size: 'medium'
-        },
-        {
             shortName: 'My first website',
             name: 'CDShop',
             link: 'https://nguyenhongphat0.github.io/phatcdshop',
@@ -53,6 +46,13 @@ export default {
             color: 'green',
             icon: 'backward',
             size: 'wide',
+        },
+        {
+            name: 'Freelance Logs',
+            component: 'Freelance',
+            color: 'black',
+            icon: 'vpn-publ',
+            size: 'medium'
         }
     ],
     projects: [

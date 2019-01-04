@@ -288,3 +288,8 @@ iframe {
     width: 16px;
     height: 16px;
 }
+.address-bar {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}

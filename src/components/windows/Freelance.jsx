@@ -8,6 +8,7 @@ import Ring from '../Ring';
 export default class Freelance extends React.Component {
     state = {
         currentProject : '',
+        address: '',
         loading: false
     }
 
@@ -16,8 +17,15 @@ export default class Freelance extends React.Component {
     preview = (project) => {
         this.setState({
             currentProject: project,
+            address: project,
             loading: true
         })
+    }
+
+    go = (e) => {
+        if (e.keyCode === 13) {
+            this.preview(this.state.address);
+        }
     }
 
     finish = () => {
@@ -25,10 +33,11 @@ export default class Freelance extends React.Component {
     }
 
     render() {
-        const {currentProject, loading} = this.state;
-        return <div className="navview expanded-fs">
-            <nav className="navview-pane bg-white">
-                <ScrollBar>
+        const {currentProject, address, loading} = this.state;
+        return <div className="freelance-window navview expanded-fs">
+            <nav className="navview-pane bg-white pl-4-md pr-4-md pt-4-md pb-4-md">
+                <h1>Sites</h1>
+                <ScrollBar style={{height: 'calc(100% - 96px)'}}>
                     <ul className="listview view-list">
                         {Object.keys(db.freelance).map((platform, i) => 
                             <ListView key={i} name={`${db.freelance[platform].length} ${platform} sites`} open>
@@ -42,14 +51,27 @@ export default class Freelance extends React.Component {
                         )}
                     </ul>
                 </ScrollBar>
+                <div className="address-bar input">
+                    <input type="text" value={address} onChange={e => this.setState({address: e.target.value})} onKeyUp={this.go}/>
+                    <div className="button-group">
+                        <a className="button input-search-button" href={`//${address}`} target="_blank" rel="noopener noreferrer" title="Open in new tab">
+                            <span className="mif-chevron-thin-right"></span>
+                        </a>
+                    </div>
+                </div>
             </nav>
             <div className="navview-content bg-light">
                 {loading && <div style={{display: 'flex'}}><Ring/></div>}
                 {
                     currentProject ?
-                    <iframe title="preview" src={`//${currentProject}`} onLoad={this.finish}/> :
-                    <div className="pl-4-md pr-4-md">
-                        <h1>Click on a site name to preview</h1>
+                    <iframe title="preview" src={`//${currentProject}`} onLoad={this.finish}>
+                        <h1>Sorry</h1>
+                        <p>Your browser does not support iframe, you can view it by click the `Open in new tab` button in the address bar</p>
+                    </iframe> :
+                    <div className="pl-4-md pr-4-md pt-4-md pb-4-md">
+                        <h1>Home</h1>
+                        <p>I've been worked as a freelancer for a Wordpress company. These are site that have task I've worked on. My primary task on these site is theme customization, plugin development and maintainance server.</p>
+                        <p>Besides Wordpress, I've work on some other platform projects such as Prestashop or Joomla but less frequent. Click on anysite on the left to preview them.</p>
                     </div>
                 }
             </div>
