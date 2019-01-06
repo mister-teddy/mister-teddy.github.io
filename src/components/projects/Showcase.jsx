@@ -6,7 +6,7 @@ export default class Showcase extends React.Component {
     render() {
         const {project} = this.props;
         return <div className="showcase">
-            <div className="banner">
+            {project.banners && <div className="banner">
                 <Slider autoplay autoplaySpeed={3000}>
                     { project.banners.map((banner, i) => 
                         <div key={i}>
@@ -14,10 +14,11 @@ export default class Showcase extends React.Component {
                         </div>)
                     }
                 </Slider>
-            </div>
+            </div>}
             <div className="meta">
                 <div className="techs" title="Used technologies">
                     { project.techs.map(tech => <span key={tech} className={tech.toLowerCase()}>{tech}</span>) }
+                    <span className="bg-white fg-dark">{project.note}</span>
                 </div>
             </div>
             <p dangerouslySetInnerHTML={{__html: project.description}}></p>

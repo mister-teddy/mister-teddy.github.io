@@ -10,7 +10,8 @@ export default class Projects extends React.Component {
             expanded: true,
             keyword: '',
             page: 'home',
-            tech: '',
+            techs: this.getTechs(),
+            tech: null,
             project: null,
             history: []
         }
@@ -21,15 +22,22 @@ export default class Projects extends React.Component {
     }
 
     getTechs = () => {
-        const techs = [];
+        let techs = [], grouped = [];
         db.projects.forEach(project => {
-            project.techs.forEach(tech => {
-                if (techs.indexOf(tech) === -1) {
-                    techs.push(tech);
-                }
-            })
+            techs = techs.concat(project.techs);
         });
-        return techs;
+        while (techs.length > 0) {
+            let count = 0;
+            let tech = techs[0];
+            while (techs.indexOf(tech) > -1) {
+                count++;
+                techs[techs.indexOf(tech)] = ''
+            }
+            grouped.push({name: tech, count});
+            techs = techs.filter(t => t !== '');
+        }
+        grouped = grouped.sort((a, b) => b.count - a.count);
+        return grouped;
     }
 
     goto = (state) => {
@@ -70,17 +78,17 @@ export default class Projects extends React.Component {
         if (this.contain(project.name, keyword)) {
             result = true;
         }
-        if (this.contain(project.description, keyword)) {
+        if (this.contain(project.techs.join(' '), keyword)) {
             result = true;
         }
-        if (this.contain(project.techs.join(' '), keyword)) {
+        if (project.description && this.contain(project.description, keyword)) {
             result = true;
         }
         return result;
     }
     
     render() {
-        const {expanded, page, keyword} = this.state;
+        const {techs, expanded, page, keyword} = this.state;
         return <div className={`projects-window navview ${expanded ? 'expanded-fs' : 'expanded-fs compacted'}`}>
             <nav className="navview-pane">
                 <button className="pull-button" onClick={this.toggleExpand}>
@@ -101,7 +109,7 @@ export default class Projects extends React.Component {
                 </div>
                 <ul className="navview-menu">
                     <li>
-                        <button href="#Home" onClick={() => this.goto({page: 'home'})}>
+                        <button onClick={() => this.goto({page: 'home'})}>
                         <span className="icon"><span className="mif-home"></span></span>
                         <span className="caption">Home</span>
                         </button>
@@ -109,18 +117,18 @@ export default class Projects extends React.Component {
                     <li className="item-separator"></li>
                     <li className="item-header">Technologies</li>
                     <li>
-                        <button href="#All" onClick={() => this.goto({page: 'grid', tech: ''})}>
+                        <button onClick={() => this.goto({page: 'grid', tech: null})}>
                         <span className="icon"><span className="mif-apps"></span></span>
                         <span className="caption">All</span>
                         </button>
                     </li>
                     <li className="item-separator"></li>
                     <ScrollBar style={{height: 'calc(100% - 144px)'}}>
-                        {this.getTechs().map((tech, i) =>
+                        {techs.map((tech, i) =>
                             <li key={i}>
-                                <button href={`#${tech}`} onClick={() => this.goto({page: 'grid', tech})}>
-                                <span className="icon"><span className="mif-folder"></span></span>
-                                <span className="caption">{tech}</span>
+                                <button onClick={() => this.goto({page: 'grid', tech})}>
+                                    <span className="icon"><span className="mif-folder"></span></span>
+                                    <span className="caption">{tech.name}</span>
                                 </button>
                             </li>
                         )}
@@ -142,32 +150,22 @@ export default class Projects extends React.Component {
             <p>Thank you for viewing my portfolio. Take a look at what I have done!</p>
             <Panel name="Categories" icon="apps" open={false}>
                 <div className="tiles-grid">
-                    {this.getTechs().map((tech, i) =>
+                    {this.state.techs.map((tech, i) =>
                         <div key={i} className={`tile-medium bg-blue`} onClick={() => this.goto({page: 'grid', tech})}>
                             <span className={`icon mif-folder`}/>
-                            <span className="branding-bar">{tech}</span>
+                            <span className="branding-bar">{tech.name} ({tech.count})</span>
                         </div>
                     )}
                 </div>
             </Panel>
             <Panel name="Spotlight projects" icon="star-empty" open={true}>
                 <div className="tiles-grid">
-                    {db.projects.map((project, i) => project.important &&
-                        <div key={i} className={`tile-medium bg-${project.color}`} onClick={() => this.goto({page: 'detail', project})}>
-                            <span className={`icon mif-${project.icon}`}/>
-                            <span className="branding-bar">{project.shortName ? project.shortName : project.name}</span>
-                        </div>
-                    )}
+                    {db.projects.map((project, i) => project.important && this.renderProjectTile(project, i))}
                 </div>
             </Panel>
             <Panel name="Still working on" icon="traffic-cone" open={true}>
                 <div className="tiles-grid">
-                    {db.projects.map((project, i) => project.working &&
-                        <div key={i} className={`tile-medium bg-${project.color}`} onClick={() => this.goto({page: 'detail', project})}>
-                            <span className={`icon mif-${project.icon}`}/>
-                            <span className="branding-bar">{project.shortName ? project.shortName : project.name}</span>
-                        </div>
-                    )}
+                    {db.projects.map((project, i) => project.working && this.renderProjectTile(project, i))}
                 </div>
             </Panel>
         </ScrollBar>
@@ -176,18 +174,11 @@ export default class Projects extends React.Component {
     renderSearch() {
         const {keyword} = this.state;
         return <div>
-            <h1>
-                <button href="#Home" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
-                Search Result for `{keyword}`
-            </h1>
+            <button className="back-button" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
+            <h1>Search Result for `{keyword}`</h1>
             <ScrollBar style={{height: 'calc(100% - 60px)'}}>
                 <div className="tiles-grid">
-                    {db.projects.filter(this.filter).map((project, i) =>
-                        <div key={i} className={`tile-medium bg-${project.color}`} onClick={() => this.goto({page: 'detail', project})}>
-                            <span className={`icon mif-${project.icon}`}/>
-                            <span className="branding-bar">{project.shortName ? project.shortName : project.name}</span>
-                        </div>
-                    )}
+                    {db.projects.filter(this.filter).map((project, i) => this.renderProjectTile(project, i))}
                 </div>
             </ScrollBar>
         </div>
@@ -196,19 +187,11 @@ export default class Projects extends React.Component {
     renderGrid() {
         const {tech} = this.state;
         return <div>
-            <h1>
-                <button href="#Home" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
-                {tech ? tech : 'All'}
-            </h1>
+            <button className="back-button" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
+            {tech ? <h1>{tech.name} <span>{tech.count}</span></h1> : <h1>All</h1>}
             <ScrollBar style={{height: 'calc(100% - 60px)'}}>
                 <div className="tiles-grid">
-                    {db.projects.map((project, i) =>
-                        (!tech || project.techs.indexOf(tech) >= 0) &&
-                        <div key={i} className={`tile-medium bg-${project.color}`} onClick={() => this.goto({page: 'detail', project})}>
-                            <span className={`icon mif-${project.icon}`}/>
-                            <span className="branding-bar">{project.shortName ? project.shortName : project.name}</span>
-                        </div>
-                    )}
+                    {db.projects.map((project, i) => (!tech || project.techs.indexOf(tech.name) >= 0) && this.renderProjectTile(project, i))}
                 </div>
             </ScrollBar>
         </div>
@@ -219,12 +202,18 @@ export default class Projects extends React.Component {
         const component = project.component || 'Showcase';
         const ProjectDetail = require(`../projects/${component}`).default;
         return <ScrollBar>
-            <h1>
-                <button href="#Home" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
-                {project.name}
-            </h1>
+            <button className="back-button" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
+            <h1>{project.name}</h1>
             {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" className="fg-blue" title="Open this project in a new tab">LIVE PREVIEW</a>}
             <ProjectDetail project={project}/>
         </ScrollBar>
+    }
+
+    renderProjectTile(project, i) {
+        return <div key={i} className={`tile-medium bg-${project.color}`} onClick={() => this.goto({page: 'detail', project})}>
+            {project.icon && <span className={`icon mif-${project.icon}`}/>}
+            {project.logo && <img src={project.logo} className="h-100 w-100" alt={project.name}/>}
+            <span className="branding-bar">{project.shortName ? project.shortName : project.name}</span>
+        </div>
     }
 }

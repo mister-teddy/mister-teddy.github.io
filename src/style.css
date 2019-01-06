@@ -6,10 +6,6 @@ body {
     margin: 0px;
     overflow: hidden;
 }
-a, a:hover {
-    text-decoration: none;
-    color: white;
-}
 button:focus {
     outline:0;
 }
@@ -106,6 +102,10 @@ div {
 .menu.show {
     bottom: 40px;
 }
+.menu a, .menu a:hover {
+    text-decoration: none;
+    color: white;
+}
 .profile {
     padding: 12px;
     height: 100%;
@@ -183,20 +183,14 @@ iframe {
 }
 .showcase .meta .techs span {
     padding: 5px 10px;
-    margin: 3px;
+    margin: 3px 6px 3px 0px;
     color: white;
     font-size: 10px;
 }
 .showcase .meta .techs span {
     background-color: #000;
 }
-.showcase .meta .techs .html {
-    background-color: #ee1111;
-}
-.showcase .meta .techs .css {
-    background-color: #2d89ef;
-}
-.showcase .meta .techs .js {
+.showcase .meta .techs .javascript {
     background-color: #ffc40d;
 }
 .showcase .meta .techs .php {
@@ -208,11 +202,8 @@ iframe {
 .showcase .meta .techs .jquery {
     background-color: #0968ac;
 }
-.showcase .meta .techs .vuejs {
+.showcase .meta .techs .vue {
     background-color: #41b883;
-}
-.showcase .meta .techs .vuetify {
-    background-color: #7bc6ff;
 }
 .showcase .meta .link {
     padding: 0px 5px;
@@ -272,10 +263,13 @@ iframe {
 .navview-content, .navview-content > div {
     height: 100%;
 }
-.navview-content h1 button {
+.navview-content .back-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+.navview-content .bg-white .branding-bar {
+    background-color: rgba(0, 0, 0, 0.5)
 }
 .navview-menu {
     height: calc(100% - 92px);

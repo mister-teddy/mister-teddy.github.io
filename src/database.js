@@ -59,15 +59,52 @@ export default {
     ],
     projects: [
         {
+            name: 'Hanwha AI Camera',
+            link: 'https://github.com/nguyenhongphat0/prestashop-developerpack',
+            color: 'white',
+            logo: 'https://www.intercom.com.eg/wp-content/uploads/2018/01/SamsungWisenet-300x300.jpg',
+            techs: ['JavaScript', 'ReactJS', 'ExpressJS', 'MongoDB'],
+            note: 'Release date: 22/12/2018',
+            description: '<p><b class="fg-red">This is a private project! No screenshot or client information is allowed to be explored.</b></p><p><div><em>Customer: Hanwha Techwin.</em></div><div><em>Developed team: FPT Software</em></div><div>This is a FPT Software project that I have contributed to. This project using full Javascript stack, I have worked on both client and server side.</div></p>',
+            important: true
+        },
+        {
+            name: 'nguyenhongphat0.github.io',
+            shortName: 'Portfolio',
+            color: 'dark',
+            icon: 'profile',
+            techs: ['JavaScript', 'ReactJS'],
+            description: 'This is my portfolio and you are viewing it :D. You can view full sourcecode of this project <a href="https://github.com/nguyenhongphat0/nguyenhongphat0.github.io" target="_blank">here</a>.'
+        },
+        {
             name: 'CD Shop',
             link: 'https://nguyenhongphat0.github.io/phatcdshop',
             component: 'CDShop',
             color: 'green',
             icon: 'gamepad',
-            size: 'small',
             techs: ['JavaScript'],
             description: 'CD Shop is my school course final project and this is my first front end project. CD Shop was built with plain HTML, CSS and JS',
+        },
+        {
+            name: 'Wordpress Developerpack',
+            link: 'https://wordpress.org/plugins/developer-pack/',
+            color: 'white',
+            logo: 'https://ps.w.org/developer-pack/assets/icon.svg',
+            techs: ['PHP', 'Wordpress'],
+            banners: [
+                'https://ps.w.org/developer-pack/assets/screenshot-1.png',
+                'https://ps.w.org/developer-pack/assets/screenshot-2.png'
+            ],
+            description: 'Developer Pack allow you to view PHP information, download WordPress site source code with advanced options, and online code editing with a powerful code editor. You don’t have to use FTP or SSH anymore.<br>Developer Pack is built for the developers/freelancers. If you don’t know how to code PHP or how WordPress work, it is massive dangerous. Please only install it when you know what you are doing!<br>Remember: This plugin can modify your file system. Use it wisely!',
             important: true
+        },
+        {
+            name: 'Prestashop Developerpack',
+            link: 'https://github.com/nguyenhongphat0/prestashop-developerpack',
+            color: 'white',
+            logo: 'img/platforms/Prestashop.png',
+            techs: ['PHP', 'Prestashop'],
+            description: 'Freelancer/Developer use only!<br>This module allow you to download you website source code for local debugging and edit your file directly in your back office with a powerful code editor. Click <a href="https://github.com/nguyenhongphat0/prestashop-developerpack/blob/master/docs/readme_en.pdf" target="_blank">here</a> to download.',
         },
         {
             name: 'Plants Vs. Zombies in shell ',
