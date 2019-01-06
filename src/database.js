@@ -39,20 +39,21 @@ export default {
             size: 'large'
         },
         {
+            name: 'Freelance Logs',
+            component: 'Freelance',
+            tileComponent: 'Freelance',
+            color: 'black',
+            icon: 'vpn-publ',
+            size: 'wide'
+        },
+        {
             shortName: 'My first website',
             name: 'CDShop',
             link: 'https://nguyenhongphat0.github.io/phatcdshop',
             component: 'CDShop',
             color: 'green',
             icon: 'backward',
-            size: 'wide',
-        },
-        {
-            name: 'Freelance Logs',
-            component: 'Freelance',
-            color: 'black',
-            icon: 'vpn-publ',
-            size: 'medium'
+            size: 'medium',
         }
     ],
     projects: [
@@ -165,14 +166,36 @@ export default {
     ],
     freelance: {
         Wordpress: [
+            'thuyduong.com.vn',
+            'tinibui-couture.com',
             'lyon-mariage.com',
             'pro-plan.fr',
             'hotel-admiral.fr',
-            'clubmedjobs.us'
+            'clubmedjobs.us',
+            'taxi-cadoretmistigri.com',
+            'parentauquotidien.com',
+            'bamboo-dev.fr',
+            'co-access.fr',
+            'groupe-sid.com',
+            'cleanwash.fr',
+            'besideskimchi.com',
+            'resine2000.com',
+            'wao-passy.com'
         ],
         Prestashop: [
+            'thecosmohouse.vn',
             'rvetec.com',
-            'cie-bracelet-montre.com'
+            'cie-bracelet-montre.com',
+            'lappartementfrancais.fr',
+            'miriaform.com',
+
+        ],
+        Joomla: [
+            'cabinet-vandame.com',
+            'rouxel-mold.com'
+        ],
+        Drupal: [
+            'clubmedjobs.fr'
         ]
     }
 }

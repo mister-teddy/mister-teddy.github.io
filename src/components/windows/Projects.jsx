@@ -101,27 +101,27 @@ export default class Projects extends React.Component {
                 </div>
                 <ul className="navview-menu">
                     <li>
-                        <a href="#Home" onClick={() => this.goto({page: 'home'})}>
+                        <button href="#Home" onClick={() => this.goto({page: 'home'})}>
                         <span className="icon"><span className="mif-home"></span></span>
                         <span className="caption">Home</span>
-                        </a>
+                        </button>
                     </li>
                     <li className="item-separator"></li>
                     <li className="item-header">Technologies</li>
                     <li>
-                        <a href="#All" onClick={() => this.goto({page: 'grid', tech: ''})}>
+                        <button href="#All" onClick={() => this.goto({page: 'grid', tech: ''})}>
                         <span className="icon"><span className="mif-apps"></span></span>
                         <span className="caption">All</span>
-                        </a>
+                        </button>
                     </li>
                     <li className="item-separator"></li>
                     <ScrollBar style={{height: 'calc(100% - 144px)'}}>
                         {this.getTechs().map((tech, i) =>
                             <li key={i}>
-                                <a href={`#${tech}`} onClick={() => this.goto({page: 'grid', tech})}>
+                                <button href={`#${tech}`} onClick={() => this.goto({page: 'grid', tech})}>
                                 <span className="icon"><span className="mif-folder"></span></span>
                                 <span className="caption">{tech}</span>
-                                </a>
+                                </button>
                             </li>
                         )}
                     </ScrollBar>
@@ -177,7 +177,7 @@ export default class Projects extends React.Component {
         const {keyword} = this.state;
         return <div>
             <h1>
-                <a href="#Home" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></a>
+                <button href="#Home" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
                 Search Result for `{keyword}`
             </h1>
             <ScrollBar style={{height: 'calc(100% - 60px)'}}>
@@ -197,7 +197,7 @@ export default class Projects extends React.Component {
         const {tech} = this.state;
         return <div>
             <h1>
-                <a href="#Home" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></a>
+                <button href="#Home" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
                 {tech ? tech : 'All'}
             </h1>
             <ScrollBar style={{height: 'calc(100% - 60px)'}}>
@@ -220,7 +220,7 @@ export default class Projects extends React.Component {
         const ProjectDetail = require(`../projects/${component}`).default;
         return <ScrollBar>
             <h1>
-                <a href="#Home" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></a>
+                <button href="#Home" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
                 {project.name}
             </h1>
             {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" className="fg-blue" title="Open this project in a new tab">LIVE PREVIEW</a>}
