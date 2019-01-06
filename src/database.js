@@ -25,7 +25,8 @@ export default {
     windows:[
         {
             name: 'My CV',
-            component: 'CV',
+            component: 'Iframe',
+            link: 'cv.pdf',
             color: 'orange',
             icon: 'profile',
             size: 'medium'
@@ -49,8 +50,8 @@ export default {
         {
             shortName: 'My first website',
             name: 'CDShop',
+            component: 'Iframe',
             link: 'https://nguyenhongphat0.github.io/phatcdshop',
-            component: 'CDShop',
             color: 'green',
             icon: 'backward',
             size: 'medium',
@@ -85,11 +86,11 @@ export default {
             color: 'cyan',
             icon: 'mobile',
             banners: [
-                '/img/phatphone/1.png',
-                '/img/phatphone/2.png',
-                '/img/phatphone/3.png',
-                '/img/phatphone/4.png',
-                '/img/phatphone/5.png',
+                'img/phatphone/1.png',
+                'img/phatphone/2.png',
+                'img/phatphone/3.png',
+                'img/phatphone/4.png',
+                'img/phatphone/5.png',
             ],
             techs: ['PHP', 'Bootstrap', 'JQuery', 'JavaScript'],
             description: 'PhatPhone is my official phone shop\'s web site, using many front end technologies like: Bootstrap, JQuery, Marsony grid, AJAX searching and local storage cart system. The website use plain PHP for server side scripting, such as saving orders and manage product.'
@@ -101,10 +102,10 @@ export default {
             color: 'cyan',
             icon: 'books',
             banners: [
-                '/img/tvcgvn/1.png',
-                '/img/tvcgvn/2.png',
-                '/img/tvcgvn/3.png',
-                '/img/tvcgvn/4.png',
+                'img/tvcgvn/1.png',
+                'img/tvcgvn/2.png',
+                'img/tvcgvn/3.png',
+                'img/tvcgvn/4.png',
             ],
             techs: ['Bootstrap', 'JQuery', 'JavaScript'],
             description: 'This is the offcial thuvienconggiaovietnam.net mockup site, using responsive Bootstrap 4, JQuery and old woody design pattern, with full feature pages.'
@@ -115,10 +116,10 @@ export default {
             color: 'cyan',
             icon: 'linux',
             banners: [
-                '/img/linuxlover/1.png',
-                '/img/linuxlover/2.png',
-                '/img/linuxlover/3.png',
-                '/img/linuxlover/4.png',
+                'img/linuxlover/1.png',
+                'img/linuxlover/2.png',
+                'img/linuxlover/3.png',
+                'img/linuxlover/4.png',
             ],
             techs: ['PHP', 'Materialize', 'MySQL', 'JavaScript'],
             description: 'A fanpage and forum for those who love linux! Clean and modern design, with recursive nested comment allowed.'
@@ -128,10 +129,10 @@ export default {
             color: 'cyan',
             icon: 'css3',
             banners: [
-                '/img/truongba/1.png',
-                '/img/truongba/2.png',
-                '/img/truongba/3.png',
-                '/img/truongba/4.png',
+                'img/truongba/1.png',
+                'img/truongba/2.png',
+                'img/truongba/3.png',
+                'img/truongba/4.png',
             ],
             techs: ['PHP', 'Vue', 'JavaScript'],
             description: 'Truong Ba Inc. official office application. Run on Vue.JS and plain PHP api'
@@ -142,9 +143,9 @@ export default {
             color: 'cyan',
             icon: 'widgets',
             banners: [
-                '/img/fujioh/1.png',
-                '/img/fujioh/2.png',
-                '/img/fujioh/3.png',
+                'img/fujioh/1.png',
+                'img/fujioh/2.png',
+                'img/fujioh/3.png',
             ],
             techs: ['Angular', 'Bootstrap', 'JavaScript'],
             description: 'Fujioh warranty registration system, using Angular 6 and Bootstrap 4'
@@ -154,10 +155,10 @@ export default {
             color: 'cyan',
             icon: 'file-code',
             banners: [
-                '/img/draftpascal/1.png',
-                '/img/draftpascal/2.png',
-                '/img/draftpascal/3.png',
-                '/img/draftpascal/4.png',
+                'img/draftpascal/1.png',
+                'img/draftpascal/2.png',
+                'img/draftpascal/3.png',
+                'img/draftpascal/4.png',
             ],
             techs: ['C#'],
             description: 'A Pascal text editor, built with .NET Framework and MinGW compiler. Easy to write code, and run with prebuilt input',
