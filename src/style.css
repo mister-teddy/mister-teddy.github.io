@@ -298,13 +298,10 @@ iframe {
 .navview .navview-menu li button:focus {
     border: 2px solid #0A0A0A;
 }
-.ring {
-    margin: auto;
-}
 .listview .node>.icon .ring {
     transform: scale(0.5);
     position: relative;
-    top: -5px;
+    top: -16px;
 }
 .listview .node>.icon img {
     vertical-align: text-bottom;

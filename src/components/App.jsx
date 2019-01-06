@@ -12,7 +12,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             background: db.background,
-            loading: false,
+            loading: true,
             opacity: 1,
             showMenu: false,
             fullscreen: false,
@@ -128,7 +128,7 @@ export default class App extends Component {
             <Preloader color="black" opacity={opacity}/>
             <div className="hidden-loading">
                 <img src={db.background} alt='' onLoad={this.loadingFinish}/>
-                { db.windows.map((w, i) => w.banners ? w.banners.map((b, ii) => <img key={i + '-' + ii} src={b} alt=''/>) : '') }
+                {db.projects.map((p, i) => p.banners ? p.banners.map((b, ii) => <img key={i + '-' + ii} src={b} alt=''/>) : '')}
             </div>
         </div>
     }

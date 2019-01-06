@@ -28,10 +28,11 @@ export default class Projects extends React.Component {
         });
         while (techs.length > 0) {
             let count = 0;
+            let index = 0;
             let tech = techs[0];
-            while (techs.indexOf(tech) > -1) {
+            while ((index = techs.indexOf(tech)) > -1) {
                 count++;
-                techs[techs.indexOf(tech)] = ''
+                techs[index] = ''
             }
             grouped.push({name: tech, count});
             techs = techs.filter(t => t !== '');

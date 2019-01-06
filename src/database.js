@@ -133,17 +133,10 @@ export default {
             description: 'PhatPhone is my official phone shop\'s web site, using many front end technologies like: Bootstrap, JQuery, Marsony grid, AJAX searching and local storage cart system. The website use plain PHP for server side scripting, such as saving orders and manage product.'
         },
         {
-            shortName: 'TVCGVN ',
             name: 'Thu Vien Cong Giao Viet Nam',
             link: 'https://nguyenhongphat0.github.io/thuvienconggiaovietnam.net',
             color: 'cyan',
             icon: 'books',
-            banners: [
-                'img/tvcgvn/1.png',
-                'img/tvcgvn/2.png',
-                'img/tvcgvn/3.png',
-                'img/tvcgvn/4.png',
-            ],
             techs: ['Bootstrap', 'JQuery', 'JavaScript'],
             description: 'This is the offcial thuvienconggiaovietnam.net mockup site, using responsive Bootstrap 4, JQuery and old woody design pattern, with full feature pages.'
         },
@@ -209,7 +202,6 @@ export default {
             'lyon-mariage.com',
             'pro-plan.fr',
             'hotel-admiral.fr',
-            'clubmedjobs.us',
             'taxi-cadoretmistigri.com',
             'parentauquotidien.com',
             'bamboo-dev.fr',
@@ -233,7 +225,7 @@ export default {
             'rouxel-mold.com'
         ],
         Drupal: [
-            'clubmedjobs.fr'
+            'clubmedjobs.us'
         ]
     }
 }

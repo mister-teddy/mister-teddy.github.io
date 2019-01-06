@@ -54,19 +54,25 @@ export default class Freelance extends React.Component {
                 <div className="address-bar input">
                     <input type="text" value={address} onChange={e => this.setState({address: e.target.value})} onKeyUp={this.go}/>
                     <div className="button-group">
-                        <a className="button input-search-button" href={`http://${address}`} target="_blank" rel="noopener noreferrer" title="Open in new tab">
+                        <a className="button input-search-button" href={`//${address}`} target="_blank" rel="noopener noreferrer" title="Open in new tab">
                             <span className="mif-chevron-thin-right"></span>
                         </a>
                     </div>
                 </div>
             </nav>
             <div className="navview-content bg-light">
-                {loading && <div style={{display: 'flex'}}><Ring/></div>}
+                {loading && <div className="d-flex">
+                    <div className="flex-self-center">
+                        <Ring/>
+                        <h1 className="text-center">This may not worked sometimes</h1>
+                        <p className="text-center p-4">Some website does not support SSL or not allowed to be load in an iframe, and some mordern browser (such as Google Chrome) does not provide a proper API to handle these special case. If you found the web page took too long to response, you can click the right arrow button in the address bar to open it in a new tab.</p>
+                    </div>
+                </div>}
                 {
                     currentProject ?
-                    <iframe title="preview" src={`http://${currentProject}`} onLoad={this.finish}>
+                    <iframe title="preview" src={`//${currentProject}`} onLoad={this.finish}>
                         <h1>Sorry</h1>
-                        <p>Your browser does not support iframe, you can view it by click the `Open in new tab` button in the address bar</p>
+                        <p>Your browser does not support iframe, you can click the right arrow button in the address bar to open it in a new tab.</p>
                     </iframe> :
                     <div className="pl-4-md pr-4-md pt-4-md pb-4-md">
                         <h1>Home</h1>
