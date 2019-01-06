@@ -128,6 +128,7 @@ export default class App extends Component {
             <Preloader color="black" opacity={opacity}/>
             <div className="hidden-loading">
                 <img src={db.background} alt='' onLoad={this.loadingFinish}/>
+                {Object.keys(db.freelance).map((platform, i) => <img key={i} src={`img/platforms/${platform}.png`} alt={platform}/>)}
                 {db.projects.map((p, i) => p.banners ? p.banners.map((b, ii) => <img key={i + '-' + ii} src={b} alt=''/>) : '')}
             </div>
         </div>
