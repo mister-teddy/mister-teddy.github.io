@@ -325,10 +325,3 @@ iframe {
 [class*=tile-].effect-hover-zoom-up:hover .slide-front img {
     filter: none;
 }
-.tiles-grid {
-    display: flex;
-    flex-wrap: wrap;
-}
-.tiles-grid > div {
-    margin: 5px;
-}
