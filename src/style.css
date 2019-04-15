@@ -325,3 +325,32 @@ iframe {
 [class*=tile-].effect-hover-zoom-up:hover .slide-front img {
     filter: none;
 }
+.arch-system {
+    cursor: pointer;
+    position: absolute;
+    background: #62b9ad;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    line-height: 36px;
+    font-size: 10px;
+}
+.arch-system:hover {
+    outline: 4px dashed #f18b50;
+}
+.arch-system:active {
+    background: #1a9988;
+}
+.system-detail-container {
+    position: absolute;
+    top: 0px;
+    left: 400px;
+    height: 400px;
+    width: 300px;
+    background: #1a9988;
+    color: white;
+    transition-duration: 0.5s;
+}
+.system-detail-container > .content {
+    padding: 10px 20px;
+}
