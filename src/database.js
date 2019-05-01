@@ -76,7 +76,7 @@ export default {
             logo: 'https://www.intercom.com.eg/wp-content/uploads/2018/01/SamsungWisenet-300x300.jpg',
             techs: ['JavaScript', 'ReactJS', 'ExpressJS', 'MongoDB'],
             note: 'Release date: 22/12/2018',
-            description: <p><b class="fg-red">This is a private project! No screenshot or client information is allowed to be explored.</b><div><em>Customer: Hanwha Techwin.</em></div><div><em>Developed team: FPT Software</em></div><div>This is a FPT Software project that I have contributed to. This project using full Javascript stack, I have worked on both client and server side.</div></p>,
+            description: <p><b className="fg-red">This is a private project! No screenshot or client information is allowed to be explored.</b><div><em>Customer: Hanwha Techwin.</em></div><div><em>Developed team: FPT Software</em></div><div>This is a FPT Software project that I have contributed to. This project using full Javascript stack, I have worked on both client and server side.</div></p>,
             important: true
         },
         {

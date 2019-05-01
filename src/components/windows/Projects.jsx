@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOMServer from 'react-dom/server'
 import ScrollBar from 'react-custom-scrollbars';
 import db from '../../database';
 import Panel from '../Panel';
@@ -70,7 +71,7 @@ export default class Projects extends React.Component {
     }
 
     contain = (a, b) => {
-        return a.trim().toLowerCase().includes(b.trim().toLowerCase());
+        return ReactDOMServer.renderToString(a).trim().toLowerCase().includes(b.trim().toLowerCase());
     }
 
     filter = (project) => {

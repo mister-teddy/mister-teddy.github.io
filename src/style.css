@@ -335,6 +335,9 @@ iframe {
     line-height: 36px;
     font-size: 10px;
 }
+.arch-system.active {
+    background: #f18b50;
+}
 .arch-system:hover {
     outline: 4px dashed #f18b50;
 }
@@ -343,14 +346,15 @@ iframe {
 }
 .system-detail-container {
     position: absolute;
-    top: 0px;
-    left: 400px;
+    overflow: hidden;
     height: 400px;
     width: 300px;
-    background: #1a9988;
-    color: white;
     transition-duration: 0.5s;
 }
-.system-detail-container > .content {
+.system-detail-container .content {
     padding: 10px 20px;
+}
+.system-detail-container .screenshots img {
+    width: 100%;
+    margin-top: 10px;
 }
