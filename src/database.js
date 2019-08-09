@@ -221,7 +221,17 @@ export default {
             'cleanwash.fr',
             'besideskimchi.com',
             'resine2000.com',
-            'wao-passy.com'
+            'wao-passy.com',
+            'jumbopneus.fr',
+            'pimlicom.com',
+            'marbrerie.com',
+            'autoque.fr',
+            'pasion.fr',
+            'blackflag.agency',
+            'sossantegrace.fr',
+            'carterandfont.com',
+            'nvburo.fr',
+            'transports-schubel.com'
         ],
         Prestashop: [
             'thecosmohouse.vn',
@@ -229,11 +239,15 @@ export default {
             'cie-bracelet-montre.com',
             'lappartementfrancais.fr',
             'miriaform.com',
-
+            'conseil-scpi.com',
+            'plinthe-cie.com'
         ],
         Joomla: [
             'cabinet-vandame.com',
-            'rouxel-mold.com'
+            'rouxel-mold.com',
+            'agence-no-stress.com',
+            'roze.fr',
+            'duseaux.com'
         ],
         Drupal: [
             'clubmedjobs.us'

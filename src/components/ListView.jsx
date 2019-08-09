@@ -17,7 +17,7 @@ export default class Panel extends React.Component{
         return <li className={`node-group ${open ? 'expanded' : ''}`}>
             <span className="node-toggle"></span>
             <div className="data" onClick={this.toggle}>{name}</div>
-            <ul className={`listview view-list ${open ? '' : 'hidden'}`}>
+            <ul className={`${open ? '' : 'hidden'}`}>
                 {children}
             </ul>
         </li>
