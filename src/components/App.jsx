@@ -12,7 +12,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             background: db.background,
-            loading: false,
+            loading: true,
             opacity: 1,
             showMenu: false,
             fullscreen: false,
@@ -129,7 +129,7 @@ export default class App extends Component {
             <div className="hidden-loading">
                 <img src={db.background} alt='' onLoad={this.loadingFinish}/>
                 {Object.keys(db.freelance).map((platform, i) => <img key={i} src={`img/platforms/${platform}.png`} alt={platform}/>)}
-                {db.projects.map((p, i) => p.banners ? p.banners.map((b, ii) => <img key={i + '-' + ii} src={b} alt=''/>) : '')}
+                {db.projects.map((p, i) => p.screenshots ? p.screenshots.map((s, ii) => <img key={i + '-' + ii} src={s} alt=''/>) : '')}
             </div>
         </div>
     }

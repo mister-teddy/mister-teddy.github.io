@@ -31,15 +31,19 @@ export default class Showcase extends React.Component {
                     </div>
                 </div>
             }
-            {project.banners && <div className="banner">
+            {project.screenshots && <div className="screenshot">
                 <h3>Screenshots</h3>
                 <Slider {...settings}>
-                    { project.banners.map((banner, i) => 
+                    { project.screenshots.map((screenshot, i) => 
                         <div key={i}>
-                            <img src={banner} alt=""/>
+                            <img src={screenshot} alt=""/>
                         </div>)
                     }
                 </Slider>
+            </div>}
+            {project.src && <div className="preview">
+                <h3>Live preview</h3>
+                <iframe title={project.name} src={project.src} frameBorder="0"></iframe>
             </div>}
         </div>
     }

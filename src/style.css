@@ -2,6 +2,9 @@
     font-family: 'Segoe UI', Lato, Tahoma, Geneva, Verdana, sans-serif;
     font-size: 13px;
 }
+p {
+    font-size: 15px;
+}
 body {
     margin: 0px;
     overflow: hidden;
@@ -169,10 +172,10 @@ iframe {
     border: none;
     float: left;
 }
-.cd-project .banner {
-    height: 60vh;
+.showcase .preview {
+    height: 80vh;
 }
-.showcase .banner img {
+.showcase .screenshot img {
     width: 100%;
 }
 .showcase  .tags {
@@ -186,6 +189,7 @@ iframe {
     border: 1px solid #1d1d1d;
     border-radius: 20px;
     text-decoration: none;
+    white-space: nowrap;
 }
 .showcase  .tags span {
     background-color: #1d1d1d;

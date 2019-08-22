@@ -65,7 +65,7 @@ export default {
             color: 'white',
             logo: 'img/volunteerworld/logo.png',
             component: 'VolunteerWorld',
-            techs: ['Android', 'JavaScript', 'Vue', 'C#'],
+            techs: ['Android', 'JavaScript', 'Vue', 'C#', 'SQL Server'],
             description: <p>Volunteer World is a project for my System Architecture, Human Computer Interaction and Mobile Programing courses. It's a full designed system that has Database for business information, Web Admin for manage system entities and Mobile App for user interaction.</p>,
             important: true
         },
@@ -73,7 +73,7 @@ export default {
             name: 'Hanwha AI Camera',
             color: 'white',
             logo: 'https://www.intercom.com.eg/wp-content/uploads/2018/01/SamsungWisenet-300x300.jpg',
-            techs: ['JavaScript', 'ReactJS', 'ExpressJS', 'MongoDB'],
+            techs: ['JavaScript', 'ReactJS', 'ExpressJS', 'MongoDB', 'Node.js'],
             description: <quote style={{fontSize: 15, fontStyle: 'italic'}}>"Hanwha AI Camera was my very first big-budget project (over 200M+ KRW), and definitely an unforgetable experience of my life. The project was outsourced from the Korea Hanwha Techwin to the Vietnam FPT Software (the company I've worked on at that moment). We use full JavaScript (M.E.R.N Stack) to develope a web based system to handle data from camera and analize them using smart algorithm. I worked on it both client and server side. The project last 12 months to be completed and it was closed in full of customer's satisfication! Unfortunately this is a <b className="fg-red">private project</b>, no further information or any screenshot of the product is allowed to be sharing, sorry!"</quote>,
             important: true
         },
@@ -93,14 +93,15 @@ export default {
         },
         {
             name: 'CD Shop',
-            component: 'CDShop',
+            component: 'Showcase',
+            src: 'https://nguyenhongphat0.github.io/phatcdshop',
             color: 'green',
             icon: 'gamepad',
             techs: ['JavaScript'],
             description: <p>CD Shop is my school course final project and this is my first front end project. CD Shop was built with plain HTML, CSS and JS</p>,
             actions: [
                 {
-                    name: 'Preview online',
+                    name: 'View online',
                     link: 'https://nguyenhongphat0.github.io/phatcdshop'
                 },
                 {
@@ -110,11 +111,37 @@ export default {
             ]
         },
         {
+            name: 'Arena Of Evolution: Red Tides Guide',
+            component: 'Showcase',
+            src: 'https://evolutionchess.github.io',
+            color: 'white',
+            logo: 'https://evolutionchess.github.io/assets/img/shared/logo.png',
+            techs: ['Jekyll', 'JavaScript', 'Vue', 'Bootstrap', 'Google Adsense', 'Google Analytics', 'Facebook Comment API'],
+            description: <p>Arena Of Evolution: Red Tides Guide is a fandom wiki crafted with Jekyll and hosted on Github Pages. This website used to have lots of traffics before Red Tides lost it popular due to competition among other auto-battler like Auto Chess and Team Fight Tactics. It was not only provide in game database lookup, guides and tips to play the game but also some other helful tools like mix, tiers list and update log comparision. If you are a fan of AoE: Red Tides you probably have came to visit this site before, it has very good order in the search result of Google and Bing.</p>,
+            important: true,
+            working: true,
+            actions: [
+                {
+                    name: 'Visit site',
+                    link: 'https://evolutionchess.github.io'
+                },
+                {
+                    name: 'View code on Github',
+                    link: 'https://github.com/evolutionchess/evolutionchess.github.io'
+                }
+            ],
+            screenshots: [
+                'img/evolutionchess/ga.png',
+                'img/evolutionchess/sc.png',
+                'img/evolutionchess/fb.png'
+            ],
+        },
+        {
             name: 'Wordpress Developerpack',
             color: 'white',
             logo: 'https://ps.w.org/developer-pack/assets/icon.svg',
             techs: ['PHP', 'Wordpress'],
-            banners: [
+            screenshots: [
                 'https://ps.w.org/developer-pack/assets/screenshot-1.png',
                 'https://ps.w.org/developer-pack/assets/screenshot-2.png'
             ],
@@ -146,7 +173,7 @@ export default {
             name: 'Plants Vs. Zombies in shell ',
             color: 'cyan',
             icon: 'swarm',
-            banners: [
+            screenshots: [
                 'https://raw.githubusercontent.com/nguyenhongphat0/pvz_shell/master/screenshot.png'
             ],
             techs: ['C++'],
@@ -160,7 +187,7 @@ export default {
             name: 'PhatPhone ',
             color: 'cyan',
             icon: 'mobile',
-            banners: [
+            screenshots: [
                 'img/phatphone/1.png',
                 'img/phatphone/2.png',
                 'img/phatphone/3.png',
@@ -195,7 +222,7 @@ export default {
             name: 'Linuxlover',
             color: 'cyan',
             icon: 'linux',
-            banners: [
+            screenshots: [
                 'img/linuxlover/1.png',
                 'img/linuxlover/2.png',
                 'img/linuxlover/3.png',
@@ -212,7 +239,7 @@ export default {
             name: 'Truong Ba Office',
             color: 'cyan',
             icon: 'css3',
-            banners: [
+            screenshots: [
                 'img/truongba/1.png',
                 'img/truongba/2.png',
                 'img/truongba/3.png',
@@ -226,7 +253,7 @@ export default {
             name: 'Fujioh Warranty Registration Service',
             color: 'cyan',
             icon: 'widgets',
-            banners: [
+            screenshots: [
                 'img/fujioh/1.png',
                 'img/fujioh/2.png',
                 'img/fujioh/3.png',
@@ -238,7 +265,7 @@ export default {
             name: 'Draft Pascal',
             color: 'cyan',
             icon: 'file-code',
-            banners: [
+            screenshots: [
                 'img/draftpascal/1.png',
                 'img/draftpascal/2.png',
                 'img/draftpascal/3.png',
