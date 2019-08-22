@@ -71,12 +71,10 @@ export default {
         },
         {
             name: 'Hanwha AI Camera',
-            link: 'https://github.com/nguyenhongphat0/prestashop-developerpack',
             color: 'white',
             logo: 'https://www.intercom.com.eg/wp-content/uploads/2018/01/SamsungWisenet-300x300.jpg',
             techs: ['JavaScript', 'ReactJS', 'ExpressJS', 'MongoDB'],
-            note: 'Release date: 22/12/2018',
-            description: <p><b className="fg-red">This is a private project! No screenshot or client information is allowed to be explored.</b><div><em>Customer: Hanwha Techwin.</em></div><div><em>Developed team: FPT Software</em></div><div>This is a FPT Software project that I have contributed to. This project using full Javascript stack, I have worked on both client and server side.</div></p>,
+            description: <quote style={{fontSize: 15, fontStyle: 'italic'}}>"Hanwha AI Camera was my very first big-budget project (over 200M+ KRW), and definitely an unforgetable experience of my life. The project was outsourced from the Korea Hanwha Techwin to the Vietnam FPT Software (the company I've worked on at that moment). We use full JavaScript (M.E.R.N Stack) to develope a web based system to handle data from camera and analize them using smart algorithm. I worked on it both client and server side. The project last 12 months to be completed and it was closed in full of customer's satisfication! Unfortunately this is a <b className="fg-red">private project</b>, no further information or any screenshot of the product is allowed to be sharing, sorry!"</quote>,
             important: true
         },
         {
@@ -85,20 +83,34 @@ export default {
             color: 'dark',
             icon: 'profile',
             techs: ['JavaScript', 'ReactJS'],
-            description: <p>This is my portfolio and you are viewing it :D. You can view full sourcecode of this project <a href="https://github.com/nguyenhongphat0/nguyenhongphat0.github.io" target="_blank" rel="noopener noreferrer">here</a>.</p>
+            description: <p>This is my portfolio and you are viewing it :D</p>,
+            actions: [
+                {
+                    name: 'View code on Github',
+                    link: 'https://github.com/nguyenhongphat0/nguyenhongphat0.github.io'
+                }
+            ]
         },
         {
             name: 'CD Shop',
-            link: 'https://nguyenhongphat0.github.io/phatcdshop',
             component: 'CDShop',
             color: 'green',
             icon: 'gamepad',
             techs: ['JavaScript'],
             description: <p>CD Shop is my school course final project and this is my first front end project. CD Shop was built with plain HTML, CSS and JS</p>,
+            actions: [
+                {
+                    name: 'Preview online',
+                    link: 'https://nguyenhongphat0.github.io/phatcdshop'
+                },
+                {
+                    name: 'View code on Github',
+                    link: 'https://github.com/nguyenhongphat0/phatcdshop'
+                }
+            ]
         },
         {
             name: 'Wordpress Developerpack',
-            link: 'https://wordpress.org/plugins/developer-pack/',
             color: 'white',
             logo: 'https://ps.w.org/developer-pack/assets/icon.svg',
             techs: ['PHP', 'Wordpress'],
@@ -107,30 +119,45 @@ export default {
                 'https://ps.w.org/developer-pack/assets/screenshot-2.png'
             ],
             description: <p>Developer Pack allow you to view PHP information, download WordPress site source code with advanced options, and online code editing with a powerful code editor. You don’t have to use FTP or SSH anymore.<br/>Developer Pack is built for the developers/freelancers. If you don’t know how to code PHP or how WordPress work, it is massive dangerous. Please only install it when you know what you are doing!<br/>Remember: This plugin can modify your file system. Use it wisely!</p>,
-            important: true
+            important: true,
+            actions: [
+                {
+                    name: 'Download in Wordpress Plugins',
+                    link: 'https://wordpress.org/plugins/developer-pack/'
+                },
+                {
+                    name: 'View code on Github',
+                    link: 'https://github.com/nguyenhongphat0/wordpress-developerpack'
+                }
+            ]
         },
         {
             name: 'Prestashop Developerpack',
-            link: 'https://github.com/nguyenhongphat0/prestashop-developerpack',
             color: 'white',
             logo: 'img/platforms/Prestashop.png',
             techs: ['PHP', 'Prestashop'],
-            description: <p>Freelancer/Developer use only!<br/>This module allow you to download you website source code for local debugging and edit your file directly in your back office with a powerful code editor. Click <a href="https://github.com/nguyenhongphat0/prestashop-developerpack/blob/master/docs/readme_en.pdf" target="_blank" rel="noopener noreferrer">here</a> to download.</p>,
+            description: <p>Freelancer/Developer use only!<br/>This module allow you to download you website source code for local debugging and edit your file directly in your back office with a powerful code editor.</p>,
+            actions: [{
+                name: 'View code & download on Github',
+                link: 'https://github.com/nguyenhongphat0/prestashop-developerpack',
+            }]
         },
         {
             name: 'Plants Vs. Zombies in shell ',
-            link: 'https://github.com/nguyenhongphat0/pvz_shell',
             color: 'cyan',
             icon: 'swarm',
             banners: [
                 'https://raw.githubusercontent.com/nguyenhongphat0/pvz_shell/master/screenshot.png'
             ],
             techs: ['C++'],
-            description: <p><i>Plants Vs. Zombies <b>in shell</b></i> is a shell-based strategy game that use <u>C++</u> and a shell-based graphical library called <u>ncurses</u>. This game use only 1 thread with manual time slicing technique to create animated. All object\'s stats including damage, health point and respawn time is configable easily in one module.</p>
+            description: <p><i>Plants Vs. Zombies <b>in shell</b></i> is a shell-based strategy game that use <u>C++</u> and a shell-based graphical library called <u>ncurses</u>. This game use only 1 thread with manual time slicing technique to create animated. All object\'s stats including damage, health point and respawn time is configable easily in one module.</p>,
+            actions: [{
+                name: 'View on Github',
+                link: 'https://github.com/nguyenhongphat0/pvz_shell'
+            }]
         },
         {
             name: 'PhatPhone ',
-            link: 'https://github.com/nguyenhongphat0/phatphone',
             color: 'cyan',
             icon: 'mobile',
             banners: [
@@ -141,19 +168,31 @@ export default {
                 'img/phatphone/5.png',
             ],
             techs: ['PHP', 'Bootstrap', 'JQuery', 'JavaScript'],
-            description: <p>PhatPhone is my official phone shop's web site, using many front end technologies like: Bootstrap, JQuery, Marsony grid, AJAX searching and local storage cart system. The website use plain PHP for server side scripting, such as saving orders and manage product.</p>
+            description: <p>PhatPhone is my official phone shop's web site, using many front end technologies like: Bootstrap, JQuery, Marsony grid, AJAX searching and local storage cart system. The website use plain PHP for server side scripting, such as saving orders and manage product.</p>,
+            actions: [{
+                name: 'View code on Github',
+                link: 'https://github.com/nguyenhongphat0/phatphone'
+            }]
         },
         {
             name: 'Thu Vien Cong Giao Viet Nam',
-            link: 'https://nguyenhongphat0.github.io/thuvienconggiaovietnam.net',
             color: 'cyan',
             icon: 'books',
             techs: ['Bootstrap', 'JQuery', 'JavaScript'],
-            description: <p>This is the offcial thuvienconggiaovietnam.net mockup site, using responsive Bootstrap 4, JQuery and old woody design pattern, with full feature pages.</p>
+            description: <p>This is the offcial thuvienconggiaovietnam.net mockup site, using responsive Bootstrap 4, JQuery and old woody design pattern, with full feature pages.</p>,
+            actions: [
+                {
+                    name: 'Preview online',
+                    link: 'https://nguyenhongphat0.github.io/thuvienconggiaovietnam.net'
+                },
+                {
+                    name: 'View code on Github',
+                    link: 'https://github.com/nguyenhongphat0/thuvienconggiaovietnam.net'
+                }
+            ]
         },
         {
             name: 'Linuxlover',
-            link: 'https://github.com/nguyenhongphat0/linuxlover',
             color: 'cyan',
             icon: 'linux',
             banners: [
@@ -163,7 +202,11 @@ export default {
                 'img/linuxlover/4.png',
             ],
             techs: ['PHP', 'Materialize', 'MySQL', 'JavaScript'],
-            description: <p>A fanpage and forum for those who love linux! Clean and modern design, with recursive nested comment allowed.</p>
+            description: <p>A fanpage and forum for those who love linux! Clean and modern design, with recursive nested comment allowed.</p>,
+            actions: [{
+                name: 'View code on Github',
+                link: 'https://github.com/nguyenhongphat0/linuxlover'
+            }]
         },
         {
             name: 'Truong Ba Office',

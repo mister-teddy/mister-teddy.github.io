@@ -38,7 +38,7 @@ export default class VolunteerWorld extends React.Component {
 
     renderWebAdminDetail() {
         const show = this.state.showingSystem === 'webadmin';
-        return <div className="system-detail-container" style={{height: show ? 400 : 0, top: 0, left: 500, background: '#1a9988', color: 'white'}}>
+        return <div className="system-detail-container" style={{height: show ? 400 : 0, top: 0, left: 500, background: 'white', border: show ? '2px solid black' : 'none'}}>
             <ScrollBar>
                 <div className="content">
                     <h3>Web Admin</h3>
@@ -63,7 +63,7 @@ export default class VolunteerWorld extends React.Component {
 
     renderAPIDetail() {
         const show = this.state.showingSystem === 'api';
-        return <div className="system-detail-container" style={{height: show ? 400 : 0, top: 20, left: 20, background: '#f18b50', color: 'white'}}>
+        return <div className="system-detail-container" style={{height: show ? 400 : 0, top: 20, left: 20, background: 'white', border: show ? '2px solid black' : 'none'}}>
             <ScrollBar>
                 <div className="content">
                     <h3>RESTful API</h3>

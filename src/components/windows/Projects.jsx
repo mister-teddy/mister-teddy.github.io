@@ -92,10 +92,16 @@ export default class Projects extends React.Component {
     render() {
         const {techs, expanded, page, keyword} = this.state;
         return <div className={`projects-window navview ${expanded ? 'expanded-fs' : 'expanded-fs compacted'}`}>
-            <nav className="navview-pane">
-                <button className="pull-button" onClick={this.toggleExpand}>
-                <span className="mif-menu"></span>
-                </button>
+            <nav className="navview-pane">                
+                {
+                    page === 'home' ? 
+                    <button className="pull-button" onClick={this.toggleExpand}>
+                        <span className="mif-menu"></span>
+                    </button> :
+                    <button className="pull-button" onClick={this.back}>
+                        <span className="mif-backspace"></span>
+                    </button>
+                }
                 <div className="suggest-box">
                     <div className="input">
                         <input type="text" ref={searchbar => this.searchbar = searchbar} value={keyword} onChange={this.search}/>
@@ -176,7 +182,6 @@ export default class Projects extends React.Component {
     renderSearch() {
         const {keyword} = this.state;
         return <div>
-            <button className="back-button" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
             <h1>Search Result for `{keyword}`</h1>
             <ScrollBar style={{height: 'calc(100% - 60px)'}}>
                 <div className="tiles-grid">
@@ -189,7 +194,6 @@ export default class Projects extends React.Component {
     renderGrid() {
         const {tech} = this.state;
         return <div>
-            <button className="back-button" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
             {tech ? <h1>{tech.name} <span>{tech.count}</span></h1> : <h1>All</h1>}
             <ScrollBar style={{height: 'calc(100% - 60px)'}}>
                 <div className="tiles-grid">
@@ -204,10 +208,8 @@ export default class Projects extends React.Component {
         const component = project.component || 'Showcase';
         const ProjectDetail = require(`../projects/${component}`).default;
         return <ScrollBar>
-            <button className="back-button" onClick={this.back}><span className="mif-backspace mif-5x fg-black"></span></button>
             <h1>{project.name}</h1>
-            {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" className="fg-blue" title="Open this project in a new tab">LIVE PREVIEW</a>}
-            <ProjectDetail project={project}/>
+            <ProjectDetail project={project} viewCategory={tech => this.goto({page: 'grid', tech: this.state.techs.find(t => t.name === tech)})}/>
         </ScrollBar>
     }
 

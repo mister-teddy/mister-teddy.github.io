@@ -174,39 +174,28 @@ iframe {
 }
 .showcase .banner img {
     width: 100%;
-    max-height: 50vh;
-    object-fit: cover;
-    object-position: center;
 }
-.showcase .meta .techs {
+.showcase  .tags {
     display: inline-block;
 }
-.showcase .meta .techs span {
-    padding: 5px 10px;
+.showcase  .tags a, .showcase  .tags span {
+    cursor: pointer;
     margin: 3px 6px 3px 0px;
+    padding: 5px 15px;
+    color: #1d1d1d;
+    border: 1px solid #1d1d1d;
+    border-radius: 20px;
+    text-decoration: none;
+}
+.showcase  .tags span {
+    background-color: #1d1d1d;
     color: white;
-    font-size: 10px;
 }
-.showcase .meta .techs span {
-    background-color: #000;
+.showcase .tags a:hover {
+    text-decoration: underline;
 }
-.showcase .meta .techs .javascript {
-    background-color: #ffc40d;
-}
-.showcase .meta .techs .php {
-    background-color: #6c7eb7;
-}
-.showcase .meta .techs .bootstrap {
-    background-color: #7043a8;
-}
-.showcase .meta .techs .jquery {
-    background-color: #0968ac;
-}
-.showcase .meta .techs .vue {
-    background-color: #41b883;
-}
-.showcase .meta .link {
-    padding: 0px 5px;
+.showcase .tags span:hover {
+    box-shadow: 0px 0px 5px gray;
 }
 .fullscreen-require {
     width: 100vw;
