@@ -34,7 +34,7 @@ export default class Freelance extends React.Component {
 
     render() {
         const {currentProject, address, loading} = this.state;
-        return <div className="freelance-window navview expanded-fs">
+        return <div className="freelance-window navview navview-expand-sm">
             <nav className="navview-pane bg-white pl-4-md pr-4-md pt-4-md pb-4-md">
                 <h1>Sites</h1>
                 <ScrollBar style={{height: 'calc(100% - 106px)', width: '100%'}} renderTrackHorizontal={props => <div {...props} className="track-horizontal" style={{display:"none"}}/>}>

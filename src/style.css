@@ -288,9 +288,6 @@ iframe {
 .navview .navview-menu li button:hover {
     background-color: #CECECE;
 }
-.navview .navview-menu li button:focus {
-    border: 2px solid #0A0A0A;
-}
 .listview {
     display: block;
 }

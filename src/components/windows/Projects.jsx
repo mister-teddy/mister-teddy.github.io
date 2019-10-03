@@ -91,7 +91,7 @@ export default class Projects extends React.Component {
     
     render() {
         const {techs, expanded, page, keyword} = this.state;
-        return <div className={`projects-window navview ${expanded ? 'expanded-fs' : 'expanded-fs compacted'}`}>
+        return <div className={`projects-window navview navview-compact-md navview-expand-lg ${expanded ? '' : 'compacted'}`}>
             <nav className="navview-pane">                
                 {
                     page === 'home' ? 
@@ -133,10 +133,11 @@ export default class Projects extends React.Component {
                     <li className="item-separator"></li>
                     <ScrollBar style={{height: 'calc(100% - 144px)'}}>
                         {techs.map((tech, i) =>
-                            <li key={i}>
+                            <li key={i} className={this.state.tech === tech ? 'active' : ''}>
                                 <button onClick={() => this.goto({page: 'grid', tech})}>
                                     <span className="icon"><span className="mif-folder"></span></span>
                                     <span className="caption">{tech.name}</span>
+                                    <div className="badges"><span className="badge inline">{tech.count}</span></div>
                                 </button>
                             </li>
                         )}
