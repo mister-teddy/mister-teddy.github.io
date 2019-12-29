@@ -354,3 +354,6 @@ iframe {
     width: 100%;
     margin-top: 10px;
 }
+.object-fit-contain {
+    object-fit: contain;
+}

@@ -47,7 +47,7 @@ export default class VolunteerWorld extends React.Component {
                         <b>Technologies used:</b><br/>
                         {this.renderTechnology('VueJS', 'https://vuejs.org/images/logo.png', 'https://vuejs.org')}
                         {this.renderTechnology('Core UI', 'https://coreui.io/assets/img/coreui-sygnet-white.png', 'https://coreui.io')}
-                        {this.renderTechnology('Bootstrap', 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Boostrap_logo.svg', 'https://getbootstrap.com')}
+                        {this.renderTechnology('Bootstrap', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAGYZ3Orbg8-6EFJdHTcxiq5HloPsiP0q0mdm2U2TTTqv1ILN2&s', 'https://getbootstrap.com')}
                         {this.renderTechnology('Flatpickr', 'https://flatpickr.js.org/images/logo.png', 'https://flatpickr.js.org')}
                     </p>
                     <div className="screenshots">
@@ -71,8 +71,8 @@ export default class VolunteerWorld extends React.Component {
                     <p>
                         <b>Technologies used:</b><br/>
                         {this.renderTechnology('ASP.NET', 'https://cdn4.iconfinder.com/data/icons/logos-3/504/ASP.Net-512.png', 'https://asp.net')}
-                        {this.renderTechnology('Microsoft SQL Server', 'https://azurecomcdn.azureedge.net/cvt-cf58e036f3a90892f94ad7c7e3793eca0f3c6a6f55e2745bb083941a1d34ed8a/images/page/services/sql-database/sql-db.svg', 'https://www.microsoft.com/en-us/sql-server')}
-                        {this.renderTechnology('Azure', 'https://www.fixedbuffer.com/wp-content/uploads/2019/01/Azure.png', 'https://azure.microsoft.com')}
+                        {this.renderTechnology('Microsoft SQL Server', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtVx8CHWF1HBLTEw7QfoxqCm6zLOXytIf0XT1b3joiTQf6lPOxoQ&s', 'https://www.microsoft.com/en-us/sql-server')}
+                        {this.renderTechnology('Azure', 'https://www.syntax.com/wp-content/uploads/2019/08/2000px-Microsoft_Azure_Logo.svg_.png', 'https://azure.microsoft.com')}
                         {this.renderTechnology('Swagger', 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png', 'https://swagger.io')}
                     </p>
                     <div className="screenshots">

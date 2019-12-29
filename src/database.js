@@ -180,8 +180,8 @@ export default {
         },
         {
             name: 'Plants Vs. Zombies in shell ',
-            color: 'cyan',
-            icon: 'swarm',
+            color: 'white',
+            logo: 'img/logos/8-bit_bucket-head.png',
             screenshots: [
                 'https://raw.githubusercontent.com/nguyenhongphat0/pvz_shell/master/screenshot.png'
             ],
@@ -194,8 +194,8 @@ export default {
         },
         {
             name: 'PhatPhone ',
-            color: 'cyan',
-            icon: 'mobile',
+            color: 'black',
+            logo: 'img/phatphone/logo.png',
             screenshots: [
                 'img/phatphone/1.png',
                 'img/phatphone/2.png',
@@ -212,8 +212,8 @@ export default {
         },
         {
             name: 'Thu Vien Cong Giao Viet Nam',
-            color: 'cyan',
-            icon: 'books',
+            color: 'white',
+            logo: 'img/logos/thuvienconggiaovietnam.png',
             techs: ['Bootstrap', 'JQuery', 'JavaScript'],
             description: <p>This is the offcial thuvienconggiaovietnam.net mockup site, using responsive Bootstrap 4, JQuery and old woody design pattern, with full feature pages.</p>,
             actions: [
@@ -228,9 +228,22 @@ export default {
             ]
         },
         {
+            shortName: 'Fujioh Warranty Registration Service',
+            name: 'Fujioh Warranty Registration Service',
+            color: 'red',
+            icon: 'widgets',
+            screenshots: [
+                'img/fujioh/1.png',
+                'img/fujioh/2.png',
+                'img/fujioh/3.png',
+            ],
+            techs: ['Angular', 'Bootstrap', 'JavaScript'],
+            description: <p>Fujioh warranty registration system, using Angular 6 and Bootstrap 4</p>
+        },
+        {
             name: 'Linuxlover',
-            color: 'cyan',
-            icon: 'linux',
+            color: 'black',
+            logo: 'img/linuxlover/logo.png',
             screenshots: [
                 'img/linuxlover/1.png',
                 'img/linuxlover/2.png',
@@ -246,8 +259,8 @@ export default {
         },
         {
             name: 'Truong Ba Office',
-            color: 'cyan',
-            icon: 'css3',
+            color: 'white',
+            logo: 'img/truongba/logo.jpg',
             screenshots: [
                 'img/truongba/1.png',
                 'img/truongba/2.png',
@@ -258,22 +271,9 @@ export default {
             description: <p>Truong Ba Inc. official office application. Run on Vue.JS and plain PHP api'</p>
         },
         {
-            shortName: 'Fujioh',
-            name: 'Fujioh Warranty Registration Service',
-            color: 'cyan',
-            icon: 'widgets',
-            screenshots: [
-                'img/fujioh/1.png',
-                'img/fujioh/2.png',
-                'img/fujioh/3.png',
-            ],
-            techs: ['Angular', 'Bootstrap', 'JavaScript'],
-            description: <p>Fujioh warranty registration system, using Angular 6 and Bootstrap 4</p>
-        },
-        {
             name: 'Draft Pascal',
-            color: 'cyan',
-            icon: 'file-code',
+            color: 'white',
+            logo: 'img/draftpascal/logo.ico',
             screenshots: [
                 'img/draftpascal/1.png',
                 'img/draftpascal/2.png',

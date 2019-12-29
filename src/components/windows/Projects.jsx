@@ -217,7 +217,7 @@ export default class Projects extends React.Component {
     renderProjectTile(project, i) {
         return <div key={i} className={`tile-medium bg-${project.color}`} onClick={() => this.goto({page: 'detail', project})}>
             {project.icon && <span className={`icon mif-${project.icon}`}/>}
-            {project.logo && <img src={project.logo} className="h-100 w-100" alt={project.name}/>}
+            {project.logo && <img src={project.logo} className="h-100 w-100 object-fit-contain" alt={project.name}/>}
             <span className="branding-bar">{project.shortName ? project.shortName : project.name}</span>
         </div>
     }
