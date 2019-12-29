@@ -28,7 +28,7 @@ export default {
         {
             name: 'My CV',
             component: 'Iframe',
-            link: 'cv.pdf',
+            link: 'pdf/cv.pdf',
             color: 'orange',
             icon: 'profile',
             size: 'medium'
@@ -60,6 +60,15 @@ export default {
         }
     ],
     projects: [
+        {
+            name: 'Question Bank Checking System - Season 2',
+            color: 'white',
+            logo: 'img/qbcs2/logo.png',
+            component: 'QBCS2',
+            src: 'pdf/qbcs2_document_full.pdf',
+            techs: ['C#', 'JavaScript', 'Vue', 'SQL Server', 'SQL Assembly', 'DeepSpeech'],
+            important: true
+        },
         {
             name: 'Volunteer World',
             color: 'white',
