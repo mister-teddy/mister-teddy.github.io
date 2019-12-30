@@ -289,6 +289,9 @@ export default {
         Wordpress: [
             'thuyduong.com.vn',
             'tinibui-couture.com',
+            'thingstobloom.fr',
+            'ecodair.org',
+            'lefournildevillabe.com',
             'lyon-mariage.com',
             'pro-plan.fr',
             'hotel-admiral.fr',
@@ -310,10 +313,13 @@ export default {
             'sossantegrace.fr',
             'carterandfont.com',
             'nvburo.fr',
-            'transports-schubel.com'
+            'transports-schubel.com',
+            'lyon-paysagiste.fr'
         ],
         Prestashop: [
             'thecosmohouse.vn',
+            'idocaps.com',
+            'mecaplastic-80.com',
             'rvetec.com',
             'cie-bracelet-montre.com',
             'lappartementfrancais.fr',
