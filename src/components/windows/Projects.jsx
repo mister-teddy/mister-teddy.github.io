@@ -206,7 +206,6 @@ export default class Projects extends React.Component {
 
     renderProjectDetail() {
         const {project} = this.state;
-        console.log(project)
         const component = project.component || 'Showcase';
         const ProjectDetail = require(`../projects/${component}`).default;
         return <ScrollBar>
