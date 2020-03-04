@@ -357,3 +357,9 @@ iframe {
 .object-fit-contain {
     object-fit: contain;
 }
+.bg-confidential {
+    background-image: url(/img/shared/confidential.png);
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+}

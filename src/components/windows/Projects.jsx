@@ -144,7 +144,7 @@ export default class Projects extends React.Component {
                     </ScrollBar>
                 </ul>
             </nav>
-            <div className="navview-content pl-4-md pr-4-md">
+            <div className={`navview-content ${page !== 'detail' ? ' pl-4-md pr-4-md' : ''}`}>
                 {page === 'home' && this.renderHome()}
                 {page === 'search' && this.renderSearch()}
                 {page === 'grid' && this.renderGrid()}
@@ -206,11 +206,14 @@ export default class Projects extends React.Component {
 
     renderProjectDetail() {
         const {project} = this.state;
+        console.log(project)
         const component = project.component || 'Showcase';
         const ProjectDetail = require(`../projects/${component}`).default;
         return <ScrollBar>
-            <h1>{project.name}</h1>
-            <ProjectDetail project={project} viewCategory={tech => this.goto({page: 'grid', tech: this.state.techs.find(t => t.name === tech)})}/>
+            <div className={`pl-4-md pr-4-md ${project.confidential ? 'bg-confidential fg-white' : ''}`}>
+                <h1>{project.name}</h1>
+                <ProjectDetail project={project} viewCategory={tech => this.goto({page: 'grid', tech: this.state.techs.find(t => t.name === tech)})}/>
+            </div>
         </ScrollBar>
     }
 

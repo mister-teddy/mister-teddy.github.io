@@ -84,7 +84,8 @@ export default {
             logo: 'https://www.intercom.com.eg/wp-content/uploads/2018/01/SamsungWisenet-300x300.jpg',
             techs: ['JavaScript', 'ReactJS', 'ExpressJS', 'MongoDB', 'Node.js'],
             description: <quote style={{fontSize: 15, fontStyle: 'italic'}}>"Hanwha AI Camera was my very first big-budget project (over 200M+ KRW), and definitely an unforgetable experience of my life. The project was outsourced from the Korea Hanwha Techwin to the Vietnam FPT Software (the company I've worked on at that moment). We use full JavaScript (M.E.R.N Stack) to develope a web based system to handle data from camera and analize them using smart algorithm. I worked on it both client and server side. The project last 12 months to be completed and it was closed in full of customer's satisfication! Unfortunately this is a <b className="fg-red">private project</b>, no further information or any screenshot of the product is allowed to be sharing, sorry!"</quote>,
-            important: true
+            important: true,
+            confidential: true
         },
         {
             name: 'nguyenhongphat0.github.io',
