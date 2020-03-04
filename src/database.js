@@ -79,6 +79,24 @@ export default {
             important: true
         },
         {
+            name: 'AIA Distribution Portal',
+            color: 'white',
+            logo: 'img/logos/aia.png',
+            techs: ['JavaScript', 'ReactJS', 'Redux', 'Power BI'],
+            description: 'FPT Software is a world class software company mainly working on outsourcing and offshore development center business. AIA is one of FPT\'s biggest customers. Distribution Portal (ADP4) is a system that manages AIA\'s invoice, insurance, hierarchy,... and so on.',
+            working: true,
+            confidential: true
+        },
+        {
+            name: 'AIA MDM - Phase 2',
+            color: 'white',
+            logo: 'img/logos/aia.png',
+            techs: ['JavaScript', 'ReactJS', 'Redux', 'Umi.JS', 'DVA.JS', 'Ant Design'],
+            description: 'MDM is an outdated and unusable system of AIA. FPT takes care of database maintenance and builds a new system with improved features based on functions of the old system and latest technology stack.',
+            working: true,
+            confidential: true
+        },
+        {
             name: 'Hanwha AI Camera',
             color: 'white',
             logo: 'https://www.intercom.com.eg/wp-content/uploads/2018/01/SamsungWisenet-300x300.jpg',
