@@ -50,20 +50,20 @@ export default {
             size: 'wide'
         },
         {
-            name: 'Timeline',
-            component: 'Timeline',
-            color: 'black',
-            icon: 'vpn-publ',
-            size: 'medium',
-        },
-        {
             shortName: 'My first website',
             name: 'CDShop',
             component: 'Iframe',
             link: 'https://nguyenhongphat0.github.io/phatcdshop',
-            color: 'green',
+            color: 'dark',
             icon: 'backward',
             size: 'medium',
+        },
+        {
+            name: 'Timeline',
+            component: 'Timeline',
+            color: 'dark',
+            icon: 'history',
+            size: 'wide',
         }
     ],
     timeline: {
@@ -81,7 +81,7 @@ export default {
                         month: 2,
                         year: 2020,
                         preview: 'img/timeline/fpt-software-logo.png',
-                        detail: <div style={{height: 430}}><iframe title="first-fulltime-job" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1581954698622541%26id%3D100004240774642&width=500&show_text=true&appId=483014678906039&height=608" width="500" height="608" scrolling="no" frameborder="0" allow="encrypted-media"></iframe></div>
+                        detail: <div style={{height: 430}}><iframe title="first-fulltime-job" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1581954698622541%26id%3D100004240774642&width=500&show_text=true&appId=483014678906039&height=608" width="500" height="608" scrolling="no" frameBorder="0" allow="encrypted-media"></iframe></div>
                     }
                 ]
             },
@@ -117,7 +117,7 @@ export default {
             },
             {
                 name: 'Other',
-                icon: 'global',
+                icon: 'vpn-publ',
                 color: 'gray',
                 events: []
             }

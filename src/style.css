@@ -367,6 +367,9 @@ iframe {
 .timeline .streamer {
     height: 100%
 }
+.timeline .streamer .stream-title {
+    padding-top: 10px;
+}
 .timeline .streamer .events-area {
     height: 100%;
 }
@@ -388,4 +391,13 @@ iframe {
     width: 100%;
     float: left;
     padding: 5px 0;
+}
+.tile[title="Timeline"] {
+    background: repeating-linear-gradient(
+        45deg,
+        #1ba1e2,
+        #1ba1e2 10px,
+        #2cb2f3 10px,
+        #2cb2f3 20px
+    )
 }
