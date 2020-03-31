@@ -20,7 +20,8 @@ export default class TimelineItem extends React.Component {
 
     render() {
         const { popover } = this.state;
-        const { title, subtitle, description, day, month, year, category, preview, icon, photos, detail } = this.props;
+        const { title, subtitle, description, day, month, year, category, preview, photos, detail } = this.props;
+        const popable = detail || photos;
         return (
             <div className="stream-event size-1x exclude-select-class" style={{position: 'absolute', top: 0, left: this.calculateLeft(year)}}>
                 <div className="stream-event-slide" onClick={this.togglePopover}>
@@ -33,10 +34,10 @@ export default class TimelineItem extends React.Component {
                         <div className="subtitle">{subtitle}</div>
                         <div className="desc">{description}</div>
                     </div>
-                    {icon && <span className={`mif-${icon} state-icon`} />}
+                    {popable && <span className="mif-chevron-thin-down state-icon" />}
                 </div>
                 {
-                    ((detail || photos) && popover) && <div className="popover neb neb-n bottom">
+                    (popable && popover) && <div className="popover neb neb-n bottom">
                         <div className="popover-content">
                             {detail}
                             {photos && photos.map(photo => <img alt={title} src={photo} />)}

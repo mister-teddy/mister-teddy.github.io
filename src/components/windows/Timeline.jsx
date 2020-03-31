@@ -19,11 +19,8 @@ export default class Timeline extends React.Component {
             <div className="streamer-expand-sm streamer">
                 <div className="streams">
                     <div className="streamer-actions">
-                        <button className="streamer-action"><span className="mif-print" /></button>
-                        <button className="streamer-action"><span className="mif-file-pdf" /></button>
-                        <button className="streamer-action"><span className="mif-envelop" /></button>
-                        <button className="streamer-action fg-darkCyan"><span className="mif-facebook" /></button>
-                        <button className="streamer-action"><span className="mif-twitter" /></button>
+                        <button className="streamer-action" onClick={() => window.print()}><span className="mif-print" /></button>
+                        <a href={db.links[0].url} target="_blank" rel="noopener noreferrer" className="streamer-action fg-darkCyan"><span className="mif-facebook" /></a>
                     </div>
                     {categories.map(category => <div key={category.name} className={`stream bg-${category.color} fg-white`}>
                             <div className="stream-title">{category.name}</div>

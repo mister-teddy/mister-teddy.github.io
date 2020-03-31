@@ -74,6 +74,15 @@ export default {
                 color: 'cyan',
                 events: [
                     {
+                        title: 'Bamboo Dev.',
+                        subtitle: 'Start working',
+                        description: 'WordPress & Prestashop Developer',
+                        day: 10,
+                        month: 4,
+                        year: 2017,
+                        preview: 'img/logos/bamboo.png',
+                    },
+                    {
                         title: 'FPT Software',
                         subtitle: 'Start working',
                         description: 'Front-End Developer',
@@ -81,15 +90,42 @@ export default {
                         month: 2,
                         year: 2020,
                         preview: 'img/timeline/fpt-software-logo.png',
-                        detail: <div style={{height: 430}}><iframe title="first-fulltime-job" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1581954698622541%26id%3D100004240774642&width=500&show_text=true&appId=483014678906039&height=608" width="500" height="608" scrolling="no" frameBorder="0" allow="encrypted-media"></iframe></div>
+                        detail: <div style={{height: 430}}><iframe title="First fulltime job" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1581954698622541%26id%3D100004240774642&width=500&show_text=true&appId=483014678906039&height=608" width="500" height="608" scrolling="no" frameBorder="0" allow="encrypted-media"></iframe></div>
                     }
                 ]
             },
             {
-                name: 'Certifications',
+                name: 'Education',
                 icon: 'profile',
                 color: 'orange',
                 events: [
+                    {
+                        title: 'Graduate High School',
+                        subtitle: 'Hau Nghia High School',
+                        description: <div>Performance: Good<br/>Conduct: Good</div>,
+                        day: 17,
+                        month: 4,
+                        year: 2016,
+                    },
+                    {
+                        title: 'Defend graduation thesis',
+                        subtitle: 'FPT University',
+                        description: <div>Question Bank Checking System<br/>Grade: 8.4</div>,
+                        day: 27,
+                        month: 12,
+                        year: 2019,
+                        preview: 'img/qbcs2/logo.png'
+                    },
+                    {
+                        title: 'Graduate University',
+                        subtitle: 'FPT University',
+                        description: <div>Major: Software Engineering<br/>GPA: 8.05</div>,
+                        day: 9,
+                        month: 3,
+                        year: 2020,
+                        preview: 'img/timeline/fpt-university-logo.png',
+                        detail: <a className="button primary" href="pdf/interim-academic-transcript.pdf" target="_blank">View Transcript</a>
+                    }
                 ]
             },
             {
@@ -97,6 +133,45 @@ export default {
                 icon: 'gift',
                 color: 'green',
                 events: [
+                    {
+                        title: 'Thủ khoa',
+                        subtitle: 'Hau Nghia High School',
+                        description: 'Grade: 47/50',
+                        day: 1,
+                        month: 10,
+                        year: 2013,
+                    },
+                    {
+                        title: 'Học sinh giỏi cấp tỉnh',
+                        subtitle: 'First prize',
+                        description: 'Informatics - Algorithm and Data Structre with Pascal',
+                        day: 20,
+                        month: 11,
+                        year: 2014,
+                    },
+                    {
+                        title: 'Tin học trẻ không chuyên quốc gia',
+                        subtitle: 'Consolation prize',
+                        description: 'Binh Dinh, Viet Nam',
+                        day: 17,
+                        month: 4,
+                        year: 2015,
+                    },
+                    {
+                        title: '70% Scholarship',
+                        subtitle: 'FPT University',
+                        day: 5,
+                        month: 10,
+                        year: 2016,
+                    },
+                    {
+                        title: 'Excellent Student of the Semester',
+                        subtitle: 'FPT University',
+                        description: 'GPA > 9.0 in a semester',
+                        day: 28,
+                        month: 9,
+                        year: 2017,
+                    },
                 ]
             },
             {
@@ -110,16 +185,33 @@ export default {
                         subtitle: 'The day I was born',
                         day: 28,
                         month: 12,
-                        year: 1998,
-                        icon: 'ambulance',
-                    }
+                        year: 1998
+                    },
+                    {
+                        title: 'First love',
+                        description: 'With someone special!',
+                        preview: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Love_Heart_symbol.svg/1111px-Love_Heart_symbol.svg.png',
+                        day: 20,
+                        month: 11,
+                        year: 2014,
+                    },
                 ]
             },
             {
                 name: 'Other',
                 icon: 'vpn-publ',
                 color: 'gray',
-                events: []
+                events: [
+                    {
+                        title: 'The corona virus',
+                        subtitle: 'Global disease',
+                        description: 'Everyone is isolated, work from home',
+                        preview: 'img/timeline/covid-19.jpg',
+                        day: 1,
+                        month: 1,
+                        year: 2020,
+                    },
+                ]
             }
         ]
     },

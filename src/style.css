@@ -393,11 +393,6 @@ iframe {
     padding: 5px 0;
 }
 .tile[title="Timeline"] {
-    background: repeating-linear-gradient(
-        45deg,
-        #1ba1e2,
-        #1ba1e2 10px,
-        #2cb2f3 10px,
-        #2cb2f3 20px
-    )
+    background-image: url('/img/timeline/cover.jpg');
+    background-size: cover;
 }
