@@ -9,7 +9,16 @@ export default class Timeline extends React.Component {
     }
 
     handleLoad = e => {
-        e.currentTarget.scrollLeft += e.currentTarget.scrollWidth;
+        this.area = e.currentTarget;
+        this.jumpToEnd();
+    }
+
+    jumpToStart = e => {
+        this.area.scrollLeft = 0;
+    }
+
+    jumpToEnd = e => {
+        this.area.scrollLeft = this.area.scrollWidth;
     }
 
     render() {
@@ -20,7 +29,8 @@ export default class Timeline extends React.Component {
                 <div className="streams">
                     <div className="streamer-actions">
                         <button className="streamer-action" onClick={() => window.print()}><span className="mif-print" /></button>
-                        <a href={db.links[0].url} target="_blank" rel="noopener noreferrer" className="streamer-action fg-darkCyan"><span className="mif-facebook" /></a>
+                        <button className="streamer-action" onClick={this.jumpToStart}><span className="mif-chevron-thin-left" /></button>
+                        <button className="streamer-action" onClick={this.jumpToEnd}><span className="mif-chevron-thin-right" /></button>
                     </div>
                     {categories.map(category => <div key={category.name} className={`stream bg-${category.color} fg-white`}>
                             <div className="stream-title">{category.name}</div>
