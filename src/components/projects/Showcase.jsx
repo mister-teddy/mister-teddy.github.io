@@ -20,7 +20,7 @@ export default class Showcase extends React.Component {
                 </div>
             </div>
             <h3>Description</h3>
-            {project.confidential && <p className="text-bold fg-red" title="This is a company's private project, no screenshot or further information is allowed to be sharing!"><span className="mif-warning"></span> Confidential!</p>}
+            {project.confidential && <p className="text-bold fg-red" title="Due to the NDA, no screenshot and further information about the project is allowed to be sharing, sorry!"><span className="mif-warning"></span> Confidential!</p>}
             <p>{project.description}</p>
             {project.actions &&
                 <div>

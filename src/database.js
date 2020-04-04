@@ -89,7 +89,7 @@ export default {
                         day: 7,
                         month: 2,
                         year: 2020,
-                        preview: 'img/timeline/fpt-software-logo.png',
+                        preview: 'img/logos/fpt-software.png',
                         detail: <div style={{height: 430}}><iframe title="First fulltime job" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1581954698622541%26id%3D100004240774642&width=500&show_text=true&appId=483014678906039&height=608" width="500" height="608" scrolling="no" frameBorder="0" allow="encrypted-media"></iframe></div>
                     }
                 ]
@@ -235,29 +235,28 @@ export default {
             important: true
         },
         {
-            name: 'AIA Distribution Portal',
+            name: 'Distribution Portal',
             color: 'white',
-            logo: 'img/logos/aia.png',
+            logo: 'img/logos/fpt-software.png',
             techs: ['JavaScript', 'ReactJS', 'Redux', 'Power BI'],
-            description: 'FPT Software is a world class software company mainly working on outsourcing and offshore development center business. AIA is one of FPT\'s biggest customers. Distribution Portal (ADP4) is a system that manages AIA\'s invoice, insurance, hierarchy,... and so on.',
-            working: true,
+            description: 'FPT Software is a world class software company mainly working on outsourcing and offshore development center (ODC) business. Distribution Portal was an ODC project which I\'ve been paticipated on, aim at enterprise insurance and financial bussiness.',
             confidential: true
         },
         {
-            name: 'AIA MDM - Phase 2',
+            name: 'MDM',
             color: 'white',
-            logo: 'img/logos/aia.png',
+            logo: 'img/logos/fpt-software.png',
             techs: ['JavaScript', 'ReactJS', 'Redux', 'Umi.JS', 'DVA.JS', 'Ant Design'],
-            description: 'MDM is an outdated and unusable system of AIA. FPT takes care of database maintenance and builds a new system with improved features based on functions of the old system and latest technology stack.',
+            description: 'FPT Software is a world class software company mainly working on outsourcing and offshore development center (ODC) business. Along with building new system, FPT also takes care of old system maintainance, rebuild a better one based on functions of the old system with latest technology stack. MDM is one of these.',
             working: true,
             confidential: true
         },
         {
-            name: 'Hanwha AI Camera',
+            name: 'AI Security Camera',
             color: 'white',
-            logo: 'https://www.intercom.com.eg/wp-content/uploads/2018/01/SamsungWisenet-300x300.jpg',
+            logo: 'img/logos/fpt-software.png',
             techs: ['JavaScript', 'ReactJS', 'ExpressJS', 'MongoDB', 'Node.js'],
-            description: <quote style={{fontSize: 15, fontStyle: 'italic'}}>"Hanwha AI Camera was my very first big-budget project (over 200M+ KRW), and definitely an unforgetable experience of my life. The project was outsourced from the Korea Hanwha Techwin to the Vietnam FPT Software (the company I've worked on at that moment). We use full JavaScript (M.E.R.N Stack) to develope a web based system to handle data from camera and analize them using smart algorithm. I worked on it both client and server side. The project last 12 months to be completed and it was closed in full of customer's satisfication! Unfortunately this is a <b className="fg-red">private project</b>, no further information or any screenshot of the product is allowed to be sharing, sorry!"</quote>,
+            description: <quote style={{fontSize: 15, fontStyle: 'italic'}}>AI Security Camera was my very first big-budget project, and definitely an unforgetable experience of my life. We use full JavaScript (M.E.R.N Stack) to develope a web based system to handle data from camera and analize them using smart algorithm. I worked on it both client and server side. The project last 12 months to be completed and it was closed in full of customer's satisfication! Unfortunately this is a <b className="fg-red">private project</b>, no further information or any screenshot of the product is allowed to be sharing, sorry!</quote>,
             important: true,
             confidential: true
         },
