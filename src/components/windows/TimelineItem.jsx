@@ -14,7 +14,7 @@ export default class TimelineItem extends React.Component {
         if (year === 1998) {
             return 0
         } else {
-            return 224*(year - 2008)-1;
+            return 224*(year - 2010)-1;
         }
     }
 
@@ -40,7 +40,7 @@ export default class TimelineItem extends React.Component {
                     (popable && popover) && <div className="popover neb neb-n bottom">
                         <div className="popover-content">
                             {detail}
-                            {photos && photos.map(photo => <img alt={title} src={photo} />)}
+                            {photos && photos.map((photo, i) => <a key={i} href={photo} target="_blank" rel="noopener noreferrer"><img alt={title} src={photo} /></a>)}
                         </div>
                         <button onClick={this.togglePopover} className="button square small popover-close-button bg-white">×</button>
                     </div>

@@ -5,12 +5,16 @@ import db from '../../database';
 export default class Timeline extends React.Component {
 
     handleScroll = e => {
-        e.currentTarget.scrollLeft += e.deltaY;
+        if (e.target === e.currentTarget) {
+            e.currentTarget.scrollLeft += e.deltaY;
+        }
     }
 
     handleLoad = e => {
-        this.area = e.currentTarget;
-        this.jumpToEnd();
+        if (!this.area) {
+            this.area = e.currentTarget;
+            this.jumpToEnd();
+        }
     }
 
     jumpToStart = e => {
@@ -40,7 +44,7 @@ export default class Timeline extends React.Component {
                 </div>
                 <div className="events-area" onWheel={this.handleScroll} onLoad={this.handleLoad}>
                     <ul className="streamer-timeline">
-                        {[1998, '...', 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 'NOW'].map(year => <li key={year}><em>{year}</em></li>)}
+                        {[1998, '...', 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 'NOW'].map(year => <li key={year}><em>{year}</em></li>)}
                     </ul>
                     {categories.map(category => <div key={category.name} className="streamer-events">
                             <div className="event-group">

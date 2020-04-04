@@ -386,6 +386,8 @@ iframe {
 .timeline .streamer .stream-event .popover {
     position: absolute;
     max-width: unset;
+    max-height: 320px;
+    overflow: auto;
 }
 .timeline .streamer .stream-event .popover img {
     width: 100%;

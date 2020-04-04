@@ -83,6 +83,17 @@ export default {
                         preview: 'img/logos/bamboo.png',
                     },
                     {
+                        title: 'FPT Software (OJT)',
+                        subtitle: 'On the job training',
+                        day: 21,
+                        month: 12,
+                        year: 2018,
+                        preview: 'img/logos/fpt-software.png',
+                        photos: [
+                            'img/timeline/merits/ojt.jpg',
+                        ]
+                    },
+                    {
                         title: 'FPT Software',
                         subtitle: 'Start working',
                         description: 'Front-End Developer',
@@ -90,7 +101,7 @@ export default {
                         month: 2,
                         year: 2020,
                         preview: 'img/logos/fpt-software.png',
-                        detail: <div style={{height: 430}}><iframe title="First fulltime job" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1581954698622541%26id%3D100004240774642&width=500&show_text=true&appId=483014678906039&height=608" width="500" height="608" scrolling="no" frameBorder="0" allow="encrypted-media"></iframe></div>
+                        detail: <div style={{height: 450}}><iframe title="First fulltime job" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1581954698622541%26id%3D100004240774642&width=500&show_text=true&appId=483014678906039&height=608" width="500" height="608" scrolling="no" frameBorder="0" allow="encrypted-media"></iframe></div>
                     }
                 ]
             },
@@ -106,6 +117,25 @@ export default {
                         day: 17,
                         month: 4,
                         year: 2016,
+                        photos: [
+                            'img/timeline/merits/1.jpg',
+                            'img/timeline/merits/1-all.jpg',
+                            'img/timeline/merits/2.jpg',
+                            'img/timeline/merits/3.jpg',
+                            'img/timeline/merits/4.jpg',
+                            'img/timeline/merits/5.jpg',
+                            'img/timeline/merits/6.jpg',
+                            'img/timeline/merits/7.jpg',
+                            'img/timeline/merits/8.jpg',
+                            'img/timeline/merits/9.jpg',
+                            'img/timeline/merits/10.jpg',
+                            'img/timeline/merits/11.jpg',
+                            'img/timeline/merits/12.jpg',
+                            'img/timeline/merits/12-social.jpg',
+                            'img/timeline/merits/math.jpg',
+                            'img/timeline/merits/12-best-subject.jpg',
+                            'img/timeline/merits/12-province.jpg',
+                        ]
                     },
                     {
                         title: 'Defend graduation thesis',
@@ -148,6 +178,12 @@ export default {
                         day: 20,
                         month: 11,
                         year: 2014,
+                        photos: [
+                            'img/timeline/merits/tht-first.jpg',
+                            'img/timeline/merits/tht-second.jpg',
+                            'img/timeline/merits/tht-third.jpg',
+                            'img/timeline/merits/hsg-second.jpg',
+                        ]
                     },
                     {
                         title: 'Tin học trẻ không chuyên quốc gia',
@@ -158,11 +194,24 @@ export default {
                         year: 2015,
                     },
                     {
+                        title: 'Odon Vallet Scholarship',
+                        subtitle: 'Odon Vallet',
+                        day: 11,
+                        month: 9,
+                        year: 2016,
+                        photos: [
+                            'img/timeline/merits/odon-vallet.jpg',
+                        ]
+                    },
+                    {
                         title: '70% Scholarship',
                         subtitle: 'FPT University',
                         day: 5,
                         month: 10,
-                        year: 2016,
+                        year: 2017,
+                        photos: [
+                            'img/timeline/merits/70-scholarship.jpg',
+                        ]
                     },
                     {
                         title: 'Excellent Student of the Semester',
@@ -170,7 +219,10 @@ export default {
                         description: 'GPA > 9.0 in a semester',
                         day: 28,
                         month: 9,
-                        year: 2017,
+                        year: 2018,
+                        photos: [
+                            'img/timeline/merits/fptu-esots.jpg',
+                        ]
                     },
                 ]
             },
