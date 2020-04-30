@@ -380,6 +380,9 @@ iframe {
 .timeline .streamer .stream-event-slide .slide-logo .icon {
     object-fit: contain;
 }
+.timeline .streamer .stream-event-slide .slide-data .title {
+    white-space: break-spaces;
+}
 .timeline .streamer .stream-event {
     overflow: visible;
 }

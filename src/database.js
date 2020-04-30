@@ -164,7 +164,7 @@ export default {
                 color: 'green',
                 events: [
                     {
-                        title: 'Thủ khoa',
+                        title: 'Valedictorian',
                         subtitle: 'Hau Nghia High School',
                         description: 'Grade: 47/50',
                         day: 1,
@@ -172,7 +172,7 @@ export default {
                         year: 2013,
                     },
                     {
-                        title: 'Học sinh giỏi cấp tỉnh',
+                        title: 'Provincial Excellent Student',
                         subtitle: 'First prize',
                         description: 'Informatics - Algorithm and Data Structre with Pascal',
                         day: 20,
@@ -186,7 +186,7 @@ export default {
                         ]
                     },
                     {
-                        title: 'Tin học trẻ không chuyên quốc gia',
+                        title: 'National Computer Science Contest',
                         subtitle: 'Consolation prize',
                         description: 'Binh Dinh, Viet Nam',
                         day: 17,
