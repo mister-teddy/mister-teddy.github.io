@@ -94,6 +94,14 @@ export default class App extends Component {
             loading: true
         });
     }
+
+    fallbackBackground = () => {
+        if (this.state.loading) {
+            this.setState({
+                background: db.fallback,
+            }, this.loadingFinish);
+        }
+    }
     
     getAppContext = () => ({
         background: this.state.background,
@@ -108,7 +116,8 @@ export default class App extends Component {
         goFullscreen: this.goFullscreen,
         setBackground: this.setBackground,
         startLoading: this.startLoading,
-        loadingFinish: this.loadingFinish
+        loadingFinish: this.loadingFinish,
+        fallbackBackground: this.fallbackBackground,
     })
 
     render() {
@@ -123,6 +132,7 @@ export default class App extends Component {
     }
     
     renderLoader() {
+        setTimeout(this.fallbackBackground, 10000);
         const {loading, opacity} = this.state;
         return loading && <div>
             <Preloader color="black" opacity={opacity}/>

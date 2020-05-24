@@ -2,6 +2,7 @@ import React from 'react';
 
 export default {
     background: 'https://picsum.photos/1920/1080/?random',
+    fallback: 'img/shared/confidential.png',
     width: 800,
     height: 550,
     name: 'Nguyen Hong Phat',
