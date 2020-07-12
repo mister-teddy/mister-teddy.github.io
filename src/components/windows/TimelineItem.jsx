@@ -7,14 +7,14 @@ export default class TimelineItem extends React.Component {
     }
 
     togglePopover = () => {
-        this.setState(prevState => ({popover: !prevState.popover}));
+        this.setState(prevState => ({ popover: !prevState.popover }));
     }
 
     calculateLeft = year => {
         if (year === 1998) {
             return 0
         } else {
-            return 224*(year - 2010)-1;
+            return 224 * (year - 2010) - 1;
         }
     }
 
@@ -23,7 +23,7 @@ export default class TimelineItem extends React.Component {
         const { title, subtitle, description, day, month, year, category, preview, photos, detail } = this.props;
         const popable = detail || photos;
         return (
-            <div className="stream-event size-1x exclude-select-class" style={{position: 'absolute', top: 0, left: this.calculateLeft(year)}}>
+            <div className="stream-event size-1x exclude-select-class" style={{ position: 'absolute', top: 0, left: this.calculateLeft(year) }}>
                 <div className="stream-event-slide" onClick={this.togglePopover}>
                     <div className="slide-logo">
                         {preview && <img alt={title} className="icon" src={preview} />}
@@ -39,8 +39,8 @@ export default class TimelineItem extends React.Component {
                 {
                     (popable && popover) && <div className="popover neb neb-n bottom">
                         <div className="popover-content">
-                            {detail}
                             {photos && photos.map((photo, i) => <a key={i} href={photo} target="_blank" rel="noopener noreferrer"><img alt={title} src={photo} /></a>)}
+                            <div className="float-left">{detail}</div>
                         </div>
                         <button onClick={this.togglePopover} className="button square small popover-close-button bg-white">×</button>
                     </div>

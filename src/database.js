@@ -25,7 +25,7 @@ export default {
             color: 'black'
         }
     ],
-    windows:[
+    windows: [
         {
             name: 'My CV',
             component: 'Iframe',
@@ -102,7 +102,7 @@ export default {
                         month: 2,
                         year: 2020,
                         preview: 'img/logos/fpt-software.png',
-                        detail: <div style={{height: 450}}><iframe title="First fulltime job" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1581954698622541%26id%3D100004240774642&width=500&show_text=true&appId=483014678906039&height=608" width="500" height="608" scrolling="no" frameBorder="0" allow="encrypted-media"></iframe></div>
+                        detail: <div style={{ height: 450 }}><iframe title="First fulltime job" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1581954698622541%26id%3D100004240774642&width=500&show_text=true&appId=483014678906039&height=608" width="500" height="608" scrolling="no" frameBorder="0" allow="encrypted-media"></iframe></div>
                     }
                 ]
             },
@@ -114,7 +114,7 @@ export default {
                     {
                         title: 'Graduate High School',
                         subtitle: 'Hau Nghia High School',
-                        description: <div>Performance: Good<br/>Conduct: Good</div>,
+                        description: <div>Performance: Good<br />Conduct: Good</div>,
                         day: 17,
                         month: 4,
                         year: 2016,
@@ -141,7 +141,7 @@ export default {
                     {
                         title: 'Defend graduation thesis',
                         subtitle: 'FPT University',
-                        description: <div>Question Bank Checking System<br/>Grade: 8.4</div>,
+                        description: <div>Question Bank Checking System<br />Grade: 8.4</div>,
                         day: 27,
                         month: 12,
                         year: 2019,
@@ -150,11 +150,14 @@ export default {
                     {
                         title: 'Graduate University',
                         subtitle: 'FPT University',
-                        description: <div>Major: Software Engineering<br/>GPA: 8.05</div>,
+                        description: <div>Major: Software Engineering<br />GPA: 8.05</div>,
                         day: 9,
                         month: 3,
                         year: 2020,
                         preview: 'img/timeline/fpt-university-logo.png',
+                        photos: [
+                            'img/timeline/merits/bachelor-degree.jpg',
+                        ],
                         detail: <a className="button primary" href="pdf/interim-academic-transcript.pdf" target="_blank">View Transcript</a>
                     }
                 ]
@@ -309,7 +312,7 @@ export default {
             color: 'white',
             logo: 'img/logos/fpt-software.png',
             techs: ['JavaScript', 'ReactJS', 'ExpressJS', 'MongoDB', 'Node.js'],
-            description: <quote style={{fontSize: 15, fontStyle: 'italic'}}>AI Security Camera was my very first big-budget project, and definitely an unforgetable experience of my life. We use full JavaScript (M.E.R.N Stack) to develope a web based system to handle data from camera and analize them using smart algorithm. I worked on it both client and server side. The project last 12 months to be completed and it was closed in full of customer's satisfication! Unfortunately this is a <b className="fg-red">private project</b>, no further information or any screenshot of the product is allowed to be sharing, sorry!</quote>,
+            description: <quote style={{ fontSize: 15, fontStyle: 'italic' }}>AI Security Camera was my very first big-budget project, and definitely an unforgetable experience of my life. We use full JavaScript (M.E.R.N Stack) to develope a web based system to handle data from camera and analize them using smart algorithm. I worked on it both client and server side. The project last 12 months to be completed and it was closed in full of customer's satisfication! Unfortunately this is a <b className="fg-red">private project</b>, no further information or any screenshot of the product is allowed to be sharing, sorry!</quote>,
             important: true,
             confidential: true
         },
@@ -373,6 +376,30 @@ export default {
             ],
         },
         {
+            name: 'Người Ấy Là Ai Database',
+            component: 'Showcase',
+            color: 'white',
+            logo: 'https://nguoiaylaai.github.io/assets/img/brand/nala.png',
+            techs: ['Jekyll', 'JavaScript', 'Vue', 'Bootstrap', 'Google Adsense', 'Google Analytics', 'Facebook Comment API'],
+            description: <p>Người Ấy Là Ai is a famous Vietnamese gameshow where, in each episode, a female lead can choose between 5 random handsome male character. Each of them can be single (green), married (red) and gay (purple). Người Ấy Là Ai Database (NALADB) is a place where all aggregated information about the male characters in the gamehow is stored. In addition, the website also supports statistics from gameshow's episodes to give interesting facts, such as the guy who is thought to be the most single, the most unpredictable guy, ...</p>,
+            important: true,
+            working: false,
+            actions: [
+                {
+                    name: 'Visit site',
+                    link: 'https://nguoiaylaai.github.io'
+                },
+                {
+                    name: 'View code on Github',
+                    link: 'https://github.com/nguoiaylaai/nguoiaylaai.github.io'
+                }
+            ],
+            screenshots: [
+                'img/nguoiaylaai/1.png',
+                'img/nguoiaylaai/2.png',
+            ],
+        },
+        {
             name: 'Wordpress Developerpack',
             color: 'white',
             logo: 'https://ps.w.org/developer-pack/assets/icon.svg',
@@ -381,7 +408,7 @@ export default {
                 'https://ps.w.org/developer-pack/assets/screenshot-1.png',
                 'https://ps.w.org/developer-pack/assets/screenshot-2.png'
             ],
-            description: <p>Developer Pack allow you to view PHP information, download WordPress site source code with advanced options, and online code editing with a powerful code editor. You don’t have to use FTP or SSH anymore.<br/>Developer Pack is built for the developers/freelancers. If you don’t know how to code PHP or how WordPress work, it is massive dangerous. Please only install it when you know what you are doing!<br/>Remember: This plugin can modify your file system. Use it wisely!</p>,
+            description: <p>Developer Pack allow you to view PHP information, download WordPress site source code with advanced options, and online code editing with a powerful code editor. You don’t have to use FTP or SSH anymore.<br />Developer Pack is built for the developers/freelancers. If you don’t know how to code PHP or how WordPress work, it is massive dangerous. Please only install it when you know what you are doing!<br />Remember: This plugin can modify your file system. Use it wisely!</p>,
             important: true,
             actions: [
                 {
@@ -399,7 +426,7 @@ export default {
             color: 'white',
             logo: 'img/platforms/Prestashop.png',
             techs: ['PHP', 'Prestashop'],
-            description: <p>Freelancer/Developer use only!<br/>This module allow you to download you website source code for local debugging and edit your file directly in your back office with a powerful code editor.</p>,
+            description: <p>Freelancer/Developer use only!<br />This module allow you to download you website source code for local debugging and edit your file directly in your back office with a powerful code editor.</p>,
             actions: [{
                 name: 'View code & download on Github',
                 link: 'https://github.com/nguyenhongphat0/prestashop-developerpack',
@@ -509,6 +536,15 @@ export default {
             ],
             techs: ['C#'],
             description: <p>A Pascal text editor, built with .NET Framework and MinGW compiler. Easy to write code, and run with prebuilt input</p>,
+            working: false
+        },
+        {
+            name: 'KETRI Fieldwork Student',
+            color: 'white',
+            logo: 'img/logos/etboard.png',
+            techs: ['PHP', 'Laravel', 'PHP', 'JQuery', 'MySQL'],
+            description: <p>My freelance project, working for customer from South Korea.</p>,
+            confidential: true,
             working: true
         }
     ],
