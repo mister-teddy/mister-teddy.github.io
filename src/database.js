@@ -7,7 +7,7 @@ export default {
     height: 550,
     name: 'Nguyen Hong Phat',
     avatar: 'https://avatars2.githubusercontent.com/u/29925961',
-    email: 'phatnhse63348@fpt.edu.vn',
+    email: 'hongphat.js@gmail.com',
     phone: '+84589424815',
     address: 'Hau Nghia, Duc Hoa, Long An',
     titleColor: 'dark',
