@@ -13,11 +13,7 @@
     const params = new URLSearchParams(window.location.search);
     const state = JSON.parse(params.get('state'));
     const origin = state.origin;
-    const autoclose = state.autoclose;
     window.location.replace(`${origin}${window.location.search}`);
-    if (autoclose) {
-      window.close();
-    }
   </script>
 </body>
 
