@@ -9,14 +9,12 @@
 </head>
 
 <body>
-  <section>
-    Login successfully! You can close this window now.
-  </section>
   <script>
     const params = new URLSearchParams(window.location.search);
     const state = JSON.parse(params.get('state'));
     const origin = state.origin;
-    window.location.replace(`${origin}${window.location.search}`);
+    const clearParams = state.clearParams;
+    window.location.replace(clearParams ? `${origin}` : `${origin}${window.location.search}`);
   </script>
 </body>
 
