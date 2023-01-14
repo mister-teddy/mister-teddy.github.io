@@ -2,23 +2,30 @@
     font-family: 'Segoe UI', Lato, Tahoma, Geneva, Verdana, sans-serif;
     font-size: 13px;
 }
+
 p {
     font-size: 15px;
 }
+
 body {
     margin: 0px;
     overflow: hidden;
 }
+
 button:focus {
-    outline:0;
+    outline: 0;
 }
-button::-moz-focus-inner, a::-moz-focus-inner {
+
+button::-moz-focus-inner,
+a::-moz-focus-inner {
     border: 0;
 }
+
 div {
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
+
 .preloader {
     position: fixed;
     display: table;
@@ -26,22 +33,27 @@ div {
     height: 100vh;
     z-index: 10001;
 }
+
 .preloader .center {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
 }
+
 .hidden {
     display: none;
 }
+
 .hidden-loading {
     width: 0px;
     height: 0px;
     overflow: hidden;
 }
+
 .fullwidth {
     width: 100%;
 }
+
 .taskbar {
     height: 40px;
     position: fixed;
@@ -52,13 +64,15 @@ div {
     display: table;
     z-index: 10000;
 }
+
 .clock {
     padding: 2px 10px 2px 0px;
     line-height: 18px;
-    font-size: 14px;
+    font-size: 12px;
     float: right;
     text-align: center;
 }
+
 .show-desktop {
     float: right;
     width: 10px;
@@ -66,10 +80,12 @@ div {
     border-left: 1px solid #1c1c1c;
     cursor: pointer;
 }
+
 .start {
     float: left;
     margin: 0px;
 }
+
 .taskbar-icon {
     cursor: pointer;
     width: 40px;
@@ -79,17 +95,21 @@ div {
     box-sizing: border-box;
     margin-right: 2px;
 }
+
 .taskbar-icon.process-icon {
     display: block;
     float: left;
     border-bottom: 2px solid #2d89ef;
 }
+
 .taskbar-icon.process-icon.focus {
-    background-color:  #1d1d1d !important;
+    background-color: #1d1d1d !important;
 }
+
 .taskbar-icon.process-icon:hover {
-    background-color:  #111 !important;
+    background-color: #111 !important;
 }
+
 .desktop {
     width: 100%;
     height: calc(100vh - 40px);
@@ -97,91 +117,111 @@ div {
     background-color: black;
     color: white;
 }
+
 .menu {
     position: fixed;
     bottom: -100vh;
     z-index: 1000;
 }
+
 .menu.show {
     bottom: 40px;
 }
-.menu a, .menu a:hover {
+
+.menu a,
+.menu a:hover {
     text-decoration: none;
     color: white;
 }
+
 .profile {
     padding: 12px;
     height: 100%;
 }
+
 .profile .bottom {
     position: absolute;
     bottom: 5px;
 }
+
 .profile .name {
     font-size: 15px;
 }
+
 .avatar {
     width: 50px;
     border-radius: 100%;
     vertical-align: middle;
     margin-right: 5px;
 }
+
 .menu .left {
     position: absolute;
     height: 100%;
 }
+
 .menu .right {
     margin-left: 300px;
     width: calc(100% - 300px);
     padding: 20px 10px;
     height: 100%;
 }
+
 .window {
     position: absolute;
     min-width: 300px;
     min-height: 200px;
 }
+
 .window.maximized {
     border: none;
 }
-.window-caption.bg-white .icon {
-    display: none;
-}
+
+.window-caption.bg-white .icon,
 .window-caption.bg-white .title {
     color: black;
 }
-.window-caption.bg-white .buttons > *:before,
-.window-caption.bg-white .buttons > *:after,
-.window-caption.bg-white .buttons > *:hover:before,
-.window-caption.bg-white .buttons > *:hover:after {
+
+.window-caption.bg-white .buttons>*:before,
+.window-caption.bg-white .buttons>*:after,
+.window-caption.bg-white .buttons>*:hover:before,
+.window-caption.bg-white .buttons>*:hover:after {
     color: black;
     border-color: black;
 }
-.window-content > div {
+
+.window-content>div {
     height: 100%;
     width: 100%;
     overflow: hidden;
 }
+
 .icon.round-border {
     border: 2px solid black;
     border-radius: 100%;
 }
+
 iframe {
     width: 100%;
     height: 100%;
     border: none;
     float: left;
 }
+
 .showcase .preview {
     height: 80vh;
 }
+
 .showcase .screenshot img {
     width: 100%;
 }
-.showcase  .tags {
+
+.showcase .tags {
     display: inline-block;
 }
-.showcase  .tags a, .showcase  .tags span {
+
+.showcase .tags a,
+.showcase .tags span {
     cursor: pointer;
     margin: 3px 6px 3px 0px;
     padding: 5px 15px;
@@ -191,16 +231,20 @@ iframe {
     text-decoration: none;
     white-space: nowrap;
 }
-.showcase  .tags span {
+
+.showcase .tags span {
     background-color: #1d1d1d;
     color: white;
 }
+
 .showcase .tags a:hover {
     text-decoration: underline;
 }
+
 .showcase .tags span:hover {
     box-shadow: 0px 0px 5px gray;
 }
+
 .fullscreen-require {
     width: 100vw;
     height: 100vh;
@@ -210,25 +254,31 @@ iframe {
     cursor: pointer;
     display: table;
 }
-.fullscreen-require > div {
+
+.fullscreen-require>div {
     display: table-cell;
     vertical-align: middle;
 }
+
 .fullscreen-require h1 {
     font-size: 30px;
     font-weight: 100;
 }
+
 .menu .right [class*=tile-]:hover {
     border: 4px solid rgba(255, 255, 255, 0.6);
 }
+
 [class*=tile-]:active {
     -webkit-transform: perspective(600px) rotate3d(0, 1, 0, 10deg);
-    -ms-transform: perspective(600px) rotate3d(0, 1, 0, 10deg);  
-    transform: perspective(600px) rotate3d(0, 1, 0, 10deg); 
+    -ms-transform: perspective(600px) rotate3d(0, 1, 0, 10deg);
+    transform: perspective(600px) rotate3d(0, 1, 0, 10deg);
 }
+
 .tile-small .branding-bar {
     display: none;
 }
+
 .tile-tiny {
     width: 100%;
     height: 40px;
@@ -236,7 +286,10 @@ iframe {
     box-shadow: none;
     -webkit-box-shadow: none;
     margin: 2px 0px;
+    display: flex;
+    align-items: center;
 }
+
 .tile-tiny .icon {
     max-width: 50%;
     height: 50%;
@@ -247,27 +300,35 @@ iframe {
     text-align: center;
     line-height: 40px;
 }
+
 .tile-tiny .text {
     margin-left: 10px;
 }
+
 .slick-list {
     width: 100%;
 }
-.navview-content, .navview-content > div {
+
+.navview-content,
+.navview-content>div {
     height: 100%;
 }
+
 .navview-content .back-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
+
 .navview-content .bg-white .branding-bar {
-    background-color: rgba(0, 0, 0, 0.5)
+    background-color: rgba(0, 0, 0, 1)
 }
+
 .navview-menu {
     height: calc(100% - 92px);
 }
-.navview .navview-menu li > button {
+
+.navview .navview-menu li>button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -285,42 +346,52 @@ iframe {
     width: 100%;
     height: 40px;
 }
+
 .navview .navview-menu li button:hover {
     background-color: #CECECE;
 }
+
 .listview {
     display: block;
 }
+
 .listview .node>.icon .ring {
     transform: scale(0.5);
     position: relative;
     top: -16px;
 }
+
 .listview .node>.icon img {
     vertical-align: text-bottom;
     width: 16px;
     height: 16px;
 }
+
 .flex-self-center {
     margin: auto;
 }
+
 .address-bar {
     position: absolute;
     left: 0px;
     bottom: 0px;
 }
+
 .freelance-tile .slide-front {
     text-align: center;
     line-height: 150px;
 }
+
 .freelance-tile .slide-front img {
     width: 32px;
     height: 32px;
     filter: grayscale(1);
 }
+
 [class*=tile-].effect-hover-zoom-up:hover .slide-front img {
     filter: none;
 }
+
 .arch-system {
     cursor: pointer;
     position: absolute;
@@ -331,15 +402,19 @@ iframe {
     line-height: 36px;
     font-size: 10px;
 }
+
 .arch-system.active {
     background: #f18b50;
 }
+
 .arch-system:hover {
     outline: 4px dashed #f18b50;
 }
+
 .arch-system:active {
     background: #1a9988;
 }
+
 .system-detail-container {
     position: absolute;
     overflow: hidden;
@@ -347,16 +422,20 @@ iframe {
     width: 300px;
     transition-duration: 0.5s;
 }
+
 .system-detail-container .content {
     padding: 10px 20px;
 }
+
 .system-detail-container .screenshots img {
     width: 100%;
     margin-top: 10px;
 }
+
 .object-fit-contain {
     object-fit: contain;
 }
+
 .bg-confidential {
     background-image: url(/img/shared/confidential.png);
     background-size: cover;
@@ -364,40 +443,82 @@ iframe {
     width: 100%;
     height: 100%;
 }
+
 .timeline .streamer {
     height: 100%
 }
+
 .timeline .streamer .stream-title {
     padding-top: 10px;
 }
+
 .timeline .streamer .events-area {
     height: 100%;
 }
+
 .timeline .streamer .stream-secondary {
     height: unset;
     padding-right: 20px;
 }
+
 .timeline .streamer .stream-event-slide .slide-logo .icon {
     object-fit: contain;
 }
+
 .timeline .streamer .stream-event-slide .slide-data .title {
     white-space: break-spaces;
 }
+
 .timeline .streamer .stream-event {
     overflow: visible;
 }
+
 .timeline .streamer .stream-event .popover {
     position: absolute;
     max-width: unset;
     max-height: 320px;
     overflow: auto;
 }
+
 .timeline .streamer .stream-event .popover img {
     width: 100%;
     float: left;
     padding: 5px 0;
 }
+
 .tile[title="Timeline"] {
     background-image: url('/img/timeline/cover.jpg');
     background-size: cover;
+}
+
+.mobile-slider {
+    width: unset;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.mobile-slider>* {
+    position: relative;
+    flex: none;
+    flex-basis: 240px;
+    scroll-snap-align: start;
+}
+
+.phone {
+    overflow: hidden;
+}
+
+.phone .frame {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.phone img.content {
+    position: absolute;
+    left: 5.5%;
+    top: 2.2%;
+    width: 89%;
 }
