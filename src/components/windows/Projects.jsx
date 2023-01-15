@@ -190,42 +190,45 @@ export default class Projects extends React.Component {
   renderHome() {
     return (
       <ScrollBar>
-        <h1>Home</h1>
-        <p>
-          Thank you for viewing my portfolio. Take a look at what I have done!
-        </p>
-        <Panel name="Categories" icon="apps" open={false}>
-          <div className="tiles-grid">
-            {this.state.techs.map((tech, i) => (
-              <div
-                key={i}
-                className={`tile-medium bg-blue`}
-                onClick={() => this.goto({ page: "grid", tech })}
-              >
-                <span className={`icon mif-folder`} />
-                <span className="branding-bar">
-                  {tech.name} ({tech.count})
-                </span>
-              </div>
-            ))}
-          </div>
-        </Panel>
-        <Panel name="Featured projects" icon="star-empty" open={true}>
-          <div className="tiles-grid">
-            {db.projects.map(
-              (project, i) =>
-                project.important && this.renderProjectTile(project, i)
-            )}
-          </div>
-        </Panel>
-        <Panel name="Personal projects" icon="traffic-cone" open={true}>
-          <div className="tiles-grid">
-            {db.projects.map(
-              (project, i) =>
-                project.personal && this.renderProjectTile(project, i)
-            )}
-          </div>
-        </Panel>
+        <div className="my-4">
+          <h1>Home</h1>
+          <p>
+            Welcome to my portfolio! Please pick a project to take a look at
+            what I've done.
+          </p>
+          <Panel name="Categories" icon="apps" open={false}>
+            <div className="tiles-grid">
+              {this.state.techs.map((tech, i) => (
+                <div
+                  key={i}
+                  className={`tile-medium bg-blue`}
+                  onClick={() => this.goto({ page: "grid", tech })}
+                >
+                  <span className={`icon mif-folder`} />
+                  <span className="branding-bar">
+                    {tech.name} ({tech.count})
+                  </span>
+                </div>
+              ))}
+            </div>
+          </Panel>
+          <Panel name="Featured projects" icon="star-empty" open={true}>
+            <div className="tiles-grid">
+              {db.projects.map(
+                (project, i) =>
+                  project.important && this.renderProjectTile(project, i)
+              )}
+            </div>
+          </Panel>
+          <Panel name="Personal projects" icon="traffic-cone" open={true}>
+            <div className="tiles-grid">
+              {db.projects.map(
+                (project, i) =>
+                  project.personal && this.renderProjectTile(project, i)
+              )}
+            </div>
+          </Panel>
+        </div>
       </ScrollBar>
     );
   }
@@ -259,8 +262,8 @@ export default class Projects extends React.Component {
         ) : (
           <h1>All</h1>
         )}
-        <ScrollBar style={{ height: "calc(100% - 60px)" }}>
-          <div className="tiles-grid">
+        <ScrollBar style={{ height: "calc(100% - 84px)" }}>
+          <div className="tiles-grid my-4">
             {db.projects.map(
               (project, i) =>
                 (!tech ||
@@ -280,7 +283,7 @@ export default class Projects extends React.Component {
     return (
       <ScrollBar>
         <div
-          className={`pl-4-md pr-4-md ${
+          className={`px-4 ${
             project.confidential ? "bg-confidential fg-white" : ""
           }`}
         >

@@ -36,15 +36,15 @@ export default {
   ],
   windows: [
     {
-      name: "My CV",
+      name: "Resume",
       component: "Iframe",
       link: "pdf/cv.pdf",
-      color: "orange",
+      color: "red",
       icon: "profile",
       size: "medium",
     },
     {
-      name: "My Projects",
+      name: "Projects",
       component: "Projects",
       tileComponent: "Projects",
       color: "white",
@@ -52,7 +52,7 @@ export default {
       size: "large",
     },
     {
-      name: "Freelance Logs",
+      name: "Site Builder",
       component: "Freelance",
       tileComponent: "Freelance",
       color: "black",
@@ -60,7 +60,7 @@ export default {
       size: "wide",
     },
     {
-      shortName: "My first website",
+      shortName: "First website",
       name: "CDShop",
       component: "Iframe",
       link: "https://nguyenhongphat0.github.io/phatcdshop",
@@ -373,7 +373,7 @@ export default {
       name: "ZCheckin",
       color: "white",
       logo: "img/zalo/zcheckin/logo.png",
-      techs: ["Zalo Mini App", "Vue", "TypeScript", "ThreeJS"],
+      techs: ["Zalo Mini App", "Vue", "TypeScript"],
       description:
         "Internal application for checking attendance, late/off registering, paying fines, viewing team budget/rules, and booking lunch. At the moment of writing this (14/01/2023), I am the only developer/maintainer of the project.",
       important: true,
@@ -390,7 +390,14 @@ export default {
       name: "Mini Game CrackIT",
       color: "white",
       logo: "img/zalo/crackit/logo.png",
-      techs: ["Zalo Mini App", "React", "Recoil", "TypeScript", "TailwindCSS"],
+      techs: [
+        "Zalo Mini App",
+        "React",
+        "Recoil",
+        "TypeScript",
+        "TailwindCSS",
+        "ThreeJS",
+      ],
       description:
         "A quiz-taking mini app. Support 7 different types of questions, from single choice to matching, drag & drop marker to map and so on. At the moment of writing this (14/01/2023), I am the only developer/maintainer of the project.",
       important: true,
@@ -445,7 +452,7 @@ export default {
         "TypeScript",
         "TailwindCSS",
         "Deno",
-        "Github Actions",
+        "GitHub Actions",
       ],
       actions: [
         {
@@ -484,7 +491,7 @@ export default {
         "PostgreSQL",
         "AnimeJS",
         "Playwright",
-        "Github Actions",
+        "GitHub Actions",
       ],
       description: (
         <p>
@@ -524,6 +531,51 @@ export default {
         "SQL Assembly",
         "DeepSpeech",
       ],
+      description: (
+        <p>
+          Question Bank Checking System (Hệ thống quản lý và soạn thảo câu hỏi
+          thi trắc nghiệm) is an application to help lecturers and head of
+          departments manage questions bank based on their duty and courses. The
+          system includes below main features:
+          <ul>
+            <li>Import xml/gift/word questions and export to these.</li>
+            <li>
+              Check duplicate questions or similar questions regarding text and
+              image contents.
+            </li>
+            <li>
+              Help lecturers create quizzes and categorise questions in
+              units/chapters.
+            </li>
+            <li>
+              Users could classify questions into several types, such as basic
+              knowledge or advanced knowledge
+            </li>
+            <li>Statistics data</li>
+          </ul>
+          In the second season, we maintain and upgrade 90% of system functions,
+          heavily on import questions and examinations core flow. We also
+          implement new features:
+          <ul>
+            <li>
+              Support other formats such as multiple choice, matching, short
+              answer, essay, fill in blanks​, passage, and listening questions.
+            </li>
+            <li>
+              Create questions directly on QBCS without importing from the old
+              Moodle system.
+            </li>
+            <li>
+              Check duplicate audio by finding similarities between 2 audio
+              contents.
+            </li>
+            <li>Review and verify examination processes</li>
+          </ul>
+          Our project source code and data are confidential, but the document is
+          public for everyone to view. Feel free to read it in the section
+          below:
+        </p>
+      ),
       important: true,
     },
     {
@@ -535,9 +587,10 @@ export default {
       description: (
         <p>
           Volunteer World is a project for my System Architecture, Human
-          Computer Interaction and Mobile Programing courses. It's a full
-          designed system that has Database for business information, Web Admin
-          for manage system entities and Mobile App for user interaction.
+          Computer Interaction and Mobile Programming courses. It's a fully
+          designed system with a Database Server for storing business
+          information, Web Admin for managing system entities and Mobile App for
+          user interaction.
         </p>
       ),
       important: true,
@@ -548,7 +601,7 @@ export default {
       logo: "img/logos/fpt-software.png",
       techs: ["JavaScript", "ReactJS", "Redux", "Power BI"],
       description:
-        "FPT Software is a world class software company mainly working on outsourcing and offshore development center (ODC) business. Distribution Portal was an ODC project which I've been paticipated on, aim at enterprise insurance and financial bussiness.",
+        "FPT Software is a world-class software company mainly working on outsourcing and offshore development centre (ODC) business. Distribution Portal was an ODC project in which I've been participating, aiming at enterprise insurance and financial business.",
       confidential: true,
     },
     {
@@ -564,7 +617,7 @@ export default {
         "Ant Design",
       ],
       description:
-        "FPT Software is a world class software company mainly working on outsourcing and offshore development center (ODC) business. Along with building new system, FPT also takes care of old system maintainance, rebuild a better one based on functions of the old system with latest technology stack. MDM is one of these.",
+        "FPT Software is a world-class software company mainly working on outsourcing and offshore development centre (ODC) business. Along with building new systems, FPT also maintains old systems and rebuilds better ones based on the functions of the old system with the latest technology stack. MDM was one of those.",
       confidential: true,
     },
     {
@@ -574,56 +627,17 @@ export default {
       techs: ["JavaScript", "ReactJS", "ExpressJS", "MongoDB", "Node.js"],
       description: (
         <quote style={{ fontSize: 15, fontStyle: "italic" }}>
-          AI Security Camera was my very first big-budget project, and
-          definitely an unforgetable experience of my life. We use full
-          JavaScript (M.E.R.N Stack) to develope a web based system to handle
-          data from camera and analize them using smart algorithm. I worked on
-          it both client and server side. The project last 12 months to be
-          completed and it was closed in full of customer's satisfication!
-          Unfortunately this is a <b className="fg-red">private project</b>, no
-          further information or any screenshot of the product is allowed to be
-          sharing, sorry!
+          AI Security Camera was my very first big-budget project and an
+          unforgettable life experience. We use full JavaScript (MERN Stack) to
+          develop a web-based system to handle data from cameras and analyse
+          them using smart algorithms. I worked on both the client and server
+          sides. The project took 12 months to complete and closed to our
+          customer's satisfaction! Unfortunately this is a{" "}
+          <b className="fg-red">private project</b>, no further information or
+          any screenshot of the product is allowed to be shared, sorry!
         </quote>
       ),
       confidential: true,
-    },
-    {
-      name: "nguyenhongphat0.github.io",
-      shortName: "Portfolio",
-      color: "dark",
-      icon: "profile",
-      techs: ["JavaScript", "ReactJS"],
-      description: <p>This is my portfolio and you are viewing it :D</p>,
-      actions: [
-        {
-          name: "View code on Github",
-          link: "https://github.com/nguyenhongphat0/nguyenhongphat0.github.io",
-        },
-      ],
-    },
-    {
-      name: "CD Shop",
-      component: "Showcase",
-      src: "https://nguyenhongphat0.github.io/phatcdshop",
-      color: "green",
-      icon: "gamepad",
-      techs: ["JavaScript"],
-      description: (
-        <p>
-          CD Shop is my school course final project and this is my first front
-          end project. CD Shop was built with plain HTML, CSS and JS
-        </p>
-      ),
-      actions: [
-        {
-          name: "View online",
-          link: "https://nguyenhongphat0.github.io/phatcdshop",
-        },
-        {
-          name: "View code on Github",
-          link: "https://github.com/nguyenhongphat0/phatcdshop",
-        },
-      ],
     },
     {
       name: "Arena Of Evolution: Red Tides Guide",
@@ -643,14 +657,14 @@ export default {
       description: (
         <p>
           Arena Of Evolution: Red Tides Guide is a fandom wiki crafted with
-          Jekyll and hosted on Github Pages. This website used to have lots of
-          traffics before Red Tides lost it popular due to competition among
-          other auto-battler like Auto Chess and Team Fight Tactics. It was not
-          only provide in game database lookup, guides and tips to play the game
-          but also some other helful tools like mix, tiers list and update log
-          comparision. If you are a fan of AoE: Red Tides you probably have came
-          to visit this site before, it has very good order in the search result
-          of Google and Bing.
+          Jekyll and hosted on GitHub Pages. This website used to have lots of
+          traffic before Red Tides lost popularity due to competition among
+          auto-battler like Auto Chess and Team Fight Tactics. It provided not
+          only in-game database lookup, guides and tips to play the game but
+          also helpful tools like the mix, tiers list and update log comparison.
+          If you are a fan of AoE: Red Tides, you probably have visited this
+          site before; it has very good order in the search result of Google and
+          Bing.
         </p>
       ),
       personal: true,
@@ -660,7 +674,7 @@ export default {
           link: "https://evolutionchess.github.io",
         },
         {
-          name: "View code on Github",
+          name: "View code on GitHub",
           link: "https://github.com/evolutionchess/evolutionchess.github.io",
         },
       ],
@@ -686,14 +700,14 @@ export default {
       ],
       description: (
         <p>
-          Người Ấy Là Ai is a famous Vietnamese gameshow where, in each episode,
-          a female lead can choose between 5 random handsome male character.
-          Each of them can be single (green), married (red) and gay (purple).
-          Người Ấy Là Ai Database (NALADB) is a place where all aggregated
-          information about the male characters in the gamehow is stored. In
-          addition, the website also supports statistics from gameshow's
-          episodes to give interesting facts, such as the guy who is thought to
-          be the most single, the most unpredictable guy, ...
+          Người Ấy Là Ai is a famous Vietnamese gameshow where in each episode,
+          a female main can choose between 5 random handsome male players. Each
+          of them can be single (green), married (red) and gay (purple). Người
+          Ấy Là Ai Database (NALADB) is a place where all aggregated information
+          about the male characters in the gameshow is stored. The website also
+          supports statistics from gameshow episodes to give interesting facts,
+          such as the guy who was thought to be the most single, unpredictable
+          guy, and so on.
         </p>
       ),
       personal: true,
@@ -703,7 +717,7 @@ export default {
           link: "https://nguoiaylaai.github.io",
         },
         {
-          name: "View code on Github",
+          name: "View code on GitHub",
           link: "https://github.com/nguoiaylaai/nguoiaylaai.github.io",
         },
       ],
@@ -711,8 +725,8 @@ export default {
     },
     {
       name: "Wordpress Developerpack",
-      color: "gray",
-      logo: "img/developerpack/logo.png",
+      color: "black",
+      logo: "img/developerpack/wordpress.png",
       techs: ["PHP", "Wordpress"],
       screenshots: [
         "https://ps.w.org/developer-pack/assets/screenshot-1.png",
@@ -720,15 +734,16 @@ export default {
       ],
       description: (
         <p>
-          Developer Pack allow you to view PHP information, download WordPress
-          site source code with advanced options, and online code editing with a
+          Developer Pack allows you to view PHP information, download WordPress
+          site source code with advanced options, and edit online code with a
           powerful code editor. You don’t have to use FTP or SSH anymore.
           <br />
-          Developer Pack is built for the developers/freelancers. If you don’t
-          know how to code PHP or how WordPress work, it is massive dangerous.
+          Developer Pack was built for the developers/freelancers. If you don’t
+          know how to code PHP or how WordPress work, it is massively dangerous.
           Please only install it when you know what you are doing!
           <br />
-          Remember: This plugin can modify your file system. Use it wisely!
+          <b>Remember:</b> This plugin can modify your file system. Use it
+          wisely!
         </p>
       ),
       actions: [
@@ -737,7 +752,7 @@ export default {
           link: "https://wordpress.org/plugins/developer-pack/",
         },
         {
-          name: "View code on Github",
+          name: "View code on GitHub",
           link: "https://github.com/nguyenhongphat0/wordpress-developerpack",
         },
       ],
@@ -745,15 +760,15 @@ export default {
     },
     {
       name: "Prestashop Developerpack",
-      color: "lightblue",
-      logo: "img/platforms/Prestashop.png",
+      color: "black",
+      logo: "img/developerpack/prestashop.png",
       techs: ["PHP", "Prestashop"],
       description: (
         <p>
           Freelancer/Developer use only!
           <br />
-          This module allow you to download you website source code for local
-          debugging and edit your file directly in your back office with a
+          This module allows you to download your website source code for local
+          debugging and editing your file directly in your back office with a
           powerful code editor.
         </p>
       ),
@@ -765,39 +780,22 @@ export default {
       ],
     },
     {
-      shortName: "Fujioh Warranty Registration Service",
-      name: "Fujioh Warranty Registration Service",
-      color: "red",
-      icon: "widgets",
-      screenshots: ["img/fujioh/1.png", "img/fujioh/2.png", "img/fujioh/3.png"],
-      techs: ["Angular", "Bootstrap", "JavaScript"],
+      name: "Thu Vien Cong Giao Viet Nam",
+      color: "white",
+      logo: "img/logos/thuvienconggiaovietnam.png",
+      techs: ["Bootstrap", "JQuery", "JavaScript"],
       description: (
         <p>
-          Fujioh warranty registration system, using Angular 6 and Bootstrap 4
+          The official thuvienconggiaovietnam.net mockup site, which has a
+          vintage design pattern with complete feature pages and is fully
+          responsive. The website was built on top of Bootstrap 4 and jQuery.
         </p>
       ),
-    },
-    {
-      name: "Linuxlover",
-      color: "black",
-      logo: "img/linuxlover/logo.png",
-      screenshots: [
-        "img/linuxlover/1.png",
-        "img/linuxlover/2.png",
-        "img/linuxlover/3.png",
-        "img/linuxlover/4.png",
-      ],
-      techs: ["PHP", "Materialize", "MySQL", "JavaScript"],
-      description: (
-        <p>
-          A fanpage and forum for those who love linux! Clean and modern design,
-          with recursive nested comment allowed.
-        </p>
-      ),
+      src: "https://nguyenhongphat0.github.io/thuvienconggiaovietnam.net",
       actions: [
         {
-          name: "View code on Github",
-          link: "https://github.com/nguyenhongphat0/linuxlover",
+          name: "View code on GitHub",
+          link: "https://github.com/nguyenhongphat0/thuvienconggiaovietnam.net",
         },
       ],
     },
@@ -806,14 +804,108 @@ export default {
       color: "white",
       logo: "img/logos/etboard.png",
       techs: ["PHP", "Laravel", "PHP", "JQuery", "MySQL"],
-      description: (
-        <p>My freelance project, working for customer from South Korea.</p>
-      ),
+      description: <p>My freelance projects for customers from South Korea.</p>,
       confidential: true,
+    },
+    {
+      name: "nguyenhongphat0.github.io",
+      shortName: "Portfolio",
+      color: "dark",
+      icon: "profile",
+      techs: ["JavaScript", "ReactJS"],
+      description: <p>This is my portfolio, and you are viewing it :D</p>,
+      actions: [
+        {
+          name: "View code on GitHub",
+          link: "https://github.com/nguyenhongphat0/nguyenhongphat0.github.io",
+        },
+      ],
+    },
+    {
+      name: "CD Shop",
+      component: "Showcase",
+      src: "https://nguyenhongphat0.github.io/phatcdshop",
+      color: "green",
+      icon: "gamepad",
+      techs: ["JavaScript"],
+      description: (
+        <p>
+          CD Shop is my school course's final project, and this is my very first
+          front-end project. I built CD Shop on top of plain HTML, CSS and JS.
+        </p>
+      ),
+      actions: [
+        {
+          name: "View online",
+          link: "https://nguyenhongphat0.github.io/phatcdshop",
+        },
+        {
+          name: "View code on GitHub",
+          link: "https://github.com/nguyenhongphat0/phatcdshop",
+        },
+      ],
+    },
+    {
+      name: "Draft Pascal",
+      color: "white",
+      logo: "img/draftpascal/logo.ico",
+      screenshots: [
+        "img/draftpascal/1.png",
+        "img/draftpascal/2.png",
+        "img/draftpascal/3.png",
+        "img/draftpascal/4.png",
+      ],
+      techs: ["C#"],
+      description: (
+        <p>
+          A Pascal text editor, built with .NET Framework and MinGW compiler. It
+          was much easier to code and test the output with prebuilt input
+          compared to traditional tools at the moment, such as Turbo Pascal or
+          Free Pascal.
+          <br />
+          <small>
+            I built this app when I first studied .NET at university.
+          </small>
+        </p>
+      ),
+      working: false,
+    },
+    {
+      name: "Plants Vs. Zombies in shell ",
+      color: "white",
+      logo: "img/logos/8-bit_bucket-head.png",
+      screenshots: [
+        "https://raw.githubusercontent.com/nguyenhongphat0/pvz_shell/master/screenshot.png",
+      ],
+      techs: ["C++"],
+      description: (
+        <p>
+          <i>
+            Plants Vs. Zombies <b>in shell</b>
+          </i>{" "}
+          is a shell-based strategy game that use <u>C++</u> and a shell-based
+          graphical library called <u>ncurses</u>. This game use only one thread
+          with a manual time-slicing technique to create animation. All object's
+          stats, including damage, health point, and respawn time, is
+          configurable easily in one module.
+          <br />
+          <small>
+            I built this app with excitement when I first studied C++ at
+            university.
+          </small>
+        </p>
+      ),
+      actions: [
+        {
+          name: "View on Github",
+          link: "https://github.com/nguyenhongphat0/pvz_shell",
+        },
+      ],
     },
   ],
   freelance: {
-    Wordpress: [
+    WordPress: [
+      "help.zalo.me",
       "thuyduong.com.vn",
       "tinibui-couture.com",
       "thingstobloom.fr",
@@ -843,7 +935,7 @@ export default {
       "transports-schubel.com",
       "lyon-paysagiste.fr",
     ],
-    Prestashop: [
+    PrestaShop: [
       "thecosmohouse.vn",
       "idocaps.com",
       "mecaplastic-80.com",

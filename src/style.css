@@ -245,6 +245,13 @@ iframe {
     box-shadow: 0px 0px 5px gray;
 }
 
+.showcase iframe.extended {
+    height: calc(100vh - 76px);
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
 .fullscreen-require {
     width: 100vw;
     height: 100vh;
@@ -497,6 +504,12 @@ iframe {
     gap: 4px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    scroll-padding-left: 16px;
+    scroll-padding-right: 16px;
 }
 
 .mobile-slider>* {

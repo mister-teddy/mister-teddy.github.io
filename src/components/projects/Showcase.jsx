@@ -54,7 +54,7 @@ export default class Showcase extends React.Component {
         {project.screenshots && (
           <div className="screenshot">
             <h3>Screenshots</h3>
-            <div className={`${project.mobile ? "mobile-slider" : ""}`}>
+            <div className={`my-4 ${project.mobile ? "mobile-slider" : ""}`}>
               {project.screenshots.map((screenshot, i) => (
                 <div key={i}>
                   {project.mobile && !project.framed ? (
@@ -71,6 +71,7 @@ export default class Showcase extends React.Component {
           <div className="preview">
             <h3>Demo</h3>
             <iframe
+              className="extended"
               title={project.name}
               src={project.src}
               frameBorder="0"
