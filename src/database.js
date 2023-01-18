@@ -22,9 +22,9 @@ export default {
   titleColor: "dark",
   links: [
     {
-      name: "Facebook",
-      url: "https://www.facebook.com/profile.php?id=100004240774642",
-      icon: "facebook2",
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/nguyenhongphat0",
+      icon: "linkedin",
       color: "darkBlue",
     },
     {
@@ -32,6 +32,12 @@ export default {
       url: "https://github.com/nguyenhongphat0",
       icon: "github",
       color: "black",
+    },
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/profile.php?id=100004240774642",
+      icon: "facebook2",
+      color: "blue",
     },
   ],
   windows: [
@@ -874,9 +880,7 @@ export default {
       name: "Plants Vs. Zombies in shell ",
       color: "white",
       logo: "img/logos/8-bit_bucket-head.png",
-      screenshots: [
-        "https://raw.githubusercontent.com/nguyenhongphat0/pvz_shell/master/screenshot.png",
-      ],
+      screenshots: ["img/pvzshell/1.gif"],
       techs: ["C++"],
       description: (
         <p>
