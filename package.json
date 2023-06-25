@@ -2,7 +2,7 @@
   "name": "teddyfullstack.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://teddyfullstack.github.io",
+  "homepage": "https://teddyfullstack.github.io",
   "dependencies": {
     "react": "16.7.0",
     "react-dom": "16.7.0",
