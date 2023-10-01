@@ -8,7 +8,7 @@ export default {
   name: 'Phat "Teddy" Nguyen Hong',
   avatar: "https://avatars2.githubusercontent.com/u/29925961",
   email: "hongphat.js@gmail.com",
-  phone: "+84961676560",
+  phone: "(84) 961 676 560",
   address: {
     name: (
       <>
@@ -85,14 +85,14 @@ export default {
   timeline: {
     categories: [
       {
-        name: "Jobs",
+        name: "Experience",
         icon: "suitcase",
         color: "cyan",
         events: [
           {
             title: "Bamboo Dev.",
             subtitle: "Start working",
-            description: "WordPress & Prestashop Developer",
+            description: "PHP Developer",
             day: 10,
             month: 4,
             year: 2017,
@@ -113,7 +113,7 @@ export default {
             description: "Front-End Developer",
             day: 7,
             month: 2,
-            year: 2020,
+            year: 2019,
             preview: "img/logos/fpt-software.png",
             detail: (
               <div style={{ height: 450 }}>
@@ -129,6 +129,24 @@ export default {
               </div>
             ),
           },
+          {
+            title: "UpStage.org & URBN",
+            subtitle: "Start working",
+            description: "JavaScript & Python Freelancer",
+            day: 1,
+            month: 1,
+            year: 2020,
+            preview: "img/logos/upstage.png",
+          },
+          {
+            title: "VNG, Zalo",
+            subtitle: "Start working",
+            description: "Fullstack Software Engineer",
+            day: 7,
+            month: 7,
+            year: 2021,
+            preview: "img/logos/zalo.svg",
+          },
         ],
       },
       {
@@ -140,11 +158,11 @@ export default {
             title: "Graduate High School",
             subtitle: "Hau Nghia High School",
             description: (
-              <div>
+              <>
                 Performance: Good
                 <br />
                 Conduct: Good
-              </div>
+              </>
             ),
             day: 17,
             month: 4,
@@ -173,11 +191,11 @@ export default {
             title: "Defend graduation thesis",
             subtitle: "FPT University",
             description: (
-              <div>
+              <>
                 Question Bank Checking System
                 <br />
                 Grade: 8.4
-              </div>
+              </>
             ),
             day: 27,
             month: 12,
@@ -188,11 +206,11 @@ export default {
             title: "Graduate University",
             subtitle: "FPT University",
             description: (
-              <div>
+              <>
                 Major: Software Engineering
                 <br />
                 GPA: 8.05
-              </div>
+              </>
             ),
             day: 9,
             month: 3,
@@ -227,8 +245,13 @@ export default {
           {
             title: "Provincial Excellent Student",
             subtitle: "First prize",
-            description:
-              "Informatics - Algorithm and Data Structre with Pascal",
+            description: (
+              <>
+                Informatics - Algorithm and
+                <br />
+                Data Structre with Pascal
+              </>
+            ),
             day: 20,
             month: 11,
             year: 2014,
@@ -242,7 +265,6 @@ export default {
           {
             title: "National Computer Science Contest",
             subtitle: "Consolation prize",
-            description: "Binh Dinh, Viet Nam",
             day: 17,
             month: 4,
             year: 2015,
@@ -272,13 +294,45 @@ export default {
             year: 2018,
             photos: ["img/timeline/merits/fptu-esots.jpg"],
           },
+          {
+            title: "MCSA & MCSD",
+            subtitle: "Microsoft Professional Certifications",
+            day: 15,
+            month: 12,
+            year: 2020,
+            photos: [
+              "img/timeline/merits/mcsa.jpg",
+              "img/timeline/merits/mcsd.jpg",
+            ],
+          },
+          {
+            title: "Top 1 NAVER UP",
+            subtitle: "Coding Challenge",
+            day: 3,
+            month: 3,
+            year: 2023,
+            detail: (
+              <div style={{ height: 150, overflow: "hidden" }}>
+                <iframe
+                  title="The Winner of NAVER UP Coding Challenge 2023"
+                  src="https://event.navercorp.vn/event/naver-up-coding-challenge-2023/"
+                  style={{
+                    width: "400%",
+                    height: "400%",
+                    border: "none",
+                    transform: "scale(0.25)",
+                    transformOrigin: "top left",
+                  }}
+                ></iframe>
+              </div>
+            ),
+          },
         ],
       },
       {
         name: "Life",
         icon: "user",
         color: "pink",
-        description: "Wonderful things that happen in my live",
         events: [
           {
             title: "Birthday",
@@ -286,15 +340,6 @@ export default {
             day: 28,
             month: 12,
             year: 1998,
-          },
-          {
-            title: "First love",
-            description: "With someone special!",
-            preview:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Love_Heart_symbol.svg/1111px-Love_Heart_symbol.svg.png",
-            day: 20,
-            month: 11,
-            year: 2014,
           },
         ],
       },
@@ -304,9 +349,9 @@ export default {
         color: "gray",
         events: [
           {
-            title: "The corona virus",
+            title: "The Corona Virus",
             subtitle: "Global disease",
-            description: "Everyone is isolated, work from home",
+            description: "WFH at UpStage.org & URBN",
             preview: "img/timeline/covid-19.jpg",
             day: 1,
             month: 1,
