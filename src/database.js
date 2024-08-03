@@ -29,7 +29,7 @@ export default {
     },
     {
       name: "Github",
-      url: "https://github.com/teddyfullstack",
+      url: "https://github.com/teddyos",
       icon: "github",
       color: "black",
     },
@@ -69,7 +69,7 @@ export default {
       shortName: "First website",
       name: "CDShop",
       component: "Iframe",
-      link: "https://teddyfullstack.github.io/phatcdshop",
+      link: "https://teddyos.github.io/phatcdshop",
       color: "dark",
       icon: "backward",
       size: "medium",
@@ -512,11 +512,11 @@ export default {
         },
         {
           name: "Mini App Soure Code",
-          link: "https://github.com/teddyfullstack/gmat-miniapp",
+          link: "https://github.com/teddyos/gmat-miniapp",
         },
         {
           name: "Server Soure Code",
-          link: "https://github.com/teddyfullstack/gmat-database/actions",
+          link: "https://github.com/teddyos/gmat-database/actions",
         },
       ],
       description:
@@ -804,7 +804,7 @@ export default {
         },
         {
           name: "View code on GitHub",
-          link: "https://github.com/teddyfullstack/wordpress-developerpack",
+          link: "https://github.com/teddyos/wordpress-developerpack",
         },
       ],
       personal: true,
@@ -826,7 +826,7 @@ export default {
       actions: [
         {
           name: "View code & download on Github",
-          link: "https://github.com/teddyfullstack/prestashop-developerpack",
+          link: "https://github.com/teddyos/prestashop-developerpack",
         },
       ],
     },
@@ -842,11 +842,11 @@ export default {
           responsive. The website was built on top of Bootstrap 4 and jQuery.
         </p>
       ),
-      src: "https://teddyfullstack.github.io/thuvienconggiaovietnam.net",
+      src: "https://teddyos.github.io/thuvienconggiaovietnam.net",
       actions: [
         {
           name: "View code on GitHub",
-          link: "https://github.com/teddyfullstack/thuvienconggiaovietnam.net",
+          link: "https://github.com/teddyos/thuvienconggiaovietnam.net",
         },
       ],
     },
@@ -859,7 +859,7 @@ export default {
       confidential: true,
     },
     {
-      name: "teddyfullstack.github.io",
+      name: "teddyos.github.io",
       shortName: "Portfolio",
       color: "dark",
       icon: "profile",
@@ -868,14 +868,14 @@ export default {
       actions: [
         {
           name: "View code on GitHub",
-          link: "https://github.com/teddyfullstack/teddyfullstack.github.io",
+          link: "https://github.com/teddyos/teddyos.github.io",
         },
       ],
     },
     {
       name: "CD Shop",
       component: "Showcase",
-      src: "https://teddyfullstack.github.io/phatcdshop",
+      src: "https://teddyos.github.io/phatcdshop",
       color: "green",
       icon: "gamepad",
       techs: ["JavaScript"],
@@ -888,11 +888,11 @@ export default {
       actions: [
         {
           name: "View online",
-          link: "https://teddyfullstack.github.io/phatcdshop",
+          link: "https://teddyos.github.io/phatcdshop",
         },
         {
           name: "View code on GitHub",
-          link: "https://github.com/teddyfullstack/phatcdshop",
+          link: "https://github.com/teddyos/phatcdshop",
         },
       ],
     },
@@ -947,7 +947,7 @@ export default {
       actions: [
         {
           name: "View on Github",
-          link: "https://github.com/teddyfullstack/pvz_shell",
+          link: "https://github.com/teddyos/pvz_shell",
         },
       ],
     },
