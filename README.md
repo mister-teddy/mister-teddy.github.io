@@ -1,4 +1,4 @@
-# teddyos.github.io
+# mister-teddy.github.io
 
 ## Branches
 
@@ -11,4 +11,4 @@ This projects has 2 braches:
 
 - `npm start` for running dev server on port 3000
 - `git push` for pushing source files to branch develop
-- `npm run deploy` for deploying to teddyos.github.io page
+- `npm run deploy` for deploying to mister-teddy.github.io page
