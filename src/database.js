@@ -5,7 +5,7 @@ export default {
   fallback: "img/shared/confidential.png",
   width: 800,
   height: 550,
-  name: 'Phat "Teddy" Nguyen Hong',
+  name: "Mister Teddy",
   avatar: "https://avatars2.githubusercontent.com/u/29925961",
   email: "hongphat.js@gmail.com",
   phone: "(84) 961 676 560",
@@ -22,16 +22,23 @@ export default {
   titleColor: "dark",
   links: [
     {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/nguyenhongphat0",
-      icon: "linkedin",
-      color: "darkBlue",
-    },
-    {
       name: "Github",
       url: "https://github.com/mister-teddy",
       icon: "github",
       color: "black",
+    },
+    {
+      name: "LeetCode",
+      url: "https://leetcode.com/u/mister-teddy/",
+      favicon:
+        "https://assets.leetcode.com/static_assets/public/icons/favicon-192x192.png",
+      color: "white",
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/nguyenhongphat0",
+      icon: "linkedin",
+      color: "darkBlue",
     },
     {
       name: "Facebook",
@@ -363,6 +370,93 @@ export default {
   },
   projects: [
     {
+      name: "Polar Bear",
+      color: "white",
+      logo: "img/polarbear/logo.jpg",
+      techs: ["Rust", "Kotlin", "C++", "Android", "Linux"],
+      description: (
+        <p>
+          Polar Bear is an Android application that enables users to run a full
+          desktop Linux environment on their Android devices, specifically
+          designed for devices with sufficiently large displays, such as tablets
+          or Samsung DEX. The app sets up an Arch Linux ARM64 filesystem within
+          its internal storage, using PRoot to mount the filesystem and provide
+          a “chroot” environment. Through Android’s NDK, the app starts a
+          Wayland backend, with Weston as a nested Wayland compositor to handle
+          rendering. While other applications serve the same purpose, they
+          require instructions for setting up a combination of Termux,
+          Termux:X11, and Proot Distro (two separate Android applications and a
+          complex setup). Polar Bear simplifies this process and is available
+          for free as an open-source project under the GNU General Public
+          License v3.0.
+        </p>
+      ),
+      role: "Founder & Lead Developer",
+      actions: [
+        {
+          name: "Repository",
+          link: "https://github.com/polar-bear-app/polar-bear-app",
+        },
+      ],
+      screenshots: [
+        "https://github.com/polar-bear-app/polar-bear-app/raw/main/assets/proof-of-concept.png",
+      ],
+      personal: true,
+    },
+    {
+      name: "Year In Review 2024",
+      color: "white",
+      logo: "img/zalo/yir2024/logo.png",
+      techs: ["Zalo Mini App", "React", "Jotai", "TypeScript", "TailwindCSS"],
+      description: (
+        <p>
+          A Mini App celebrating the individual milestones of Zalo users in
+          2024, with stats such as new friends, messages, photo/video shared,
+          and more. Despite being developed within a tight one-month timeline
+          and involving collaboration across multiple teams, the app featured
+          advanced client-side capabilities like canvas-based image generation
+          for social media sharing and reached 13M+ users in just 3 days.
+        </p>
+      ),
+      role: "Core Frontend (Mini App) Developer",
+      screenshots: [
+        "img/zalo/yir2024/1.jpg",
+        "img/zalo/yir2024/2.jpg",
+        "img/zalo/yir2024/3.jpg",
+      ],
+      important: true,
+    },
+    {
+      name: "Zalo Mini App Extension",
+      color: "white",
+      logo: "img/zalo/extension/logo.png",
+      techs: [
+        "Visual Studio Code Extension API",
+        "TypeScript",
+        "Electron",
+        "React",
+        "Recoil",
+        "TailwindCSS",
+      ],
+      description: (
+        <p>A Visual Studio Code extension for Zalo Mini App developers.</p>
+      ),
+      role: "Core developer and project maintainer",
+      actions: [
+        {
+          name: "Home Page",
+          link: "https://mini.zalo.me/devtools/?lang=vi",
+        },
+        {
+          name: "Download",
+          link:
+            "https://marketplace.visualstudio.com/items?itemName=zalo-mini-app.zalo-mini-app",
+        },
+      ],
+      screenshots: ["img/zalo/extension/1.png"],
+      important: true,
+    },
+    {
       name: "Zalo Mini App Studio",
       color: "white",
       logo: "img/zalo/studio/logo.png",
@@ -376,23 +470,15 @@ export default {
       ],
       description: (
         <p>
-          Zalo Mini App Studio is an IDE developed by Zalo to provide a complete
-          solution for building Mini App applications running on Zalo more
-          efficiently and conveniently.
-          <br />I built the project on top of the OpenSumi framework. At the
-          moment of writing this (14/01/2023), I am the only
-          developer/maintainer of the project.
+          An IDE developed by Zalo to provide a complete solution for efficient
+          and convenient Mini Apps development.
         </p>
       ),
-      important: true,
+      role: "Core developer and project maintainer",
       actions: [
         {
           name: "Download",
-          link: "https://mini.zalo.me/docs/dev-tools/?lang=en",
-        },
-        {
-          name: "OpenSumi",
-          link: "https://opensumi.com/en",
+          link: "https://mini.zalo.me/documents/devtools/",
         },
       ],
       screenshots: [
@@ -401,6 +487,7 @@ export default {
         "https://stc-zmp.zadn.vn/zmp-docs/v1.28.18/assets/images/deploy-3-1fe875b7c608dacf66515f34424ffb5d.webp",
         "https://stc-zmp.zadn.vn/zmp-docs/v1.28.18/assets/images/ext-3-0d7d1eb22498b9e8e775b0c30a9318a3.webp",
       ],
+      important: true,
     },
     {
       name: "Zalo Mini App Store",
@@ -409,7 +496,7 @@ export default {
       techs: ["Zalo Mini App", "React", "Recoil", "TypeScript", "TailwindCSS"],
       description:
         "The main entry point of all the mini apps in the Zalo Mini App ecosystem. At the moment of writing this (14/01/2023), I am the only developer/maintainer of the project.",
-      important: true,
+      role: "Core Frontend (Mini App) Developer",
       mobile: true,
       framed: true,
       screenshots: [
@@ -419,6 +506,7 @@ export default {
         "img/zalo/store/4.png",
         "img/zalo/store/5.png",
       ],
+      important: true,
     },
     {
       name: "ZCheckin",
@@ -427,7 +515,6 @@ export default {
       techs: ["Zalo Mini App", "Vue", "TypeScript"],
       description:
         "Internal application for checking attendance, late/off registering, paying fines, viewing team budget/rules, and booking lunch. At the moment of writing this (14/01/2023), I am the only developer/maintainer of the project.",
-      important: true,
       mobile: true,
       screenshots: [
         "img/zalo/zcheckin/1.jpg",
@@ -451,7 +538,6 @@ export default {
       ],
       description:
         "A quiz-taking mini app. Support 7 different types of questions, from single choice to matching, drag & drop marker to map and so on. At the moment of writing this (14/01/2023), I am the only developer/maintainer of the project.",
-      important: true,
       mobile: true,
       screenshots: [
         "img/zalo/crackit/1.jpg",
@@ -503,7 +589,6 @@ export default {
         "TypeScript",
         "TailwindCSS",
         "Deno",
-        "GitHub Actions",
       ],
       actions: [
         {
@@ -542,7 +627,6 @@ export default {
         "PostgreSQL",
         "AnimeJS",
         "Playwright",
-        "GitHub Actions",
       ],
       description: (
         <p>
@@ -555,7 +639,6 @@ export default {
           it.
         </p>
       ),
-      important: true,
       actions: [
         {
           name: "Home",
@@ -627,7 +710,6 @@ export default {
           below:
         </p>
       ),
-      important: true,
     },
     {
       name: "Volunteer World",
@@ -644,51 +726,6 @@ export default {
           user interaction.
         </p>
       ),
-      important: true,
-    },
-    {
-      name: "Distribution Portal",
-      color: "white",
-      logo: "img/logos/fpt-software.png",
-      techs: ["JavaScript", "ReactJS", "Redux", "Power BI"],
-      description:
-        "FPT Software is a world-class software company mainly working on outsourcing and offshore development centre (ODC) business. Distribution Portal was an ODC project in which I've been participating, aiming at enterprise insurance and financial business.",
-      confidential: true,
-    },
-    {
-      name: "MDM",
-      color: "white",
-      logo: "img/logos/fpt-software.png",
-      techs: [
-        "JavaScript",
-        "ReactJS",
-        "Redux",
-        "Umi.JS",
-        "DVA.JS",
-        "Ant Design",
-      ],
-      description:
-        "FPT Software is a world-class software company mainly working on outsourcing and offshore development centre (ODC) business. Along with building new systems, FPT also maintains old systems and rebuilds better ones based on the functions of the old system with the latest technology stack. MDM was one of those.",
-      confidential: true,
-    },
-    {
-      name: "AI Security Camera",
-      color: "white",
-      logo: "img/logos/fpt-software.png",
-      techs: ["JavaScript", "ReactJS", "ExpressJS", "MongoDB", "Node.js"],
-      description: (
-        <quote style={{ fontSize: 15, fontStyle: "italic" }}>
-          AI Security Camera was my very first big-budget project and an
-          unforgettable life experience. We use full JavaScript (MERN Stack) to
-          develop a web-based system to handle data from cameras and analyse
-          them using smart algorithms. I worked on both the client and server
-          sides. The project took 12 months to complete and closed to our
-          customer's satisfaction! Unfortunately this is a{" "}
-          <b className="fg-red">private project</b>, no further information or
-          any screenshot of the product is allowed to be shared, sorry!
-        </quote>
-      ),
-      confidential: true,
     },
     {
       name: "Arena Of Evolution: Red Tides Guide",
@@ -736,45 +773,6 @@ export default {
       ],
     },
     {
-      name: "Người Ấy Là Ai Database",
-      component: "Showcase",
-      color: "purple",
-      logo: "https://nguoiaylaai.github.io/assets/img/brand/nala.png",
-      techs: [
-        "Jekyll",
-        "JavaScript",
-        "Vue",
-        "Bootstrap",
-        "Google Adsense",
-        "Google Analytics",
-        "Facebook Comment API",
-      ],
-      description: (
-        <p>
-          Người Ấy Là Ai is a famous Vietnamese gameshow where in each episode,
-          a female main can choose between 5 random handsome male players. Each
-          of them can be single (green), married (red) and gay (purple). Người
-          Ấy Là Ai Database (NALADB) is a place where all aggregated information
-          about the male characters in the gameshow is stored. The website also
-          supports statistics from gameshow episodes to give interesting facts,
-          such as the guy who was thought to be the most single, unpredictable
-          guy, and so on.
-        </p>
-      ),
-      personal: true,
-      actions: [
-        {
-          name: "Visit site",
-          link: "https://nguoiaylaai.github.io",
-        },
-        {
-          name: "View code on GitHub",
-          link: "https://github.com/nguoiaylaai/nguoiaylaai.github.io",
-        },
-      ],
-      screenshots: ["img/nguoiaylaai/1.png", "img/nguoiaylaai/2.png"],
-    },
-    {
       name: "Wordpress Developerpack",
       color: "black",
       logo: "img/developerpack/wordpress.png",
@@ -808,93 +806,6 @@ export default {
         },
       ],
       personal: true,
-    },
-    {
-      name: "Prestashop Developerpack",
-      color: "black",
-      logo: "img/developerpack/prestashop.png",
-      techs: ["PHP", "Prestashop"],
-      description: (
-        <p>
-          Freelancer/Developer use only!
-          <br />
-          This module allows you to download your website source code for local
-          debugging and editing your file directly in your back office with a
-          powerful code editor.
-        </p>
-      ),
-      actions: [
-        {
-          name: "View code & download on Github",
-          link: "https://github.com/mister-teddy/prestashop-developerpack",
-        },
-      ],
-    },
-    {
-      name: "Thu Vien Cong Giao Viet Nam",
-      color: "white",
-      logo: "img/logos/thuvienconggiaovietnam.png",
-      techs: ["Bootstrap", "JQuery", "JavaScript"],
-      description: (
-        <p>
-          The official thuvienconggiaovietnam.net mockup site, which has a
-          vintage design pattern with complete feature pages and is fully
-          responsive. The website was built on top of Bootstrap 4 and jQuery.
-        </p>
-      ),
-      src: "https://mister-teddy.github.io/thuvienconggiaovietnam.net",
-      actions: [
-        {
-          name: "View code on GitHub",
-          link: "https://github.com/mister-teddy/thuvienconggiaovietnam.net",
-        },
-      ],
-    },
-    {
-      name: "KETRI Fieldwork Student",
-      color: "white",
-      logo: "img/logos/etboard.png",
-      techs: ["PHP", "Laravel", "PHP", "JQuery", "MySQL"],
-      description: <p>My freelance projects for customers from South Korea.</p>,
-      confidential: true,
-    },
-    {
-      name: "mister-teddy.github.io",
-      shortName: "Portfolio",
-      color: "dark",
-      icon: "profile",
-      techs: ["JavaScript", "ReactJS"],
-      description: <p>This is my portfolio, and you are viewing it :D</p>,
-      actions: [
-        {
-          name: "View code on GitHub",
-          link: "https://github.com/mister-teddy/mister-teddy.github.io",
-        },
-      ],
-    },
-    {
-      name: "CD Shop",
-      component: "Showcase",
-      src: "https://mister-teddy.github.io/phatcdshop",
-      color: "green",
-      icon: "gamepad",
-      techs: ["JavaScript"],
-      description: (
-        <p>
-          CD Shop is my school course's final project, and this is my very first
-          front-end project. I built CD Shop on top of plain HTML, CSS and JS.
-        </p>
-      ),
-      actions: [
-        {
-          name: "View online",
-          link: "https://mister-teddy.github.io/phatcdshop",
-        },
-        {
-          name: "View code on GitHub",
-          link: "https://github.com/mister-teddy/phatcdshop",
-        },
-      ],
     },
     {
       name: "Draft Pascal",

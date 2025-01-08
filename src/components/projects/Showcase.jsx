@@ -33,6 +33,7 @@ export default class Showcase extends React.Component {
           </p>
         )}
         <p>{project.description}</p>
+        {project.role && <p><i>Role/Responsibility: {project.role}</i></p>}
         {project.actions && (
           <div>
             <h3>View more</h3>

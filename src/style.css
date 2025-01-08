@@ -142,6 +142,7 @@ div {
 .profile .bottom {
     position: absolute;
     bottom: 5px;
+    width: 100%;
 }
 
 .profile .name {

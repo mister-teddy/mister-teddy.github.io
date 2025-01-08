@@ -40,7 +40,7 @@ export default class Projects extends React.Component {
                 <div key={i} className="slide" style={i === count ? {} : {left: '-100%'}}>
                     <div className="pos-absolute pos-center">
                         <h1>{i}</h1>
-                        {i === projects && <h6 style={{whiteSpace: 'nowrap'}}> experienced projects</h6>}
+                        {i === projects && <h6 style={{whiteSpace: 'nowrap'}}> featured projects</h6>}
                     </div>
                 </div>
             )}

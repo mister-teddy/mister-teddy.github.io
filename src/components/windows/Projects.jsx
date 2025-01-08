@@ -212,7 +212,7 @@ export default class Projects extends React.Component {
               ))}
             </div>
           </Panel>
-          <Panel name="Featured projects" icon="star-empty" open={true}>
+          <Panel name="Latest projects" icon="star-empty" open={true}>
             <div className="tiles-grid">
               {db.projects.map(
                 (project, i) =>

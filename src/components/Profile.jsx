@@ -5,11 +5,10 @@ import LinkTile from "./LinkTile";
 export default () => (
   <div className="profile fg-white">
     <div className="top">
-      <div>
+      <div className="mb-2">
         <img alt="avatar" className="avatar" src={db.avatar}></img>{" "}
         <span className="name">{db.name}</span>
       </div>
-      <div className="fg-gray">Contact me</div>
       <LinkTile
         text={db.email}
         link={`mailto:${db.email}`}
@@ -38,6 +37,7 @@ export default () => (
           text={link.name}
           link={link.url}
           icon={link.icon}
+          favicon={link.favicon}
           color={link.color}
           key={link.name}
         />
