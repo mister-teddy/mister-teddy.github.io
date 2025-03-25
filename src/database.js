@@ -36,7 +36,7 @@ export default {
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/nguyenhongphat0",
+      url: "https://www.linkedin.com/in/mister-teddy",
       icon: "linkedin",
       color: "darkBlue",
     },
@@ -449,8 +449,7 @@ export default {
         },
         {
           name: "Download",
-          link:
-            "https://marketplace.visualstudio.com/items?itemName=zalo-mini-app.zalo-mini-app",
+          link: "https://marketplace.visualstudio.com/items?itemName=zalo-mini-app.zalo-mini-app",
         },
       ],
       screenshots: ["img/zalo/extension/1.png"],
