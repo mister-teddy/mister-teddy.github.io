@@ -9,8 +9,8 @@ export default class Projects extends React.Component {
 
   sum = () => {
     let sum = 0;
-    Object.keys(db.freelance).forEach((platform) =>
-      db.freelance[platform].forEach((project) => sum++)
+    Object.keys(db.freelance).forEach(platform =>
+      db.freelance[platform].forEach(project => sum++)
     );
     return sum;
   };

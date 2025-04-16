@@ -12,7 +12,7 @@ export default class Showcase extends React.Component {
             className="tags"
             title="Browse all projects with this technology"
           >
-            {project.techs.map((tech) => (
+            {project.techs.map(tech => (
               <span
                 key={tech}
                 className={tech.toLowerCase()}
@@ -33,12 +33,16 @@ export default class Showcase extends React.Component {
           </p>
         )}
         <p>{project.description}</p>
-        {project.role && <p><i>Role/Responsibility: {project.role}</i></p>}
+        {project.role && (
+          <p>
+            <i>Role/Responsibility: {project.role}</i>
+          </p>
+        )}
         {project.actions && (
           <div>
             <h3>View more</h3>
             <div className="tags">
-              {project.actions.map((action) => (
+              {project.actions.map(action => (
                 <a
                   key={action.name}
                   href={action.link}

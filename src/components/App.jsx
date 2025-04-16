@@ -18,33 +18,33 @@ export default class App extends Component {
       fullscreen: false,
       processes: [],
       focusingMenu: null,
-      depth: 1,
+      depth: 1
     };
   }
 
   hideLoader = () => {
     this.setState({
-      loading: false,
+      loading: false
     });
   };
 
   startLoading = () => {
     this.setState({
       loading: true,
-      opacity: 1,
+      opacity: 1
     });
   };
 
   loadingFinish = () => {
     this.setState({
-      opacity: 0,
+      opacity: 0
     });
     setTimeout(this.hideLoader, 500);
   };
 
   goFullscreen = () => {
     this.setState({ fullscreen: true });
-    this.state.processes.forEach((process) => {
+    this.state.processes.forEach(process => {
       if (process) {
         this.minimizeWindow(process);
       }
@@ -53,45 +53,45 @@ export default class App extends Component {
 
   toggleMenu = () => {
     this.setState({
-      showMenu: !this.state.showMenu,
+      showMenu: !this.state.showMenu
     });
   };
 
-  openWindow = (window) => {
+  openWindow = window => {
     this.toggleMenu();
     this.focusWindow(window);
     if (this.state.processes.indexOf(window) === -1) {
       this.setState({
-        processes: this.state.processes.concat(window),
+        processes: this.state.processes.concat(window)
       });
     }
   };
 
-  closeWindow = (window) => {
+  closeWindow = window => {
     this.setState({
-      processes: this.state.processes.map((w) => (w === window ? null : w)),
+      processes: this.state.processes.map(w => (w === window ? null : w))
     });
   };
 
-  focusWindow = (window) => {
+  focusWindow = window => {
     window.depth = this.state.depth;
-    this.setState((s) => ({
+    this.setState(s => ({
       focusingMenu: window,
-      depth: s.depth + 1,
+      depth: s.depth + 1
     }));
   };
 
-  minimizeWindow = (window) => {
+  minimizeWindow = window => {
     window.depth = -1;
     this.setState({
-      focusingMenu: null,
+      focusingMenu: null
     });
   };
 
-  setBackground = (background) => {
+  setBackground = background => {
     this.setState({
       background: background,
-      loading: true,
+      loading: true
     });
   };
 
@@ -99,7 +99,7 @@ export default class App extends Component {
     if (this.state.loading) {
       this.setState(
         {
-          background: db.fallback,
+          background: db.fallback
         },
         this.loadingFinish
       );
@@ -120,7 +120,7 @@ export default class App extends Component {
     setBackground: this.setBackground,
     startLoading: this.startLoading,
     loadingFinish: this.loadingFinish,
-    fallbackBackground: this.fallbackBackground,
+    fallbackBackground: this.fallbackBackground
   });
 
   render() {
@@ -129,7 +129,7 @@ export default class App extends Component {
         {this.renderLoader()}
         <Fullscreen
           enabled={this.state.fullscreen}
-          onChange={(fullscreen) => this.setState({ fullscreen })}
+          onChange={fullscreen => this.setState({ fullscreen })}
         >
           <Desktop />
           <Menu />

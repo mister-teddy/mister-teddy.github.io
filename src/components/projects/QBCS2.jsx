@@ -11,7 +11,7 @@ export default class QBCS2 extends React.Component {
             className="tags"
             title="Browse all projects with this technology"
           >
-            {project.techs.map((tech) => (
+            {project.techs.map(tech => (
               <span
                 key={tech}
                 className={tech.toLowerCase()}

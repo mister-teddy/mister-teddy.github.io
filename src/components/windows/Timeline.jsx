@@ -6,28 +6,28 @@ const YEARS = [
   1998,
   "...",
   ...new Array(new Date().getFullYear() - 2012).fill(0).map((_, i) => 2012 + i),
-  "NOW",
+  "NOW"
 ];
 
 export default class Timeline extends React.Component {
-  handleScroll = (e) => {
+  handleScroll = e => {
     if (e.target === e.currentTarget) {
       e.currentTarget.scrollLeft += e.deltaY;
     }
   };
 
-  handleLoad = (e) => {
+  handleLoad = e => {
     if (!this.area) {
       this.area = e.currentTarget;
       this.jumpToEnd();
     }
   };
 
-  jumpToStart = (e) => {
+  jumpToStart = e => {
     this.area.scrollLeft = 0;
   };
 
-  jumpToEnd = (e) => {
+  jumpToEnd = e => {
     this.area.scrollLeft = this.area.scrollWidth;
   };
 
@@ -46,7 +46,7 @@ export default class Timeline extends React.Component {
                 <span className="mif-chevron-thin-right" />
               </button>
             </div>
-            {categories.map((category) => (
+            {categories.map(category => (
               <div
                 key={category.name}
                 className={`stream bg-${category.color} fg-white`}
@@ -63,20 +63,20 @@ export default class Timeline extends React.Component {
             onLoad={this.handleLoad}
           >
             <ul className="streamer-timeline">
-              {YEARS.map((year) => (
+              {YEARS.map(year => (
                 <li key={year}>
                   <em>{year}</em>
                 </li>
               ))}
             </ul>
-            {categories.map((category) => (
+            {categories.map(category => (
               <div key={category.name} className="streamer-events">
                 <div className="event-group">
                   <div
                     className="stream-events"
                     style={{ width: "2238px", height: "75px" }}
                   >
-                    {category.events.map((event) => (
+                    {category.events.map(event => (
                       <TimelineItem
                         key={event.title}
                         category={category}

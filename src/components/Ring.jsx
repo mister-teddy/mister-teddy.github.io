@@ -1,19 +1,21 @@
-import React from 'react';
+import React from "react";
 
-export default () => <div className="ring activity-ring mx-auto color-style">
+export default () => (
+  <div className="ring activity-ring mx-auto color-style">
     <div className="wrap">
-        <div className="circle"></div>
+      <div className="circle"></div>
     </div>
     <div className="wrap">
-        <div className="circle"></div>
+      <div className="circle"></div>
     </div>
     <div className="wrap">
-        <div className="circle"></div>
+      <div className="circle"></div>
     </div>
     <div className="wrap">
-        <div className="circle"></div>
+      <div className="circle"></div>
     </div>
     <div className="wrap">
-        <div className="circle"></div>
+      <div className="circle"></div>
     </div>
-</div>
+  </div>
+);

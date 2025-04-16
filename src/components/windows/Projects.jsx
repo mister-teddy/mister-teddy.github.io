@@ -14,18 +14,18 @@ export default class Projects extends React.Component {
       techs: this.getTechs(),
       tech: null,
       project: null,
-      history: [],
+      history: []
     };
   }
 
   toggleExpand = () => {
-    this.setState((s) => ({ expanded: !s.expanded }));
+    this.setState(s => ({ expanded: !s.expanded }));
   };
 
   getTechs = () => {
     let techs = [],
       grouped = [];
-    db.projects.forEach((project) => {
+    db.projects.forEach(project => {
       techs = techs.concat(project.techs);
     });
     while (techs.length > 0) {
@@ -37,16 +37,16 @@ export default class Projects extends React.Component {
         techs[index] = "";
       }
       grouped.push({ name: tech, count });
-      techs = techs.filter((t) => t !== "");
+      techs = techs.filter(t => t !== "");
     }
     grouped = grouped.sort((a, b) => b.count - a.count);
     return grouped;
   };
 
-  goto = (state) => {
-    this.setState((s) => ({
+  goto = state => {
+    this.setState(s => ({
       history: s.history.concat(s),
-      ...state,
+      ...state
     }));
   };
 
@@ -59,7 +59,7 @@ export default class Projects extends React.Component {
     }
   };
 
-  search = (e) => {
+  search = e => {
     let { keyword } = this.state;
     if (e.type.includes("change")) {
       keyword = e.target.value;
@@ -67,7 +67,7 @@ export default class Projects extends React.Component {
     this.setState({
       expanded: true,
       page: "search",
-      keyword,
+      keyword
     });
   };
 
@@ -78,7 +78,7 @@ export default class Projects extends React.Component {
       .includes(b.trim().toLowerCase());
   };
 
-  filter = (project) => {
+  filter = project => {
     const { keyword } = this.state;
     let result = false;
     if (this.contain(project.name, keyword)) {
@@ -115,7 +115,7 @@ export default class Projects extends React.Component {
             <div className="input">
               <input
                 type="text"
-                ref={(searchbar) => (this.searchbar = searchbar)}
+                ref={searchbar => (this.searchbar = searchbar)}
                 value={keyword}
                 onChange={this.search}
               />
@@ -290,10 +290,10 @@ export default class Projects extends React.Component {
           <h1>{project.name}</h1>
           <ProjectDetail
             project={project}
-            viewCategory={(tech) =>
+            viewCategory={tech =>
               this.goto({
                 page: "grid",
-                tech: this.state.techs.find((t) => t.name === tech),
+                tech: this.state.techs.find(t => t.name === tech)
               })
             }
           />

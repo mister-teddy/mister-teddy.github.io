@@ -9,20 +9,20 @@ export default class Freelance extends React.Component {
   state = {
     currentProject: "",
     address: "",
-    loading: false,
+    loading: false
   };
 
-  getFavicon = (site) => `https://www.google.com/s2/favicons?domain=${site}`;
+  getFavicon = site => `https://www.google.com/s2/favicons?domain=${site}`;
 
-  preview = (project) => {
+  preview = project => {
     this.setState({
       currentProject: project,
       address: project,
-      loading: true,
+      loading: true
     });
   };
 
-  go = (e) => {
+  go = e => {
     if (e.keyCode === 13) {
       this.preview(this.state.address);
     }
@@ -40,7 +40,7 @@ export default class Freelance extends React.Component {
           <h1>Sites</h1>
           <ScrollBar
             style={{ height: "calc(100% - 106px)", width: "100%" }}
-            renderTrackHorizontal={(props) => (
+            renderTrackHorizontal={props => (
               <div
                 {...props}
                 className="track-horizontal"
@@ -83,7 +83,7 @@ export default class Freelance extends React.Component {
               type="text"
               value={address}
               placeholder="Enter an url..."
-              onChange={(e) => this.setState({ address: e.target.value })}
+              onChange={e => this.setState({ address: e.target.value })}
               onKeyUp={this.go}
             />
             <div className="button-group">

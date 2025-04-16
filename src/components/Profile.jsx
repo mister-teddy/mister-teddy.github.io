@@ -32,7 +32,7 @@ export default () => (
       />
     </div>
     <div className="bottom">
-      {db.links.map((link) => (
+      {db.links.map(link => (
         <LinkTile
           text={link.name}
           link={link.url}
