@@ -178,6 +178,16 @@ div {
     border: none;
 }
 
+.window.maximized .btn-max::before,
+.window.maximized .btn-max::after {
+    border-width: 2px;
+}
+
+.window:not(.maximized) .btn-max::before {
+    border-width: 1.5px;
+    border-top-width: 3px;
+}
+
 .window-caption.bg-white .icon,
 .window-caption.bg-white .title {
     color: black;
@@ -535,4 +545,8 @@ iframe {
     left: 5.5%;
     top: 2.2%;
     width: 89%;
+}
+
+.resize-element::after {
+    border-bottom-color: transparent;
 }
