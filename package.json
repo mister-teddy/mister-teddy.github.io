@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://mister-teddy.github.io",
+  "engines": {
+    "node": ">=14.0.0 <17.0.0",
+    "npm": ">=6.0.0"
+  },
   "dependencies": {
     "react": "16.7.0",
     "react-custom-scrollbars": "^4.2.1",

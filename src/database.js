@@ -8,16 +8,16 @@ export default {
   name: "Mister Teddy",
   avatar: "https://avatars2.githubusercontent.com/u/29925961",
   email: "hongphat.js@gmail.com",
-  phone: "(84) 961 676 560",
+  phone: "+49 1515 5835971",
   address: {
     name: (
       <>
-        64 Hoang Quoc Viet, Phu My Ward
+        Keltenstraße 19
         <br />
-        District 7, Ho Chi Minh City
+        Sauerlach, Bavaria, Germany
       </>
     ),
-    link: "https://goo.gl/maps/bwwPqTnYiFc7PUds9"
+    link: "https://maps.app.goo.gl/zrkc6a6MCLHibvau5",
   },
   titleColor: "dark",
   links: [
@@ -25,36 +25,36 @@ export default {
       name: "Github",
       url: "https://github.com/mister-teddy",
       icon: "github",
-      color: "black"
+      color: "black",
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/mister-teddy",
+      icon: "linkedin",
+      color: "darkBlue",
+    },
+    {
+      name: "Upwork",
+      url: "https://www.upwork.com/freelancers/~011f970d574d50e8d9",
+      favicon: "/img/logos/upwork.svg",
+      color: "darkGray",
     },
     {
       name: "LeetCode",
       url: "https://leetcode.com/u/mister-teddy/",
       favicon:
         "https://assets.leetcode.com/static_assets/public/icons/favicon-192x192.png",
-      color: "white"
+      color: "white",
     },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/mister-teddy",
-      icon: "linkedin",
-      color: "darkBlue"
-    },
-    {
-      name: "Facebook",
-      url: "https://www.facebook.com/profile.php?id=100004240774642",
-      icon: "facebook2",
-      color: "blue"
-    }
   ],
   windows: [
     {
       name: "Resume",
       component: "Iframe",
-      link: "pdf/cv.pdf",
+      link: "pdf/Resume.pdf",
       color: "red",
       icon: "profile",
-      size: "medium"
+      size: "medium",
     },
     {
       name: "Projects",
@@ -62,7 +62,7 @@ export default {
       tileComponent: "Projects",
       color: "white",
       icon: "stack",
-      size: "large"
+      size: "large",
     },
     {
       name: "Site Builder",
@@ -70,7 +70,7 @@ export default {
       tileComponent: "Freelance",
       color: "black",
       icon: "vpn-publ",
-      size: "wide"
+      size: "wide",
     },
     {
       shortName: "First website",
@@ -79,15 +79,15 @@ export default {
       link: "https://mister-teddy.github.io/phatcdshop",
       color: "dark",
       icon: "backward",
-      size: "medium"
+      size: "medium",
     },
     {
       name: "Timeline",
       component: "Timeline",
       color: "dark",
       icon: "history",
-      size: "wide"
-    }
+      size: "wide",
+    },
   ],
   timeline: {
     categories: [
@@ -103,7 +103,7 @@ export default {
             day: 10,
             month: 4,
             year: 2017,
-            preview: "img/logos/bamboo.png"
+            preview: "img/logos/bamboo.png",
           },
           {
             title: "FPT Software (OJT)",
@@ -112,7 +112,7 @@ export default {
             month: 12,
             year: 2018,
             preview: "img/logos/fpt-software.png",
-            photos: ["img/timeline/merits/ojt.jpg"]
+            photos: ["img/timeline/merits/ojt.jpg"],
           },
           {
             title: "FPT Software",
@@ -120,7 +120,7 @@ export default {
             description: "Front-End Developer",
             day: 7,
             month: 2,
-            year: 2019,
+            year: 2020,
             preview: "img/logos/fpt-software.png",
             detail: (
               <div style={{ height: 450 }}>
@@ -134,7 +134,7 @@ export default {
                   allow="encrypted-media"
                 ></iframe>
               </div>
-            )
+            ),
           },
           {
             title: "UpStage.org & URBN",
@@ -142,19 +142,28 @@ export default {
             description: "JavaScript & Python Freelancer",
             day: 1,
             month: 1,
-            year: 2020,
-            preview: "img/logos/upstage.png"
+            year: 2021,
+            preview: "img/logos/upstage.png",
           },
           {
-            title: "VNG, Zalo",
+            title: "Zalo, VNG (Vietnam's first tech unicorn)",
             subtitle: "Start working",
-            description: "Fullstack Software Engineer",
+            description: "Senior Software Engineer",
             day: 7,
             month: 7,
             year: 2021,
-            preview: "img/logos/zalo.svg"
-          }
-        ]
+            preview: "img/logos/zalo.svg",
+          },
+          {
+            title: "Reonic GmbH",
+            subtitle: "Start working",
+            description: "Software Engineer",
+            day: 10,
+            month: 11,
+            year: 2025,
+            preview: "img/logos/reonic.svg",
+          },
+        ],
       },
       {
         name: "Education",
@@ -191,8 +200,8 @@ export default {
               "img/timeline/merits/12-social.jpg",
               "img/timeline/merits/math.jpg",
               "img/timeline/merits/12-best-subject.jpg",
-              "img/timeline/merits/12-province.jpg"
-            ]
+              "img/timeline/merits/12-province.jpg",
+            ],
           },
           {
             title: "Defend graduation thesis",
@@ -207,7 +216,7 @@ export default {
             day: 27,
             month: 12,
             year: 2019,
-            preview: "img/qbcs2/logo.png"
+            preview: "img/qbcs2/logo.png",
           },
           {
             title: "Graduate University",
@@ -232,9 +241,9 @@ export default {
               >
                 View Transcript
               </a>
-            )
-          }
-        ]
+            ),
+          },
+        ],
       },
       {
         name: "Honors & Awards",
@@ -247,7 +256,7 @@ export default {
             description: "Grade: 47/50",
             day: 1,
             month: 10,
-            year: 2013
+            year: 2013,
           },
           {
             title: "Provincial Excellent Student",
@@ -266,15 +275,15 @@ export default {
               "img/timeline/merits/tht-first.jpg",
               "img/timeline/merits/tht-second.jpg",
               "img/timeline/merits/tht-third.jpg",
-              "img/timeline/merits/hsg-second.jpg"
-            ]
+              "img/timeline/merits/hsg-second.jpg",
+            ],
           },
           {
             title: "National Computer Science Contest",
             subtitle: "Consolation prize",
             day: 17,
             month: 4,
-            year: 2015
+            year: 2015,
           },
           {
             title: "Odon Vallet Scholarship",
@@ -282,7 +291,7 @@ export default {
             day: 11,
             month: 9,
             year: 2016,
-            photos: ["img/timeline/merits/odon-vallet.jpg"]
+            photos: ["img/timeline/merits/odon-vallet.jpg"],
           },
           {
             title: "70% Scholarship",
@@ -290,7 +299,7 @@ export default {
             day: 5,
             month: 10,
             year: 2017,
-            photos: ["img/timeline/merits/70-scholarship.jpg"]
+            photos: ["img/timeline/merits/70-scholarship.jpg"],
           },
           {
             title: "Excellent Student of the Semester",
@@ -299,7 +308,7 @@ export default {
             day: 28,
             month: 9,
             year: 2018,
-            photos: ["img/timeline/merits/fptu-esots.jpg"]
+            photos: ["img/timeline/merits/fptu-esots.jpg"],
           },
           {
             title: "MCSA & MCSD",
@@ -309,8 +318,8 @@ export default {
             year: 2020,
             photos: [
               "img/timeline/merits/mcsa.jpg",
-              "img/timeline/merits/mcsd.jpg"
-            ]
+              "img/timeline/merits/mcsd.jpg",
+            ],
           },
           {
             title: "Top 1 NAVER UP",
@@ -328,13 +337,13 @@ export default {
                     height: "400%",
                     border: "none",
                     transform: "scale(0.25)",
-                    transformOrigin: "top left"
+                    transformOrigin: "top left",
                   }}
                 ></iframe>
               </div>
-            )
-          }
-        ]
+            ),
+          },
+        ],
       },
       {
         name: "Life",
@@ -343,12 +352,20 @@ export default {
         events: [
           {
             title: "Birthday",
-            subtitle: "The day I was born",
-            day: 28,
-            month: 12,
-            year: 1998
-          }
-        ]
+            subtitle: "Chapter 1",
+            day: 10,
+            month: 2,
+            year: 1998,
+          },
+          {
+            title: "Pursue my dream",
+            subtitle: "Chapter 2",
+            day: 5,
+            month: 10,
+            year: 2025,
+            photos: ["img/timeline/entry.jpg"],
+          },
+        ],
       },
       {
         name: "Other",
@@ -362,22 +379,22 @@ export default {
             preview: "img/timeline/covid-19.jpg",
             day: 1,
             month: 1,
-            year: 2020
-          }
-        ]
-      }
-    ]
+            year: 2020,
+          },
+        ],
+      },
+    ],
   },
   projects: [
     {
-      name: "Polar Bear",
+      name: "Local Desktop",
       color: "white",
-      logo: "img/polarbear/logo.jpg",
+      logo: "img/localdesktop/logo.png",
       techs: ["Rust", "Kotlin", "C++", "Android", "Linux"],
       description: (
         <p>
-          Polar Bear is an Android application that enables users to run a full
-          desktop Linux environment on their Android devices, specifically
+          Local Desktop is an Android application that enables users to run a
+          full desktop Linux environment on their Android devices, specifically
           designed for devices with sufficiently large displays, such as tablets
           or Samsung DEX. The app sets up an Arch Linux ARM64 filesystem within
           its internal storage, using PRoot to mount the filesystem and provide
@@ -386,7 +403,7 @@ export default {
           rendering. While other applications serve the same purpose, they
           require instructions for setting up a combination of Termux,
           Termux:X11, and Proot Distro (two separate Android applications and a
-          complex setup). Polar Bear simplifies this process and is available
+          complex setup). Local Desktop simplifies this process and is available
           for free as an open-source project under the GNU General Public
           License v3.0.
         </p>
@@ -394,14 +411,18 @@ export default {
       role: "Founder & Lead Developer",
       actions: [
         {
+          name: "Home Page",
+          link: "https://localdesktop.github.io",
+        },
+        {
           name: "Repository",
-          link: "https://github.com/polar-bear-app/polar-bear-app"
-        }
+          link: "https://github.com/localdesktop/localdesktop",
+        },
       ],
       screenshots: [
-        "https://github.com/polar-bear-app/polar-bear-app/raw/main/assets/proof-of-concept.png"
+        "https://github.com/localdesktop/localdesktop/raw/main/assets/docs/proof-of-concept.png",
       ],
-      personal: true
+      personal: true,
     },
     {
       name: "Year In Review 2024",
@@ -422,9 +443,9 @@ export default {
       screenshots: [
         "img/zalo/yir2024/1.jpg",
         "img/zalo/yir2024/2.jpg",
-        "img/zalo/yir2024/3.jpg"
+        "img/zalo/yir2024/3.jpg",
       ],
-      important: true
+      important: true,
     },
     {
       name: "Zalo Mini App Extension",
@@ -436,7 +457,7 @@ export default {
         "Electron",
         "React",
         "Recoil",
-        "TailwindCSS"
+        "TailwindCSS",
       ],
       description: (
         <p>A Visual Studio Code extension for Zalo Mini App developers.</p>
@@ -445,16 +466,15 @@ export default {
       actions: [
         {
           name: "Home Page",
-          link: "https://mini.zalo.me/devtools/?lang=vi"
+          link: "https://mini.zalo.me/devtools/?lang=vi",
         },
         {
           name: "Download",
-          link:
-            "https://marketplace.visualstudio.com/items?itemName=zalo-mini-app.zalo-mini-app"
-        }
+          link: "https://marketplace.visualstudio.com/items?itemName=zalo-mini-app.zalo-mini-app",
+        },
       ],
       screenshots: ["img/zalo/extension/1.png"],
-      important: true
+      important: true,
     },
     {
       name: "Zalo Mini App Studio",
@@ -466,7 +486,7 @@ export default {
         "TypeScript",
         "React",
         "TailwindCSS",
-        "MobX"
+        "MobX",
       ],
       description: (
         <p>
@@ -478,16 +498,16 @@ export default {
       actions: [
         {
           name: "Download",
-          link: "https://mini.zalo.me/documents/devtools/"
-        }
+          link: "https://mini.zalo.me/documents/devtools/",
+        },
       ],
       screenshots: [
         "https://stc-zmp.zadn.vn/zmp-docs/v1.28.18/assets/images/create-3-6799b18bc48041c2a0f291005acfa99f.webp",
         "https://stc-zmp.zadn.vn/zmp-docs/v1.28.18/assets/images/start-2-6267b1e9a47630139610200ef25bd34c.webp",
         "https://stc-zmp.zadn.vn/zmp-docs/v1.28.18/assets/images/deploy-3-1fe875b7c608dacf66515f34424ffb5d.webp",
-        "https://stc-zmp.zadn.vn/zmp-docs/v1.28.18/assets/images/ext-3-0d7d1eb22498b9e8e775b0c30a9318a3.webp"
+        "https://stc-zmp.zadn.vn/zmp-docs/v1.28.18/assets/images/ext-3-0d7d1eb22498b9e8e775b0c30a9318a3.webp",
       ],
-      important: true
+      important: true,
     },
     {
       name: "Zalo Mini App Store",
@@ -504,9 +524,9 @@ export default {
         "img/zalo/store/2.png",
         "img/zalo/store/3.png",
         "img/zalo/store/4.png",
-        "img/zalo/store/5.png"
+        "img/zalo/store/5.png",
       ],
-      important: true
+      important: true,
     },
     {
       name: "ZCheckin",
@@ -521,8 +541,8 @@ export default {
         "img/zalo/zcheckin/2.jpg",
         "img/zalo/zcheckin/3.png",
         "img/zalo/zcheckin/4.jpg",
-        "img/zalo/zcheckin/5.jpg"
-      ]
+        "img/zalo/zcheckin/5.jpg",
+      ],
     },
     {
       name: "Mini Game CrackIT",
@@ -534,7 +554,7 @@ export default {
         "Recoil",
         "TypeScript",
         "TailwindCSS",
-        "ThreeJS"
+        "ThreeJS",
       ],
       description:
         "A quiz-taking mini app. Support 7 different types of questions, from single choice to matching, drag & drop marker to map and so on. At the moment of writing this (14/01/2023), I am the only developer/maintainer of the project.",
@@ -544,8 +564,8 @@ export default {
         "img/zalo/crackit/2.jpg",
         "img/zalo/crackit/3.jpg",
         "img/zalo/crackit/4.png",
-        "img/zalo/crackit/5.jpg"
-      ]
+        "img/zalo/crackit/5.jpg",
+      ],
     },
     {
       name: "Slideshow Maker",
@@ -554,8 +574,8 @@ export default {
       actions: [
         {
           name: "Open",
-          link: "https://zalo.me/s/4451495723088707154/"
-        }
+          link: "https://zalo.me/s/4451495723088707154/",
+        },
       ],
       techs: [
         "Zalo Mini App",
@@ -566,7 +586,7 @@ export default {
         "AnimeJS",
         "FFMPEG",
         "Bull Queue",
-        "Selenium"
+        "Selenium",
       ],
       description:
         "Combine your favourite photos into a short video using templates and share it with your friends. Specially crafted for National Vietnamese Woman's day.",
@@ -575,8 +595,8 @@ export default {
         "img/zalo/slideshow/1.png",
         "img/zalo/slideshow/2.png",
         "img/zalo/slideshow/3.png",
-        "img/zalo/slideshow/4.png"
-      ]
+        "img/zalo/slideshow/4.png",
+      ],
     },
     {
       name: "GMAT Practice Question",
@@ -588,21 +608,21 @@ export default {
         "Recoil",
         "TypeScript",
         "TailwindCSS",
-        "Deno"
+        "Deno",
       ],
       actions: [
         {
           name: "Open",
-          link: "https://zalo.me/s/724237147568902829/"
+          link: "https://zalo.me/s/724237147568902829/",
         },
         {
           name: "Mini App Soure Code",
-          link: "https://github.com/mister-teddy/gmat-miniapp"
+          link: "https://github.com/mister-teddy/gmat-miniapp",
         },
         {
           name: "Server Soure Code",
-          link: "https://github.com/mister-teddy/gmat-database/actions"
-        }
+          link: "https://github.com/mister-teddy/gmat-database/actions",
+        },
       ],
       description:
         "Because I wanted to practice GMAT wherever I go, I crawled those retired public questions on the GMAT Club and built this mini app. The mini app can also set a reminder to pop up at 7 PM daily.",
@@ -612,8 +632,8 @@ export default {
         "img/zalo/gmat/1.png",
         "img/zalo/gmat/2.png",
         "img/zalo/gmat/3.png",
-        "img/zalo/gmat/4.png"
-      ]
+        "img/zalo/gmat/4.png",
+      ],
     },
     {
       name: "UpStage",
@@ -626,7 +646,7 @@ export default {
         "GraphQL",
         "PostgreSQL",
         "AnimeJS",
-        "Playwright"
+        "Playwright",
       ],
       description: (
         <p>
@@ -642,14 +662,14 @@ export default {
       actions: [
         {
           name: "Home",
-          link: "https://upstage.live"
+          link: "https://upstage.live",
         },
         {
           name: "Github",
-          link: "https://github.com/upstage-org/upstage/graphs/contributors"
-        }
+          link: "https://github.com/upstage-org/upstage/graphs/contributors",
+        },
       ],
-      src: "https://upstage.live/8thMarch"
+      src: "https://upstage.live/8thMarch",
     },
     {
       name: "Question Bank Checking System - Season 2",
@@ -663,7 +683,7 @@ export default {
         "Vue",
         "SQL Server",
         "SQL Assembly",
-        "DeepSpeech"
+        "DeepSpeech",
       ],
       description: (
         <p>
@@ -709,7 +729,7 @@ export default {
           public for everyone to view. Feel free to read it in the section
           below:
         </p>
-      )
+      ),
     },
     {
       name: "Volunteer World",
@@ -725,7 +745,7 @@ export default {
           information, Web Admin for managing system entities and Mobile App for
           user interaction.
         </p>
-      )
+      ),
     },
     {
       name: "Arena Of Evolution: Red Tides Guide",
@@ -740,7 +760,7 @@ export default {
         "Bootstrap",
         "Google Adsense",
         "Google Analytics",
-        "Facebook Comment API"
+        "Facebook Comment API",
       ],
       description: (
         <p>
@@ -759,18 +779,18 @@ export default {
       actions: [
         {
           name: "Visit site",
-          link: "https://evolutionchess.github.io"
+          link: "https://evolutionchess.github.io",
         },
         {
           name: "View code on GitHub",
-          link: "https://github.com/evolutionchess/evolutionchess.github.io"
-        }
+          link: "https://github.com/evolutionchess/evolutionchess.github.io",
+        },
       ],
       screenshots: [
         "img/evolutionchess/ga.png",
         "img/evolutionchess/sc.png",
-        "img/evolutionchess/fb.png"
-      ]
+        "img/evolutionchess/fb.png",
+      ],
     },
     {
       name: "Wordpress Developerpack",
@@ -779,7 +799,7 @@ export default {
       techs: ["PHP", "Wordpress"],
       screenshots: [
         "https://ps.w.org/developer-pack/assets/screenshot-1.png",
-        "https://ps.w.org/developer-pack/assets/screenshot-2.png"
+        "https://ps.w.org/developer-pack/assets/screenshot-2.png",
       ],
       description: (
         <p>
@@ -798,14 +818,14 @@ export default {
       actions: [
         {
           name: "Download in Wordpress Plugins",
-          link: "https://wordpress.org/plugins/developer-pack/"
+          link: "https://wordpress.org/plugins/developer-pack/",
         },
         {
           name: "View code on GitHub",
-          link: "https://github.com/mister-teddy/wordpress-developerpack"
-        }
+          link: "https://github.com/mister-teddy/wordpress-developerpack",
+        },
       ],
-      personal: true
+      personal: true,
     },
     {
       name: "Draft Pascal",
@@ -815,7 +835,7 @@ export default {
         "img/draftpascal/1.png",
         "img/draftpascal/2.png",
         "img/draftpascal/3.png",
-        "img/draftpascal/4.png"
+        "img/draftpascal/4.png",
       ],
       techs: ["C#"],
       description: (
@@ -830,7 +850,7 @@ export default {
           </small>
         </p>
       ),
-      working: false
+      working: false,
     },
     {
       name: "Plants Vs. Zombies in shell ",
@@ -858,10 +878,10 @@ export default {
       actions: [
         {
           name: "View on Github",
-          link: "https://github.com/mister-teddy/pvz_shell"
-        }
-      ]
-    }
+          link: "https://github.com/mister-teddy/pvz_shell",
+        },
+      ],
+    },
   ],
   freelance: {
     WordPress: [
@@ -893,7 +913,7 @@ export default {
       "carterandfont.com",
       "nvburo.fr",
       "transports-schubel.com",
-      "lyon-paysagiste.fr"
+      "lyon-paysagiste.fr",
     ],
     PrestaShop: [
       "thecosmohouse.vn",
@@ -904,15 +924,15 @@ export default {
       "lappartementfrancais.fr",
       "miriaform.com",
       "conseil-scpi.com",
-      "plinthe-cie.com"
+      "plinthe-cie.com",
     ],
     Joomla: [
       "cabinet-vandame.com",
       "rouxel-mold.com",
       "agence-no-stress.com",
       "roze.fr",
-      "duseaux.com"
+      "duseaux.com",
     ],
-    Drupal: ["clubmedjobs.us"]
-  }
+    Drupal: ["clubmedjobs.us"],
+  },
 };
