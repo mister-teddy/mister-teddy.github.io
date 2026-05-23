@@ -24,21 +24,54 @@ jobs:
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
-      - name: Set up Node.js
+      - name: Set up Node.js for portfolio
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
-      - name: Install dependencies
+      - name: Install portfolio dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build site
+      - name: Set up Node.js for blog
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: blog/pnpm-lock.yaml
+
+      - name: Install blog dependencies
+        run: pnpm --dir blog install --frozen-lockfile
+
+      - name: Set up Node.js for portfolio build
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Build portfolio
         env:
           NODE_OPTIONS: --openssl-legacy-provider
         run: pnpm run build
+
+      - name: Set up Node.js for blog build
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: blog/pnpm-lock.yaml
+
+      - name: Build blog
+        run: pnpm --dir blog build
+
+      - name: Copy blog into portfolio build
+        run: |
+          rm -rf build/blog
+          cp -R blog/dist build/blog
 
       - name: Publish to master
         uses: peaceiris/actions-gh-pages@v4

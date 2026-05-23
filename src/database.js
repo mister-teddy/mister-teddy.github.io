@@ -86,7 +86,15 @@ export default {
       component: "Timeline",
       color: "dark",
       icon: "history",
-      size: "wide",
+      size: "medium",
+    },
+    {
+      name: "Blog",
+      component: "Iframe",
+      link: "/blog/",
+      color: "teal",
+      icon: "book-reference",
+      size: "medium",
     },
   ],
   timeline: {

@@ -1,0 +1,57 @@
+---
+import "../styles/global.css";
+import { absoluteBlogUrl, blogPath, SITE_DESCRIPTION, SITE_TITLE } from "../lib/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  lang?: string;
+  mainClass?: string;
+}
+
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  canonicalPath = Astro.url.pathname,
+  lang = "en",
+  mainClass = "",
+} = Astro.props;
+const pageTitle = title === SITE_TITLE ? SITE_TITLE : `${title} - ${SITE_TITLE}`;
+const canonical = canonicalPath.startsWith("http")
+  ? canonicalPath
+  : absoluteBlogUrl(canonicalPath.replace(/^\/blog\/?/, ""));
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={absoluteBlogUrl("rss.xml")} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    <div class="document-frame">
+      <aside class="document-strip" aria-label="Blog identity">
+        <a class="brand" href={blogPath()}>Blog</a>
+        <a class="strip-number" href="https://github.com/mister-teddy">MISTER TEDDY</a>
+        <a class="machine-code" href="https://ko-fi.com/misterteddy">BUY&lt;ME&lt;A&lt;&lt;COFEE</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">Portfolio</a>
+          <a href={blogPath("rss.xml")}>RSS</a>
+        </nav>
+      </aside>
+      <main class={`document-main ${mainClass}`}>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

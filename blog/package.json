@@ -1,0 +1,26 @@
+{
+  "name": "@mister-teddy/blog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "astro dev",
+    "check": "pnpm run translations:check",
+    "prebuild": "pnpm run check",
+    "build": "astro build",
+    "preview": "astro preview",
+    "translations:check": "node scripts/check-translations.mjs",
+    "translations:stamp": "node scripts/stamp-translations.mjs",
+    "prepare": "node scripts/install-git-hooks.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.3.7",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

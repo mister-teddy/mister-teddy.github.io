@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPublishedPosts, getPublishedTranslations } from "../lib/content";
+import { blogPath, LANGUAGE_UI_LABELS, SITE_DESCRIPTION } from "../lib/site";
+
+const posts = await getPublishedPosts();
+const translations = await getPublishedTranslations();
+const translationByPost = new Map(
+  translations.map((translation) => [translation.data.translationOf, translation]),
+);
+---
+
+<BaseLayout description={SITE_DESCRIPTION}>
+  <section class="intro">
+    <p class="eyebrow">Mister Teddy</p>
+    <h1>Blog</h1>
+    <p>Personal writing, notes, and records.</p>
+  </section>
+
+  <section class="post-list" aria-label="Posts">
+    {
+      posts.length === 0 ? (
+        <p class="empty">No posts yet.</p>
+      ) : (
+        posts.map((post) => {
+          const translation = translationByPost.get(post.data.slug);
+          const originalLanguage = LANGUAGE_UI_LABELS[post.data.lang];
+          const translationLanguage = translation
+            ? LANGUAGE_UI_LABELS[translation.data.lang]
+            : undefined;
+          return (
+            <article class="post-card">
+              <p class="post-meta">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString("en", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+                <span>
+                  {originalLanguage.name} ({originalLanguage.original})
+                </span>
+                {translationLanguage && (
+                  <span>
+                    {translationLanguage.name} ({translationLanguage.translation})
+                  </span>
+                )}
+              </p>
+              <h2>
+                <a href={blogPath(`${post.data.slug}/`)}>{post.data.title}</a>
+              </h2>
+              <p>{post.data.description}</p>
+              {post.data.tags.length > 0 && (
+                <ul class="tags" aria-label="Tags">
+                  {post.data.tags.map((tag) => (
+                    <li>{tag}</li>
+                  ))}
+                </ul>
+              )}
+            </article>
+          );
+        })
+      )
+    }
+  </section>
+</BaseLayout>

@@ -1,0 +1,158 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  getPublishedPosts,
+  getPublishedTranslations,
+  type BlogPost,
+  type Translation,
+} from "../lib/content";
+import { blogPath, LANGUAGE_NAMES, LANGUAGE_UI_LABELS } from "../lib/site";
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  const translations = await getPublishedTranslations();
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: {
+      post,
+      translation: translations.find(
+        (item) => item.data.translationOf === post.data.slug,
+      ),
+    },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+  translation?: Translation;
+}
+
+const { post, translation } = Astro.props;
+const { Content: OriginalContent, headings } = await render(post);
+const { Content: TranslationContent } = translation
+  ? await render(translation)
+  : { Content: undefined };
+const tocHeadings = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
+const originalLanguage = LANGUAGE_UI_LABELS[post.data.lang];
+const translationLanguage = translation
+  ? LANGUAGE_UI_LABELS[translation.data.lang]
+  : undefined;
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  canonicalPath={blogPath(`${post.data.slug}/`)}
+  lang={post.data.lang}
+  mainClass="document-main-post"
+>
+  <article class="article article-with-sidebar" data-post-shell>
+    <div class="article-main-column">
+      <div class="article-head">
+        <a class="back-link" href={blogPath()}>&larr; All posts</a>
+        <header class="article-header">
+          <p class="post-meta">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {
+                post.data.pubDate.toLocaleDateString("en", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              }
+            </time>
+          </p>
+          <h1>{post.data.title}</h1>
+          <p>{post.data.description}</p>
+        </header>
+      </div>
+
+      {
+        (
+          <div class="article-content">
+            <section class="prose" data-language-panel="original">
+              <OriginalContent />
+            </section>
+
+            {
+              translation && TranslationContent && (
+                <section class="prose" data-language-panel="translation" hidden>
+                  <TranslationContent />
+                </section>
+              )
+            }
+          </div>
+        )
+      }
+    </div>
+
+    <aside class="article-sidebar" aria-label="Post tools">
+      <section class="language-panel" aria-label="Language">
+        <p>
+          This post was written in {LANGUAGE_NAMES[post.data.lang]}.{" "}
+          {translation ? "A translation is available." : "No translation is available yet."}
+        </p>
+        {
+          translation && translationLanguage && (
+            <div class="language-switch" data-language-switch>
+              <button type="button" data-language-button="original" aria-pressed="true">
+                <span>{originalLanguage.name}</span>
+                <span>({originalLanguage.original})</span>
+              </button>
+              <button type="button" data-language-button="translation" aria-pressed="false">
+                <span>{translationLanguage.name}</span>
+                <span>({translationLanguage.translation})</span>
+              </button>
+            </div>
+          )
+        }
+      </section>
+
+      <nav class="toc" aria-label="Table of contents">
+        <h2>ToC</h2>
+        {
+          tocHeadings.length > 0 ? (
+            <ol>
+              {tocHeadings.map((heading) => (
+                <li class={`toc-depth-${heading.depth}`}>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p>No sections</p>
+          )
+        }
+      </nav>
+    </aside>
+  </article>
+
+  <script>
+    document.querySelectorAll("[data-language-switch]").forEach((switcher) => {
+      const post = switcher.closest("[data-post-shell]");
+      if (!post) return;
+
+      const buttons = switcher.querySelectorAll("[data-language-button]");
+      const panels = post.querySelectorAll("[data-language-panel]");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const selected = button.getAttribute("data-language-button");
+          buttons.forEach((item) => {
+            item.setAttribute(
+              "aria-pressed",
+              String(item.getAttribute("data-language-button") === selected),
+            );
+          });
+          panels.forEach((panel) => {
+            panel.toggleAttribute(
+              "hidden",
+              panel.getAttribute("data-language-panel") !== selected,
+            );
+          });
+        });
+      });
+    });
+  </script>
+</BaseLayout>

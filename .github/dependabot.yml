@@ -1,0 +1,8 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/blog"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
