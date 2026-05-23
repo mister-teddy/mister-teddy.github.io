@@ -2,7 +2,7 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
-const language = z.enum(["en", "vi"]);
+const language = z.enum(["en", "vi", "de"]);
 const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 
 const blog = defineCollection({
@@ -35,4 +35,3 @@ const translations = defineCollection({
 });
 
 export const collections = { blog, translations };
-

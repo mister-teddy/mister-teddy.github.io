@@ -7,6 +7,7 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   lang?: string;
+  initialLanguage?: string;
   mainClass?: string;
 }
 
@@ -15,6 +16,7 @@ const {
   description = SITE_DESCRIPTION,
   canonicalPath = Astro.url.pathname,
   lang = "en",
+  initialLanguage = lang,
   mainClass = "",
 } = Astro.props;
 const pageTitle = title === SITE_TITLE ? SITE_TITLE : `${title} - ${SITE_TITLE}`;
@@ -24,7 +26,7 @@ const canonical = canonicalPath.startsWith("http")
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} data-initial-language={initialLanguage}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,16 +39,17 @@ const canonical = canonicalPath.startsWith("http")
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" />
+    <slot name="head" />
   </head>
   <body>
     <div class="document-frame">
       <aside class="document-strip" aria-label="Blog identity">
         <a class="brand" href={blogPath()}>Blog</a>
-        <a class="strip-number" href="https://github.com/mister-teddy">MISTER TEDDY</a>
-        <a class="machine-code" href="https://ko-fi.com/misterteddy">BUY&lt;ME&lt;A&lt;&lt;COFEE</a>
+        <a class="strip-number" href="https://github.com/mister-teddy" target="_blank" rel="noreferrer">MISTER TEDDY</a>
+        <a class="machine-code" href="https://ko-fi.com/misterteddy" target="_blank" rel="noreferrer">BUY&lt;ME&lt;A&lt;&lt;COFEE</a>
         <nav class="nav" aria-label="Primary">
           <a href="/">Portfolio</a>
-          <a href={blogPath("rss.xml")}>RSS</a>
+          <a href={blogPath("rss.xml")} target="_blank" rel="noreferrer">RSS</a>
         </nav>
       </aside>
       <main class={`document-main ${mainClass}`}>

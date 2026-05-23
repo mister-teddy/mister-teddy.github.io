@@ -5,9 +5,12 @@ import { blogPath, LANGUAGE_UI_LABELS, SITE_DESCRIPTION } from "../lib/site";
 
 const posts = await getPublishedPosts();
 const translations = await getPublishedTranslations();
-const translationByPost = new Map(
-  translations.map((translation) => [translation.data.translationOf, translation]),
-);
+const translationsByPost = translations.reduce((grouped, translation) => {
+  const postTranslations = grouped.get(translation.data.translationOf) ?? [];
+  postTranslations.push(translation);
+  grouped.set(translation.data.translationOf, postTranslations);
+  return grouped;
+}, new Map<string, typeof translations>());
 ---
 
 <BaseLayout description={SITE_DESCRIPTION}>
@@ -23,11 +26,8 @@ const translationByPost = new Map(
         <p class="empty">No posts yet.</p>
       ) : (
         posts.map((post) => {
-          const translation = translationByPost.get(post.data.slug);
+          const postTranslations = translationsByPost.get(post.data.slug) ?? [];
           const originalLanguage = LANGUAGE_UI_LABELS[post.data.lang];
-          const translationLanguage = translation
-            ? LANGUAGE_UI_LABELS[translation.data.lang]
-            : undefined;
           return (
             <article class="post-card">
               <p class="post-meta">
@@ -41,11 +41,14 @@ const translationByPost = new Map(
                 <span>
                   {originalLanguage.name} ({originalLanguage.original})
                 </span>
-                {translationLanguage && (
+                {postTranslations.map((translation) => {
+                  const translationLanguage = LANGUAGE_UI_LABELS[translation.data.lang];
+                  return (
                   <span>
                     {translationLanguage.name} ({translationLanguage.translation})
                   </span>
-                )}
+                  );
+                })}
               </p>
               <h2>
                 <a href={blogPath(`${post.data.slug}/`)}>{post.data.title}</a>

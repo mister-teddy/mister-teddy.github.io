@@ -15,10 +15,10 @@ export const translationsDir = path.join(
   "content",
   "translations",
 );
-export const supportedLanguages = ["en", "vi"];
+export const supportedLanguages = ["en", "vi", "de"];
 
-export function targetLanguage(lang) {
-  return lang === "en" ? "vi" : "en";
+export function targetLanguages(lang) {
+  return supportedLanguages.filter((language) => language !== lang);
 }
 
 export async function readMdxFiles(dir) {
@@ -97,4 +97,3 @@ export async function writeEntry(entry, data) {
   const next = matter.stringify(`${entry.content}\n`, normalizedData);
   await writeFile(entry.filePath, next, "utf8");
 }
-

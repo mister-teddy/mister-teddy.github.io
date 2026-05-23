@@ -6,6 +6,7 @@ export const SITE_URL = "https://mister-teddy.github.io";
 export const LANGUAGE_NAMES = {
   en: "English",
   vi: "Vietnamese",
+  de: "German",
 } as const;
 
 export type LanguageCode = keyof typeof LANGUAGE_NAMES;
@@ -20,6 +21,11 @@ export const LANGUAGE_UI_LABELS = {
     name: "Tiếng Việt",
     original: "bản gốc",
     translation: "bản dịch",
+  },
+  de: {
+    name: "Deutsch",
+    original: "Original",
+    translation: "Übersetzung",
   },
 } as const satisfies Record<
   LanguageCode,

@@ -1,43 +1,90 @@
 ---
 import { render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ProseImage from "../components/ProseImage.astro";
 import {
   getPublishedPosts,
   getPublishedTranslations,
   type BlogPost,
   type Translation,
 } from "../lib/content";
-import { blogPath, LANGUAGE_NAMES, LANGUAGE_UI_LABELS } from "../lib/site";
+import { blogPath, LANGUAGE_NAMES, LANGUAGE_UI_LABELS, SITE_TITLE } from "../lib/site";
 
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
   const translations = await getPublishedTranslations();
+  const languageOrder = Object.keys(LANGUAGE_UI_LABELS);
   return posts.map((post) => ({
     params: { slug: post.data.slug },
     props: {
       post,
-      translation: translations.find(
-        (item) => item.data.translationOf === post.data.slug,
-      ),
+      translations: translations
+        .filter((item) => item.data.translationOf === post.data.slug)
+        .sort(
+          (a, b) =>
+            languageOrder.indexOf(a.data.lang) - languageOrder.indexOf(b.data.lang),
+        ),
     },
   }));
 }
 
 interface Props {
   post: BlogPost;
-  translation?: Translation;
+  translations: Translation[];
 }
 
-const { post, translation } = Astro.props;
+const { post, translations } = Astro.props;
 const { Content: OriginalContent, headings } = await render(post);
-const { Content: TranslationContent } = translation
-  ? await render(translation)
-  : { Content: undefined };
+const renderedTranslations = await Promise.all(
+  translations.map(async (translation) => {
+    const { Content, headings } = await render(translation);
+    return {
+      translation,
+      Content,
+      tocHeadings: headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3),
+    };
+  }),
+);
 const tocHeadings = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
 const originalLanguage = LANGUAGE_UI_LABELS[post.data.lang];
-const translationLanguage = translation
-  ? LANGUAGE_UI_LABELS[translation.data.lang]
-  : undefined;
+const languageOptions = [
+  {
+    code: post.data.lang,
+    name: originalLanguage.name,
+    role: originalLanguage.original,
+  },
+  ...translations.map((translation) => {
+    const translationLanguage = LANGUAGE_UI_LABELS[translation.data.lang];
+    return {
+      code: translation.data.lang,
+      name: translationLanguage.name,
+      role: translationLanguage.translation,
+    };
+  }),
+];
+const availabilityMessage =
+  translations.length === 0
+    ? "No translation is available yet."
+    : translations.length === 1
+      ? "A translation is available."
+      : "Translations are available.";
+const proseComponents = { img: ProseImage };
+const languageVariants = {
+  [post.data.lang]: {
+    title: post.data.title,
+    description: post.data.description,
+  },
+  ...Object.fromEntries(
+    translations.map((translation) => [
+      translation.data.lang,
+      {
+        title: translation.data.title,
+        description: translation.data.description,
+      },
+    ]),
+  ),
+};
+const availableLanguages = languageOptions.map((language) => language.code);
 ---
 
 <BaseLayout
@@ -45,9 +92,43 @@ const translationLanguage = translation
   description={post.data.description}
   canonicalPath={blogPath(`${post.data.slug}/`)}
   lang={post.data.lang}
+  initialLanguage={post.data.lang}
   mainClass="document-main-post"
 >
-  <article class="article article-with-sidebar" data-post-shell>
+  <script
+    slot="head"
+    is:inline
+    define:vars={{
+      languageVariants,
+      availableLanguages,
+      defaultLanguage: post.data.lang,
+      siteTitle: SITE_TITLE,
+    }}
+  >
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const requested = params.get("lang");
+      const selected =
+        requested && availableLanguages.includes(requested)
+          ? requested
+          : defaultLanguage;
+      const variant = languageVariants[selected];
+      if (!variant) return;
+
+      document.documentElement.lang = selected;
+      document.documentElement.dataset.initialLanguage = selected;
+      document.title =
+        variant.title === siteTitle ? siteTitle : `${variant.title} - ${siteTitle}`;
+      document
+        .querySelector('meta[name="description"]')
+        ?.setAttribute("content", variant.description);
+    })();
+  </script>
+  <article
+    class="article article-with-sidebar"
+    data-post-shell
+    data-default-language={post.data.lang}
+  >
     <div class="article-main-column">
       <div class="article-head">
         <a class="back-link" href={blogPath()}>&larr; All posts</a>
@@ -63,24 +144,46 @@ const translationLanguage = translation
               }
             </time>
           </p>
-          <h1>{post.data.title}</h1>
-          <p>{post.data.description}</p>
+          <h1>
+            <span data-language-panel={post.data.lang}>
+              {post.data.title}
+            </span>
+            {
+              renderedTranslations.map(({ translation }) => (
+                <span data-language-panel={translation.data.lang}>
+                  {translation.data.title}
+                </span>
+              ))
+            }
+          </h1>
+          <p>
+            <span data-language-panel={post.data.lang}>
+              {post.data.description}
+            </span>
+            {
+              renderedTranslations.map(({ translation }) => (
+                <span data-language-panel={translation.data.lang}>
+                  {translation.data.description}
+                </span>
+              ))
+            }
+          </p>
         </header>
       </div>
 
       {
         (
           <div class="article-content">
-            <section class="prose" data-language-panel="original">
-              <OriginalContent />
+            <section class="prose" data-language-panel={post.data.lang}>
+              <OriginalContent components={proseComponents} />
             </section>
 
             {
-              translation && TranslationContent && (
-                <section class="prose" data-language-panel="translation" hidden>
-                  <TranslationContent />
+              renderedTranslations.map(({ translation, Content }) => (
+                <section class="prose" data-language-panel={translation.data.lang}>
+                  <Content components={proseComponents} />
                 </section>
-              )
+              ))
             }
           </div>
         )
@@ -91,19 +194,25 @@ const translationLanguage = translation
       <section class="language-panel" aria-label="Language">
         <p>
           This post was written in {LANGUAGE_NAMES[post.data.lang]}.{" "}
-          {translation ? "A translation is available." : "No translation is available yet."}
+          {availabilityMessage}
         </p>
         {
-          translation && translationLanguage && (
-            <div class="language-switch" data-language-switch>
-              <button type="button" data-language-button="original" aria-pressed="true">
-                <span>{originalLanguage.name}</span>
-                <span>({originalLanguage.original})</span>
-              </button>
-              <button type="button" data-language-button="translation" aria-pressed="false">
-                <span>{translationLanguage.name}</span>
-                <span>({translationLanguage.translation})</span>
-              </button>
+          languageOptions.length > 1 && (
+            <div
+              class="language-switch"
+              data-language-switch
+              data-language-count={languageOptions.length}
+            >
+              {languageOptions.map((language) => (
+                <button
+                  type="button"
+                  data-language-button={language.code}
+                  aria-pressed={language.code === post.data.lang ? "true" : "false"}
+                >
+                  <span>{language.name}</span>
+                  <span>({language.role})</span>
+                </button>
+              ))}
             </div>
           )
         }
@@ -111,48 +220,132 @@ const translationLanguage = translation
 
       <nav class="toc" aria-label="Table of contents">
         <h2>ToC</h2>
+        <div data-language-panel={post.data.lang}>
+          {
+            tocHeadings.length > 0 ? (
+              <ol>
+                {tocHeadings.map((heading) => (
+                  <li class={`toc-depth-${heading.depth}`}>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <p>No sections</p>
+            )
+          }
+        </div>
         {
-          tocHeadings.length > 0 ? (
-            <ol>
-              {tocHeadings.map((heading) => (
-                <li class={`toc-depth-${heading.depth}`}>
-                  <a href={`#${heading.slug}`}>{heading.text}</a>
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <p>No sections</p>
-          )
+          renderedTranslations.map(({ translation, tocHeadings: translationTocHeadings }) => (
+            <div data-language-panel={translation.data.lang}>
+              {
+                translationTocHeadings.length > 0 ? (
+                  <ol>
+                    {translationTocHeadings.map((heading) => (
+                      <li class={`toc-depth-${heading.depth}`}>
+                        <a href={`#${heading.slug}`}>{heading.text}</a>
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p>No sections</p>
+                )
+              }
+            </div>
+          ))
         }
       </nav>
     </aside>
   </article>
 
-  <script>
+  <dialog class="image-lightbox" data-image-lightbox>
+    <button type="button" class="image-lightbox-close" data-image-lightbox-close aria-label="Close image">
+      &times;
+    </button>
+    <img class="image-lightbox-image" alt="" />
+  </dialog>
+
+  <script is:inline define:vars={{ languageVariants, availableLanguages, siteTitle: SITE_TITLE }}>
     document.querySelectorAll("[data-language-switch]").forEach((switcher) => {
       const post = switcher.closest("[data-post-shell]");
       if (!post) return;
 
+      const defaultLanguage = post.getAttribute("data-default-language");
       const buttons = switcher.querySelectorAll("[data-language-button]");
-      const panels = post.querySelectorAll("[data-language-panel]");
+      const currentLanguage =
+        document.documentElement.dataset.initialLanguage ?? defaultLanguage;
+
+      const applyLanguageMetadata = (selected) => {
+        const variant = languageVariants[selected];
+        if (!variant) return;
+
+        document.documentElement.lang = selected;
+        document.documentElement.dataset.initialLanguage = selected;
+        document.title =
+          variant.title === siteTitle ? siteTitle : `${variant.title} - ${siteTitle}`;
+        document
+          .querySelector('meta[name="description"]')
+          ?.setAttribute("content", variant.description);
+      };
+
+      const selectLanguage = (requestedLanguage, updateUrl = false) => {
+        const selected =
+          requestedLanguage && availableLanguages.includes(requestedLanguage)
+            ? requestedLanguage
+            : defaultLanguage;
+
+        if (!selected) return;
+
+        buttons.forEach((item) => {
+          item.setAttribute(
+            "aria-pressed",
+            String(item.getAttribute("data-language-button") === selected),
+          );
+        });
+        applyLanguageMetadata(selected);
+
+        if (updateUrl) {
+          const url = new URL(window.location.href);
+          url.searchParams.set("lang", selected);
+          window.history.replaceState(null, "", url);
+        }
+      };
+
+      buttons.forEach((item) => {
+        item.setAttribute(
+          "aria-pressed",
+          String(item.getAttribute("data-language-button") === currentLanguage),
+        );
+      });
 
       buttons.forEach((button) => {
         button.addEventListener("click", () => {
-          const selected = button.getAttribute("data-language-button");
-          buttons.forEach((item) => {
-            item.setAttribute(
-              "aria-pressed",
-              String(item.getAttribute("data-language-button") === selected),
-            );
-          });
-          panels.forEach((panel) => {
-            panel.toggleAttribute(
-              "hidden",
-              panel.getAttribute("data-language-panel") !== selected,
-            );
-          });
+          selectLanguage(button.getAttribute("data-language-button"), true);
         });
       });
+    });
+  </script>
+
+  <script>
+    const lightbox = document.querySelector("[data-image-lightbox]");
+    const lightboxImage = lightbox?.querySelector(".image-lightbox-image");
+    const lightboxClose = lightbox?.querySelector("[data-image-lightbox-close]");
+
+    document.querySelectorAll("[data-lightbox-src]").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const src = trigger.getAttribute("data-lightbox-src");
+        const alt = trigger.querySelector("img")?.getAttribute("alt") ?? "";
+        if (!lightbox || !lightboxImage || !src) return;
+
+        lightboxImage.src = src;
+        lightboxImage.alt = alt;
+        lightbox.showModal();
+      });
+    });
+
+    lightboxClose?.addEventListener("click", () => lightbox?.close());
+    lightbox?.addEventListener("click", (event) => {
+      if (event.target === lightbox) lightbox.close();
     });
   </script>
 </BaseLayout>
