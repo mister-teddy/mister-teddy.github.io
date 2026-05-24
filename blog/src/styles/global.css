@@ -427,6 +427,8 @@ a:hover {
 
 .post-card {
   position: relative;
+  --meta-font-size: clamp(0.9rem, 1.3vw, 1rem);
+  --meta-line-gap: calc(var(--meta-font-size) * 1.62);
   padding: 26px 28px;
   border: 0;
   border-top: 1px dashed rgba(25, 31, 29, 0.48);
@@ -443,6 +445,10 @@ a:hover {
   font-size: clamp(1.35rem, 3vw, 2rem);
   font-weight: 700;
   line-height: 1.16;
+}
+
+.post-card h2.post-card-title {
+  margin-top: var(--meta-line-gap);
 }
 
 .post-card h2 a {
@@ -467,6 +473,75 @@ a:hover {
   margin-right: 12px;
   color: rgba(25, 31, 29, 0.28);
   content: "/";
+}
+
+.post-card-meta {
+  margin: 0;
+  font-size: var(--meta-font-size);
+  line-height: 1.62;
+}
+
+.post-card .post-meta-date,
+.post-card .post-meta-languages {
+  margin: 0;
+}
+
+.post-card .post-meta-languages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 0.55em;
+}
+
+.post-meta-language {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-meta-language:hover,
+.post-meta-language:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.post-meta-separator {
+  color: rgba(25, 31, 29, 0.28);
+  user-select: none;
+}
+
+.post-card [data-language-panel] {
+  display: none;
+}
+
+.post-card[data-preview-language="vi"] [data-language-panel="vi"],
+.post-card[data-preview-language="en"] [data-language-panel="en"],
+.post-card[data-preview-language="de"] [data-language-panel="de"],
+.post-card:not([data-preview-language])[data-default-language="vi"]
+  [data-language-panel="vi"],
+.post-card:not([data-preview-language])[data-default-language="en"]
+  [data-language-panel="en"],
+.post-card:not([data-preview-language])[data-default-language="de"]
+  [data-language-panel="de"] {
+  display: block;
+}
+
+.post-card-title [data-language-panel] {
+  display: none;
+}
+
+.post-card[data-preview-language="vi"] .post-card-title [data-language-panel="vi"],
+.post-card[data-preview-language="en"] .post-card-title [data-language-panel="en"],
+.post-card[data-preview-language="de"] .post-card-title [data-language-panel="de"],
+.post-card:not([data-preview-language])[data-default-language="vi"]
+  .post-card-title
+  [data-language-panel="vi"],
+.post-card:not([data-preview-language])[data-default-language="en"]
+  .post-card-title
+  [data-language-panel="en"],
+.post-card:not([data-preview-language])[data-default-language="de"]
+  .post-card-title
+  [data-language-panel="de"] {
+  display: inline;
 }
 
 .tags {
