@@ -843,6 +843,7 @@ html[data-initial-language="de"] [data-post-shell] .article-header > p [data-lan
 
   .document-frame {
     grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
     width: 100%;
     height: 100vh;
     height: 100dvh;
@@ -851,13 +852,25 @@ html[data-initial-language="de"] [data-post-shell] .article-header > p [data-lan
     margin: 0;
   }
 
+  /* Compact 2x2 header bar: brand + identity on top, nav + ko-fi below.
+     Reset the desktop grid-row spans so nothing spills out of the strip. */
   .document-strip {
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
-    gap: 10px 16px;
-    padding: 20px;
+    align-items: center;
+    gap: 6px 16px;
+    padding: 16px 20px;
     border-right: 0;
     border-bottom: 1px solid rgba(38, 44, 41, 0.34);
+  }
+
+  .document-strip::before {
+    inset: 10px 12px;
+  }
+
+  .brand {
+    grid-column: 1;
+    grid-row: 1;
   }
 
   .strip-number,
@@ -866,23 +879,32 @@ html[data-initial-language="de"] [data-post-shell] .article-header > p [data-lan
   }
 
   .strip-number {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
     justify-self: end;
-    align-self: start;
     font-size: 1rem;
   }
 
-  .machine-code {
-    grid-column: 1 / -1;
-    font-size: 0.82rem;
+  .nav {
+    grid-column: 1;
+    grid-row: 2;
+    flex-direction: row;
+    align-self: center;
   }
 
-  .nav {
-    grid-column: 1 / -1;
-    flex-direction: row;
+  .machine-code {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    justify-self: end;
+    font-size: 0.82rem;
   }
 
   .document-main {
     --document-main-block-padding: 34px;
+    height: auto;
+    min-height: 0;
     padding: 34px 24px 52px;
   }
 
