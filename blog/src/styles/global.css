@@ -8,6 +8,13 @@
   --stamp: #7b5146;
   --line: rgba(43, 65, 57, 0.26);
   --accent: #287d76;
+  /* Layout widths — single source of truth for the content composition. */
+  --measure: 47.5rem; /* comfortable reading column (~760px) */
+  --sidebar-width: clamp(18.75rem, 21vw, 27rem); /* post tools / ToC rail — widens into the gutter on large screens */
+  --layout-gap: clamp(1.5rem, 3vw, 3.5rem); /* space between reading column and rail */
+  --content-max: calc(
+    var(--measure) + var(--layout-gap) + var(--sidebar-width)
+  ); /* cap for the whole centred composition */
   font-family:
     "Courier Prime", "IBM Plex Mono", "Noto Sans Mono", "Courier New",
     "Nimbus Mono PS", "Liberation Mono", ui-monospace, SFMono-Regular, Menlo,
@@ -242,7 +249,7 @@ a:hover {
 
 .document-main::before {
   top: 28px;
-  right: 42px;
+  right: max(2.625rem, calc(50% - var(--content-max) / 2));
   width: min(40vw, 360px);
   height: min(40vw, 360px);
   border-radius: 50%;
@@ -255,7 +262,7 @@ a:hover {
 
 .document-main::after {
   top: clamp(120px, 30vh, 290px);
-  right: clamp(26px, 8vw, 120px);
+  right: max(clamp(1.625rem, 8vw, 7.5rem), calc(50% - var(--content-max) / 2));
   z-index: 0;
   max-width: min(44vw, 560px);
   color: rgba(77, 51, 45, 0.32);
@@ -274,19 +281,28 @@ a:hover {
   overflow: hidden;
 }
 
+/* Caps and centres the content inside the full-bleed main, so it never
+   stretches across wide screens. Collapses to full width below --content-max. */
+.document-content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
 .intro,
 .article {
   position: relative;
   z-index: 1;
-  max-width: 760px;
+  max-width: var(--measure);
 }
 
 .article-with-sidebar {
   position: relative;
   display: grid;
   grid-template-areas: "middle sidebar";
-  grid-template-columns: minmax(0, 1fr) clamp(300px, 20vw, 340px);
-  gap: clamp(24px, 3vw, 56px);
+  grid-template-columns: minmax(0, 1fr) var(--sidebar-width);
+  gap: var(--layout-gap);
   align-items: stretch;
   height: calc(100vh - (var(--document-main-block-padding) * 2));
   height: calc(100dvh - (var(--document-main-block-padding) * 2));
@@ -300,7 +316,7 @@ a:hover {
   grid-area: middle;
   min-height: 0;
   min-width: 0;
-  max-width: 760px;
+  max-width: var(--measure);
   overflow-y: auto;
   padding-right: 8px;
 }
@@ -313,7 +329,7 @@ a:hover {
   position: relative;
   z-index: 1;
   min-width: 0;
-  max-width: 760px;
+  max-width: var(--measure);
 }
 
 .article-sidebar {
@@ -425,7 +441,7 @@ a:hover {
 .post-list {
   display: grid;
   gap: 18px;
-  max-width: 780px;
+  max-width: var(--measure);
 }
 
 .post-card {
@@ -595,20 +611,24 @@ a:hover {
   overflow: hidden;
 }
 
-@container (min-width: 176px) {
+/* Columns form only once each is wide enough for the longest label
+   ("(translation)" / "(Übersetzung)") to stay on its own line. Below the
+   threshold the buttons stack full-width, so a word never breaks mid-character.
+   The rail (--sidebar-width) grows on large screens to reach the 3-col size. */
+@container (min-width: 240px) {
   .language-switch[data-language-count="2"],
   .language-switch[data-language-count="4"] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@container (min-width: 252px) {
+@container (min-width: 360px) {
   .language-switch[data-language-count="3"] {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-@container (min-width: 336px) {
+@container (min-width: 496px) {
   .language-switch[data-language-count="4"] {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -628,7 +648,6 @@ a:hover {
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.2;
-  overflow-wrap: anywhere;
   cursor: pointer;
 }
 
@@ -649,6 +668,7 @@ a:hover {
   margin-top: 2em;
   line-height: 1.18;
   letter-spacing: 0;
+  scroll-margin-top: 1.5rem; /* breathing room when jumped to via an anchor */
 }
 
 .prose :where(p, ul, ol, blockquote, pre) {

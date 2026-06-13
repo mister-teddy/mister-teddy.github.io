@@ -65,7 +65,9 @@ const canonical = canonicalPath.startsWith("http")
         </nav>
       </aside>
       <main class={`document-main ${mainClass}`}>
-        <slot />
+        <div class="document-content">
+          <slot />
+        </div>
       </main>
     </div>
   </body>

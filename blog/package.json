@@ -21,6 +21,7 @@
     "gray-matter": "^4.0.3"
   },
   "devDependencies": {
+    "remark-custom-heading-id": "^2.0.0",
     "typescript": "^6.0.3"
   }
 }
