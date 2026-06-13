@@ -25,14 +25,17 @@
       const hoverless = window.matchMedia("(hover: none)");
 
       languageLinks.forEach((link) => {
+        // Hover/focus preview only on devices that actually hover. On touch,
+        // focus fires on tap *before* click — if it pre-set the preview, the
+        // click would see "already current" and fall through to navigation.
         link.addEventListener("mouseenter", () => {
-          previewLanguage(link.dataset.languageLink);
+          if (!hoverless.matches) previewLanguage(link.dataset.languageLink);
         });
         link.addEventListener("focus", () => {
-          previewLanguage(link.dataset.languageLink);
+          if (!hoverless.matches) previewLanguage(link.dataset.languageLink);
         });
-        // Touch devices have no hover: the first tap on a language only
-        // previews it; tapping the already-previewed language opens the post.
+        // Touch: first tap previews the language; tapping the already-previewed
+        // language opens the post.
         link.addEventListener("click", (event) => {
           if (!hoverless.matches) return;
           const target = link.dataset.languageLink;
