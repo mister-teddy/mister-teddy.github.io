@@ -23,9 +23,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build -b master",
     "start": "react-scripts start",
-    "check": "pnpm --dir blog run check",
-    "build": "pnpm run check && pnpm run build:portfolio",
-    "build:portfolio": "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js,jsx,css}\""
